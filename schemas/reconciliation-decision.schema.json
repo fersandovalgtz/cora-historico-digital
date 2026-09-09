@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fersandovalgtz/cora-historico-digital/schemas/reconciliation-decision.schema.json",
+  "title": "CHD Reconciliation Decision",
+  "description": "Human decision record for phase-2 reconciliation of machine-extracted candidate boundaries. A decision records evidence; it does not overwrite source OCR.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_id",
+    "source_witness_id",
+    "candidate_ids",
+    "action",
+    "source_pdf_pages",
+    "reviewer",
+    "reviewed_at",
+    "rationale",
+    "human_verified"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "pattern": "^ORT1888-rec-[0-9]{6}$"
+    },
+    "source_witness_id": {
+      "const": "ORTEGA1888-TEPIC-IA"
+    },
+    "candidate_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^ORT1888-cand-[0-9]{6}$"
+      }
+    },
+    "action": {
+      "enum": [
+        "accept_boundary",
+        "merge_candidates",
+        "split_candidate",
+        "reject_false_boundary",
+        "defer_uncertain"
+      ]
+    },
+    "source_pdf_pages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "source_printed_pages": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "proposed_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_ocr_line_start", "source_ocr_line_end"],
+        "properties": {
+          "source_ocr_line_start": {"type": "integer", "minimum": 1},
+          "source_ocr_line_end": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_note": {
+      "type": "string"
+    },
+    "human_verified": {
+      "const": true
+    }
+  }
+}
