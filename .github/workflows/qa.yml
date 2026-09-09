@@ -19,6 +19,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python scripts/validate_candidates.py
       - run: python scripts/build_reconciliation_queue.py --output /tmp/review_queue.csv
+      - run: python scripts/validate_reconciliation_decisions.py
       - name: Verify reconciliation queue completeness
         run: |
           python - <<'PY'
