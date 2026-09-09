@@ -1,0 +1,9 @@
+{
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "internet_archive_identifier": "vocabulariodelas00orte",
+  "expected_sha256": {
+    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
+    "djvu_text": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16"
+  },
+  "policy": "If either checksum changes, stop ingestion. Review and document the upstream witness change before updating this lock."
+}
