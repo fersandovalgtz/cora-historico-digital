@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from pathlib import Path
-from bs4 import BeautifulSoup
 from pypdf import PdfReader
 from urllib.request import Request, urlopen
 import csv, json, hashlib, re, unicodedata
@@ -10,10 +9,10 @@ from page_alignment import anchor_inferred_same_page
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = ROOT / 'data/source/original'
-HTML = ORIGINAL / 'ortega_cora_1888_ia.html'
+TEXT = ORIGINAL / 'ortega_cora_1888_ia_djvu.txt'
 PDF = ORIGINAL / 'ortega_cora_1888_ia.pdf'
 PDF_URL = 'https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf'
-TEXT_URL = 'https://archive.org/stream/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt'
+TEXT_URL = 'https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt'
 
 
 def download(url: str, path: Path) -> None:
@@ -31,9 +30,9 @@ def ensure_sources() -> None:
     if not PDF.exists():
         print(f'Downloading {PDF_URL}')
         download(PDF_URL, PDF)
-    if not HTML.exists():
+    if not TEXT.exists():
         print(f'Downloading {TEXT_URL}')
-        download(TEXT_URL, HTML)
+        download(TEXT_URL, TEXT)
 
 
 def collapsed(s):
@@ -54,10 +53,7 @@ def sha256(path):
 
 
 ensure_sources()
-raw_html = HTML.read_text(encoding='utf-8', errors='replace')
-soup = BeautifulSoup(raw_html, 'html.parser')
-pre = soup.find('pre')
-full = pre.get_text('\n') if pre else raw_html
+full = TEXT.read_text(encoding='utf-8', errors='replace')
 lines = full.splitlines()
 
 (ROOT / 'data/source/ocr').mkdir(parents=True, exist_ok=True)
@@ -188,7 +184,7 @@ counts = {
     'page_alignment_inferred': sum(r['page_alignment_status'] == 'inferred_sequence' for r in rows),
     'human_verified': 0,
 }
-source_hashes = {'pdf': sha256(PDF), 'html_or_text_wrapper': sha256(HTML)}
+source_hashes = {'pdf': sha256(PDF), 'djvu_text': sha256(TEXT)}
 report = {
     'project': 'Cora Histórico Digital',
     'version': '0.1.0-dev',
