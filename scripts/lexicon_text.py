@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 
-HEADWORD_TRAILING_MARKS = " .,:;^-"
+HEADWORD_TRAILING_MARKS = " .,:;^-—–"
 
 
 def clean_headword_boundary(text: str) -> str:
