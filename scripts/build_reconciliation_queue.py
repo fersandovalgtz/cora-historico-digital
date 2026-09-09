@@ -17,7 +17,7 @@ from pathlib import Path
 DEFAULT_INPUT = Path("data/lexicon/candidates.csv")
 DEFAULT_OUTPUT = Path("data/reconciliation/review_queue.csv")
 
-OCR_ARTIFACT_RE = re.compile(r"[{}<>^\\\\]|\[>|>\]|\\{>|\\b(?:[Il1]{3,})\\b")
+OCR_ARTIFACT_RE = re.compile(r"[{}<>^\\]|(?:\b[Il1]{3,}\b)")
 
 
 def as_bool(value: object) -> bool:
