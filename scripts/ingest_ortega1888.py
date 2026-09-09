@@ -2,13 +2,15 @@
 from pathlib import Path
 from pypdf import PdfReader
 from urllib.request import Request, urlopen
-import csv, json, hashlib, re, unicodedata
+import csv, json, re, unicodedata
 
 from lexicon_text import clean_headword_boundary
 from page_alignment import anchor_inferred_same_page
+from source_integrity import verify_locked_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = ROOT / 'data/source/original'
+SOURCE_LOCK = ROOT / 'data/source/source_lock.json'
 TEXT = ORIGINAL / 'ortega_cora_1888_ia_djvu.txt'
 PDF = ORIGINAL / 'ortega_cora_1888_ia.pdf'
 PDF_URL = 'https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf'
@@ -44,15 +46,15 @@ def norm_key(s):
     return re.sub(r'[^a-z0-9]', '', s)
 
 
-def sha256(path):
-    h = hashlib.sha256()
-    with path.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()
-
-
 ensure_sources()
+try:
+    source_hashes = verify_locked_sources(
+        {'pdf': PDF, 'djvu_text': TEXT},
+        SOURCE_LOCK,
+    )
+except ValueError as exc:
+    raise SystemExit(f'Source integrity check failed: {exc}') from exc
+
 full = TEXT.read_text(encoding='utf-8', errors='replace')
 lines = full.splitlines()
 
@@ -184,13 +186,13 @@ counts = {
     'page_alignment_inferred': sum(r['page_alignment_status'] == 'inferred_sequence' for r in rows),
     'human_verified': 0,
 }
-source_hashes = {'pdf': sha256(PDF), 'djvu_text': sha256(TEXT)}
 report = {
     'project': 'Cora Histórico Digital',
     'version': '0.1.0-dev',
     'source_witness_id': 'ORTEGA1888-TEPIC-IA',
     'source_urls': {'pdf': PDF_URL, 'text': TEXT_URL},
     'source_hashes': source_hashes,
+    'source_lock': 'data/source/source_lock.json',
     'counts': counts,
     'epistemic_status': 'machine-only candidate inventory; no independent human validation claimed',
 }
@@ -202,7 +204,8 @@ source_manifest = {
     'internet_archive_identifier': 'vocabulariodelas00orte',
     'urls': {'pdf': PDF_URL, 'text': TEXT_URL},
     'downloaded_sha256': source_hashes,
-    'note': 'Source binaries are downloaded reproducibly and are not committed to Git.',
+    'checksum_lock': 'data/source/source_lock.json',
+    'note': 'Source binaries are downloaded reproducibly, verified against the checksum lock, and are not committed to Git.',
 }
 (ROOT / 'data/source/source_manifest.json').write_text(json.dumps(source_manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(counts, ensure_ascii=False, indent=2))
