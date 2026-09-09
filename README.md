@@ -59,9 +59,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 make ingest
 make validate
+make reconciliation-queue
 ```
 
-La acción `bootstrap-corpus` ejecuta el mismo proceso en GitHub Actions.
+La acción `bootstrap-corpus` ejecuta el proceso de ingestión en GitHub Actions. La acción `qa` valida los candidatos y comprueba que la cola de reconciliación pueda regenerarse de forma completa.
 
 ## Datos
 
@@ -69,9 +70,16 @@ La acción `bootstrap-corpus` ejecuta el mismo proceso en GitHub Actions.
 - `data/source/source_manifest.json`: procedencia y hashes del testimonio descargado;
 - `data/grammar/`: preliminares y advertencias lingüísticas del testimonio;
 - `data/lexicon/candidates.csv` y `.jsonl`: inventario provisional;
+- `data/reconciliation/`: cola derivada y futuras decisiones humanas de reconciliación;
 - `data/appendices/`: numerales y materiales finales;
 - `schemas/`: contratos de datos iniciales;
 - `reports/`: métricas de ingestión reproducibles.
+
+## Reconciliación de fronteras
+
+La fase 2 ya cuenta con una cola reproducible de revisión humana. `scripts/build_reconciliation_queue.py` prioriza candidatos usando únicamente señales explícitas de extracción y alineación más advertencias superficiales de OCR. El puntaje **no constituye una decisión filológica o lingüística** y todos los elementos de la cola conservan `human_verified=false`.
+
+Las decisiones humanas se registran en una capa distinta conforme a `schemas/reconciliation-decision.schema.json`. El procedimiento completo se documenta en `docs/RECONCILIATION_PROTOCOL.md`.
 
 ## Variedad histórica
 
@@ -79,7 +87,7 @@ Ortega distingue tres “ramos” del idioma y declara haber dispuesto el vocabu
 
 ## Ruta científica
 
-La prioridad siguiente es reconciliar los 2,140 candidatos contra las páginas del testimonio, detectar omisiones y fusiones, fijar artículos canónicos con identificadores persistentes `ORT1888-art-######` y solo después producir TEI Lex-0, CLDF u otras proyecciones interoperables.
+La prioridad actual es reconciliar los 2,140 candidatos contra las páginas del testimonio, detectar omisiones y fusiones y registrar cada decisión con trazabilidad. Solo después se fijarán artículos canónicos con identificadores persistentes `ORT1888-art-######` y se producirán TEI Lex-0, CLDF u otras proyecciones interoperables.
 
 ## Licencias
 
