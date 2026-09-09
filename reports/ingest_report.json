@@ -4,11 +4,11 @@
   "source_witness_id": "ORTEGA1888-TEPIC-IA",
   "source_urls": {
     "pdf": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf",
-    "text": "https://archive.org/stream/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
+    "text": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
   },
   "source_hashes": {
     "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
-    "html_or_text_wrapper": "d318b06f499dbc537f36bf1803e1a0cc3a853e348043dee7c60ea29517bfaf19"
+    "djvu_text": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16"
   },
   "counts": {
     "machine_candidates": 2140,
