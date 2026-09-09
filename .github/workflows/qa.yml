@@ -18,3 +18,19 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python scripts/validate_candidates.py
+      - run: python scripts/build_reconciliation_queue.py --output /tmp/review_queue.csv
+      - name: Verify reconciliation queue completeness
+        run: |
+          python - <<'PY'
+          import csv
+
+          def count(path, encoding):
+              with open(path, encoding=encoding, newline='') as handle:
+                  return sum(1 for _ in csv.DictReader(handle))
+
+          candidates = count('data/lexicon/candidates.csv', 'utf-8-sig')
+          queue = count('/tmp/review_queue.csv', 'utf-8')
+          assert candidates == queue, (candidates, queue)
+          assert queue > 0
+          print(f'reconciliation queue covers {queue} candidates')
+          PY
