@@ -8,8 +8,9 @@
     "text": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
   },
   "downloaded_sha256": {
-    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
-    "djvu_text": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16"
+    "djvu_text": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16",
+    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512"
   },
-  "note": "Source binaries are downloaded reproducibly and are not committed to Git."
+  "checksum_lock": "data/source/source_lock.json",
+  "note": "Source binaries are downloaded reproducibly, verified against the checksum lock, and are not committed to Git."
 }
