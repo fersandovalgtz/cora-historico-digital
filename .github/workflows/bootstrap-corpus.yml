@@ -1,0 +1,42 @@
+name: bootstrap-corpus
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'requirements.txt'
+      - 'Makefile'
+      - '.github/workflows/bootstrap-corpus.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Rebuild corpus from Internet Archive witness
+        run: python scripts/ingest_ortega1888.py
+      - name: Validate candidates
+        run: python scripts/validate_candidates.py
+      - name: Remove downloaded source binaries before commit
+        run: rm -rf data/source/original
+      - name: Commit reproducible derived data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data reports
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+          else
+            git commit -m 'Build initial Ortega 1888 corpus'
+            git push
+          fi
