@@ -5,6 +5,7 @@ from pypdf import PdfReader
 from urllib.request import Request, urlopen
 import csv, json, hashlib, re, unicodedata
 
+from lexicon_text import clean_headword_boundary
 from page_alignment import anchor_inferred_same_page
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,14 +98,14 @@ def split_entry(line):
         return None
     if '—' in raw:
         a, b = raw.split('—', 1)
-        a = a.rstrip(' .,:;^-r')
+        a = clean_headword_boundary(a)
         b = b.strip()
         if a and b and any(c.isalpha() for c in a):
             return a, b, 'em_dash'
     for pattern in patterns:
         match = pattern.match(raw)
         if match:
-            a = match.group('a').rstrip(' .,:;^-r')
+            a = clean_headword_boundary(match.group('a'))
             b = match.group('b').strip()
             if any(c.isalpha() for c in a) and any(c.isalpha() for c in b) and len(a.split()) <= 18:
                 return a, b, 'hyphen_variant'
