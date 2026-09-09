@@ -1,0 +1,15 @@
+{
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "work_first_printed": 1732,
+  "witness_reprint": 1888,
+  "internet_archive_identifier": "vocabulariodelas00orte",
+  "urls": {
+    "pdf": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf",
+    "text": "https://archive.org/stream/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
+  },
+  "downloaded_sha256": {
+    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
+    "html_or_text_wrapper": "c4db3f273c93c8f428884f734199c7ba11f5f688e0bad89ff1b097f6cab7bd7c"
+  },
+  "note": "Source binaries are downloaded reproducibly and are not committed to Git."
+}

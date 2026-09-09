@@ -1,0 +1,22 @@
+{
+  "project": "Cora Histórico Digital",
+  "version": "0.1.0-dev",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "source_urls": {
+    "pdf": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf",
+    "text": "https://archive.org/stream/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
+  },
+  "source_hashes": {
+    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
+    "html_or_text_wrapper": "c4db3f273c93c8f428884f734199c7ba11f5f688e0bad89ff1b097f6cab7bd7c"
+  },
+  "counts": {
+    "machine_candidates": 2140,
+    "em_dash_candidates": 1951,
+    "hyphen_variant_candidates": 189,
+    "page_alignment_matched": 2105,
+    "page_alignment_inferred": 35,
+    "human_verified": 0
+  },
+  "epistemic_status": "machine-only candidate inventory; no independent human validation claimed"
+}
