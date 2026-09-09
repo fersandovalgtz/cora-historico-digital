@@ -5,7 +5,7 @@ from urllib.request import Request, urlopen
 import csv, json, re, unicodedata
 
 from lexicon_text import clean_headword_boundary
-from page_alignment import anchor_inferred_same_page
+from page_alignment import anchor_inferred_same_page, short_headword_exact_line_match
 from source_integrity import verify_locked_sources
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -117,7 +117,8 @@ for i in range(start, num):
         starts.append((i, *split))
 
 reader = PdfReader(str(PDF))
-page_norm = {p: norm_key(reader.pages[p - 1].extract_text() or '') for p in range(19, 95)}
+page_text = {p: reader.pages[p - 1].extract_text() or '' for p in range(19, 95)}
+page_norm = {p: norm_key(text) for p, text in page_text.items()}
 current_page = 19
 rows = []
 for n, (line_index, head, rhs, separator) in enumerate(starts, 1):
@@ -125,11 +126,13 @@ for n, (line_index, head, rhs, separator) in enumerate(starts, 1):
     span = ' | '.join(collapsed(lines[j]) for j in range(line_index, min(next_i, line_index + 6)) if collapsed(lines[j]))
     key = norm_key(head)
     hit = None
-    if len(key) >= 4:
-        for page in range(max(19, current_page - 1), min(94, current_page + 4) + 1):
-            if key in page_norm[page]:
-                hit = page
-                break
+    for page in range(max(19, current_page - 1), min(94, current_page + 4) + 1):
+        if len(key) >= 4 and key in page_norm[page]:
+            hit = page
+            break
+        if separator == 'em_dash' and 2 <= len(key) <= 3 and short_headword_exact_line_match(page_text[page], head):
+            hit = page
+            break
     if hit:
         current_page = max(current_page, hit)
         pdf_page = hit

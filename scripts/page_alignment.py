@@ -1,7 +1,26 @@
 #!/usr/bin/env python3
-"""Conservative post-processing helpers for machine page alignment."""
+"""Conservative helpers for machine page alignment."""
 
 from __future__ import annotations
+
+import re
+
+
+def short_headword_exact_line_match(page_text: str, headword: str) -> bool:
+    """Match a 2–3 letter headword only as an explicit em-dash entry line.
+
+    This narrow rule exists because substring matching is unsafe for very short
+    strings. Single-letter strings and strings containing OCR symbols are never
+    accepted here. The caller must also require an ``em_dash`` extraction.
+    """
+    headword = headword.strip()
+    if not 2 <= len(headword) <= 3 or not headword.isalpha():
+        return False
+    pattern = re.compile(
+        rf"^\s*{re.escape(headword)}\s*[.,;:]?\s*—",
+        flags=re.IGNORECASE,
+    )
+    return any(pattern.search(line) for line in page_text.splitlines())
 
 
 def anchor_inferred_same_page(rows: list[dict]) -> int:
