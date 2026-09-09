@@ -36,9 +36,13 @@ def score_candidate(row: dict[str, str]) -> tuple[int, list[str]]:
     score = 0
     reasons: list[str] = []
 
-    if row.get("page_alignment_status") == "inferred_sequence":
+    alignment = row.get("page_alignment_status")
+    if alignment == "inferred_sequence":
         score += 100
         reasons.append("page_alignment_inferred")
+    elif alignment == "anchored_same_page":
+        score += 20
+        reasons.append("page_alignment_anchored_same_page")
 
     confidence = row.get("extraction_confidence", "")
     if confidence == "low":

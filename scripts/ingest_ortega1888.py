@@ -5,6 +5,8 @@ from pypdf import PdfReader
 from urllib.request import Request, urlopen
 import csv, json, hashlib, re, unicodedata
 
+from page_alignment import anchor_inferred_same_page
+
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = ROOT / 'data/source/original'
 HTML = ORIGINAL / 'ortega_cora_1888_ia.html'
@@ -157,6 +159,11 @@ for n, (line_index, head, rhs, separator) in enumerate(starts, 1):
         'human_verified': 'false',
     })
 
+# Conservative second pass: an inferred candidate can be reclassified only when
+# the nearest previous and next direct headword matches agree on the same page
+# already assigned to it. No source page or OCR value is changed.
+anchor_inferred_same_page(rows)
+
 fields = list(rows[0])
 with (ROOT / 'data/lexicon/candidates.csv').open('w', encoding='utf-8', newline='') as f:
     writer = csv.DictWriter(f, fieldnames=fields)
@@ -176,6 +183,7 @@ counts = {
     'em_dash_candidates': sum(r['separator_type'] == 'em_dash' for r in rows),
     'hyphen_variant_candidates': sum(r['separator_type'] == 'hyphen_variant' for r in rows),
     'page_alignment_matched': sum(r['page_alignment_status'] == 'matched_headword' for r in rows),
+    'page_alignment_anchored_same_page': sum(r['page_alignment_status'] == 'anchored_same_page' for r in rows),
     'page_alignment_inferred': sum(r['page_alignment_status'] == 'inferred_sequence' for r in rows),
     'human_verified': 0,
 }
