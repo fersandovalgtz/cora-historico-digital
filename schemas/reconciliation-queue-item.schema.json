@@ -30,7 +30,7 @@
     "source_printed_page": {"type": ["integer", "string"]},
     "priority_score": {"type": ["integer", "string"]},
     "priority_reasons": {"type": "string", "minLength": 1},
-    "page_alignment_status": {"enum": ["matched_headword", "inferred_sequence"]},
+    "page_alignment_status": {"enum": ["matched_headword", "anchored_same_page", "inferred_sequence"]},
     "extraction_confidence": {"enum": ["high", "medium", "low"]},
     "multiple_separator_flag": {"enum": ["true", "false", true, false]},
     "headword_es_ocr": {"type": "string", "minLength": 1},
