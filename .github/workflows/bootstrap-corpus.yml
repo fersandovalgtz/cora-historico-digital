@@ -27,6 +27,20 @@ jobs:
         run: python scripts/ingest_ortega1888.py
       - name: Validate candidates
         run: python scripts/validate_candidates.py
+      - name: Build unresolved alignment review packet
+        run: |
+          python scripts/build_inferred_review_batch.py \
+            --json-output artifacts/phase2_facsimile_review/inferred_review_batch.json \
+            --markdown-output artifacts/phase2_facsimile_review/inferred_review_batch.md
+      - name: Render locked facsimile evidence
+        run: python scripts/render_inferred_facsimile.py --output-dir artifacts/phase2_facsimile_review
+      - name: Upload phase-2 facsimile review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase2-facsimile-review
+          path: artifacts/phase2_facsimile_review
+          if-no-files-found: error
+          retention-days: 30
       - name: Remove downloaded source binaries before commit
         run: rm -rf data/source/original
       - name: Commit reproducible derived data
