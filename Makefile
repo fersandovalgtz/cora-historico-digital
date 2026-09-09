@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate reconciliation-queue reconciliation-summary inferred-review-batch validate-reconciliation stats
+.PHONY: ingest validate reconciliation-queue reconciliation-summary inferred-review-batch render-inferred-facsimile validate-reconciliation stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -16,6 +16,9 @@ reconciliation-summary:
 
 inferred-review-batch:
 	$(PYTHON) scripts/build_inferred_review_batch.py
+
+render-inferred-facsimile:
+	$(PYTHON) scripts/render_inferred_facsimile.py
 
 validate-reconciliation:
 	$(PYTHON) scripts/validate_reconciliation_decisions.py
