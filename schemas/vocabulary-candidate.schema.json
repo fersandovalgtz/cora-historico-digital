@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fersandovalgtz/cora-historico-digital/schemas/vocabulary-candidate.schema.json",
+  "title": "CHD Vocabulary Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_id", "order", "source_witness_id", "source_pdf_page", "source_printed_page", "page_alignment_status", "source_ocr_line_start", "source_ocr_line_end", "headword_es_ocr", "cora_ocr", "raw_span_ocr", "separator_type", "multiple_separator_flag", "extraction_confidence", "review_status", "human_verified"],
+  "properties": {
+    "candidate_id": {"type": "string", "pattern": "^ORT1888-cand-[0-9]{6}$"},
+    "order": {"type": ["integer", "string"]},
+    "source_witness_id": {"const": "ORTEGA1888-TEPIC-IA"},
+    "source_pdf_page": {"type": ["integer", "string"]},
+    "source_printed_page": {"type": ["integer", "string"]},
+    "page_alignment_status": {"enum": ["matched_headword", "inferred_sequence"]},
+    "source_ocr_line_start": {"type": ["integer", "string"]},
+    "source_ocr_line_end": {"type": ["integer", "string"]},
+    "headword_es_ocr": {"type": "string", "minLength": 1},
+    "cora_ocr": {"type": "string", "minLength": 1},
+    "raw_span_ocr": {"type": "string", "minLength": 1},
+    "separator_type": {"enum": ["em_dash", "hyphen_variant"]},
+    "multiple_separator_flag": {"enum": ["true", "false", true, false]},
+    "extraction_confidence": {"enum": ["high", "medium", "low"]},
+    "review_status": {"const": "unreviewed_machine_candidate"},
+    "human_verified": {"enum": ["false", false]}
+  }
+}

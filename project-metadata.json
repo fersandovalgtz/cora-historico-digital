@@ -1,0 +1,13 @@
+{
+  "project_id": "CHD",
+  "title": "Cora Histórico Digital",
+  "version": "0.1.0-dev",
+  "repository": "https://github.com/fersandovalgtz/cora-historico-digital",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "historical_work_year": 1732,
+  "source_witness_year": 1888,
+  "internet_archive_identifier": "vocabulariodelas00orte",
+  "candidate_id_pattern": "ORT1888-cand-######",
+  "future_article_id_pattern": "ORT1888-art-######",
+  "scientific_status": "machine-only candidate inventory; independent human validation not claimed"
+}

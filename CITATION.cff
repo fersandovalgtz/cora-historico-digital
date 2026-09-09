@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this repository, cite the version or commit consulted and the historical source witness."
+title: "Cora Histórico Digital"
+type: dataset
+authors:
+  - family-names: "Sandoval Gutiérrez"
+    given-names: "Fernando"
+    orcid: "https://orcid.org/0000-0002-3168-6725"
+version: "0.1.0-dev"
+date-released: "2026-09-09"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/fersandovalgtz/cora-historico-digital"
+keywords:
+  - Cora
+  - historical lexicography
+  - digital humanities
+  - missionary linguistics
+  - reproducible research
