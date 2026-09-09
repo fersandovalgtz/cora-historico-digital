@@ -11,7 +11,7 @@
     "source_witness_id": {"const": "ORTEGA1888-TEPIC-IA"},
     "source_pdf_page": {"type": ["integer", "string"]},
     "source_printed_page": {"type": ["integer", "string"]},
-    "page_alignment_status": {"enum": ["matched_headword", "inferred_sequence"]},
+    "page_alignment_status": {"enum": ["matched_headword", "anchored_same_page", "inferred_sequence"]},
     "source_ocr_line_start": {"type": ["integer", "string"]},
     "source_ocr_line_end": {"type": ["integer", "string"]},
     "headword_es_ocr": {"type": "string", "minLength": 1},
