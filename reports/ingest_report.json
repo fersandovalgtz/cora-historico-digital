@@ -8,14 +8,15 @@
   },
   "source_hashes": {
     "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
-    "html_or_text_wrapper": "ee423df5c3a84625c455a3503bdff655060b831f69a30b1776009659abec08cc"
+    "html_or_text_wrapper": "f1086a7ebc9ab54736ac8da865940f7800f12aaa17d70395758e4c03a424ded6"
   },
   "counts": {
     "machine_candidates": 2140,
     "em_dash_candidates": 1951,
     "hyphen_variant_candidates": 189,
     "page_alignment_matched": 2105,
-    "page_alignment_inferred": 35,
+    "page_alignment_anchored_same_page": 30,
+    "page_alignment_inferred": 5,
     "human_verified": 0
   },
   "epistemic_status": "machine-only candidate inventory; no independent human validation claimed"

@@ -111,7 +111,7 @@ ORT1888-cand-000109,109,ORTEGA1888-TEPIC-IA,23,19,matched_headword,776,777,Acuch
 ORT1888-cand-000110,110,ORTEGA1888-TEPIC-IA,23,19,matched_headword,778,779,Acullá. /,M«>me. Euk.,Acullá. /— M«>me. Euk.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000111,111,ORTEGA1888-TEPIC-IA,23,19,matched_headword,780,781,Acusar á alguno,xT¡axahtzi-ri,Acusar á alguno. — xT¡axahtzi-ri,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000112,112,ORTEGA1888-TEPIC-IA,23,19,matched_headword,782,783,Azúca,An caca.,"Azúcar. , — An caca. | — Namuáti.",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000113,113,ORTEGA1888-TEPIC-IA,23,19,inferred_sequence,784,785,«e,Teaunamua. Netemamua.,«e. — Teaunamua. Netemamua.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000113,113,ORTEGA1888-TEPIC-IA,23,19,anchored_same_page,784,785,«e,Teaunamua. Netemamua.,«e. — Teaunamua. Netemamua.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000114,114,ORTEGA1888-TEPIC-IA,23,19,matched_headword,786,787,Adelante,M.ueiuevé.,"Adelante. ,—M.ueiuevé.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000115,115,ORTEGA1888-TEPIC-IA,23,19,matched_headword,788,789,Adelgazar tablas ó piedras,Tazné. Neti.,Adelgazar tablas ó piedras. — Tazné. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000116,116,ORTEGA1888-TEPIC-IA,23,19,matched_headword,790,791,Adelgazar hilo ó cosas largas,Pitzire. Neti.,Adelgazar hilo ó cosas largas. — Pitzire. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -197,7 +197,7 @@ ORT1888-cand-000195,195,ORTEGA1888-TEPIC-IA,26,22,matched_headword,936,936,Ahorc
 ORT1888-cand-000196,196,ORTEGA1888-TEPIC-IA,26,22,matched_headword,937,937,Ahumar algo,Ketzimoarite Neteu.,Ahumar algo. — Ketzimoarite Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000197,197,ORTEGA1888-TEPIC-IA,26,22,matched_headword,938,938,"Ay, donde tú estas",Amaihna.,"Ay, donde tú estas. — Amaihna.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000198,198,ORTEGA1888-TEPIC-IA,26,22,matched_headword,939,939,"Ay, quejándose","Anái, Ahuí, Aipoc.","Ay, quejándose. — Anái, Ahuí, Aipoc.",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000199,199,ORTEGA1888-TEPIC-IA,26,22,inferred_sequence,940,941,Aye,Tahcai.,Ayer. — Tahcai.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000199,199,ORTEGA1888-TEPIC-IA,26,22,anchored_same_page,940,941,Aye,Tahcai.,Ayer. — Tahcai.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000200,200,ORTEGA1888-TEPIC-IA,26,22,matched_headword,942,942,Ayrar á otro,Haxéihte. Neti.,Ayrar á otro. ^— Haxéihte. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000201,201,ORTEGA1888-TEPIC-IA,26,22,matched_headword,943,943,Ayre,Acate.,Ayre. — Acate.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000202,202,ORTEGA1888-TEPIC-IA,26,22,matched_headword,944,944,"Ayre, hace",Huaác.,"Ayre, hacer. — Huaác.",em_dash,false,high,unreviewed_machine_candidate,false
@@ -269,7 +269,7 @@ ORT1888-cand-000267,267,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1068,1068,Ama
 ORT1888-cand-000268,268,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1069,1069,Amarillo,Téamuavi.,Amarillo. — Téamuavi.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000269,269,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1070,1070,Amarillo esta,Teáumuá. Ne.,Amarillo estar. — Teáumuá. Ne.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000270,270,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1071,1071,Amasa,Putna. Neti.,Amasar.— Putna. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000271,271,ORTEGA1888-TEPIC-IA,28,24,inferred_sequence,1072,1072,Am : „ s,Mahuaf át.,Am : „ s. — Mahuaf át.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000271,271,ORTEGA1888-TEPIC-IA,28,24,anchored_same_page,1072,1072,Am : „ s,Mahuaf át.,Am : „ s. — Mahuaf át.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000272,272,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1073,1073,A media noche,Aeítapoát. A'itateca.,A media noche. — Aeítapoát. A'itateca.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000273,273,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1074,1074,A medio dia,Tahapoatacáco.,A medio dia. — Tahapoatacáco.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000274,274,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1075,1075,Amo de siervo,Tetecual.,Amo de siervo. — Tetecual.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -278,7 +278,7 @@ ORT1888-cand-000276,276,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1077,1077,Amo
 ORT1888-cand-000277,277,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1078,1078,Amonesta,Hih e. Neti.,Amonestar. — Hih e. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000278,278,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1079,1079,Amonestación,Hihhuárití.,Amonestación. — Hihhuárití.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000279,279,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1080,1080,Amontona,Zewekre. Neti.,"Amontonar. ,— Zewekre. Neti.",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000280,280,ORTEGA1888-TEPIC-IA,28,24,inferred_sequence,1081,1081,Amo,Muáhchiat.,Amor. — Muáhchiat.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000280,280,ORTEGA1888-TEPIC-IA,28,24,anchored_same_page,1081,1081,Amo,Muáhchiat.,Amor. — Muáhchiat.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000281,281,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1082,1083,Amortaja,Ihche. Xeti.,Amortajar — Ihche. Xeti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000282,282,ORTEGA1888-TEPIC-IA,28,24,matched_headword,1084,1084,Ampararse detras de algo,V hu a bata. Neneabata.,Ampararse detras de algo. — V hu a bata. Neneabata.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000283,283,ORTEGA1888-TEPIC-IA,27,23,matched_headword,1085,1090,A . - tene,A-inomezchea. N.,A . - tener. — A-inomezchea. N. | mm,em_dash,false,high,unreviewed_machine_candidate,false
@@ -422,10 +422,10 @@ ORT1888-cand-000420,420,ORTEGA1888-TEPIC-IA,33,29,matched_headword,1364,1364,Asm
 ORT1888-cand-000421,421,ORTEGA1888-TEPIC-IA,33,29,matched_headword,1365,1365,Asolear algo,"Hatzia, Neti.","Asolear algo. — Hatzia, Neti.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000422,422,ORTEGA1888-TEPIC-IA,33,29,matched_headword,1366,1371,Áspera cosa,Cachea Ceauehiá.,Áspera cosa. — Cachea Ceauehiá. | 30,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000423,423,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1372,1373,Asena ó brasa,Teuxcuárit.,Asena ó brasa.-^Teuxcuárit.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
-ORT1888-cand-000424,424,ORTEGA1888-TEPIC-IA,34,30,inferred_sequence,1374,1375,Asa,Huarácca. Neti.,Asar. — Huarácca. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000424,424,ORTEGA1888-TEPIC-IA,34,30,anchored_same_page,1374,1375,Asa,Huarácca. Neti.,Asar. — Huarácca. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000425,425,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1376,1377,Asador en que se asa,Hua^'xcamet.,Asador en que se asa. — Hua^'xcamet.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000426,426,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1378,1379,Asentarse las heces,Vhuateyeux. Vhuáteaoceaehri.,Asentarse las heces.— Vhuateyeux. Vhuáteaoceaehri.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000427,427,ORTEGA1888-TEPIC-IA,34,30,inferred_sequence,1380,1381,Asi,Ayahna.,Asi. — Ayahna.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000427,427,ORTEGA1888-TEPIC-IA,34,30,anchored_same_page,1380,1381,Asi,Ayahna.,Asi. — Ayahna.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000428,428,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1382,1384,"Así, de ests manera",leí Iteupi. Iescu. Iteupene. Iete-,"Así, de ests manera. — leí Iteupi. Iescu. Iteupene. Iete- | vi.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000429,429,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1385,1385,"Asiento, donde se sientan",Eupuarr.,"Asiento, donde se sientan. — Eupuarr.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000430,430,ORTEGA1888-TEPIC-IA,34,30,matched_headword,1386,1386,Asolar ó destrui,"Xeux, Neti.","Asolar ó destruir. — Xeux, Neti.",em_dash,false,high,unreviewed_machine_candidate,false
@@ -457,7 +457,7 @@ ORT1888-cand-000455,455,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1424,1425,Atr
 ORT1888-cand-000456,456,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1426,1427,Atropella,"Ntitacheaea, Nete.","Atropellar. — Ntitacheaea, Nete.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000457,457,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1428,1429,"Atole, bebida de Indias","Puztéri, Zeüneare»","Atole, bebida de Indias. — Puztéri, Zeüneare»",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000458,458,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1430,1431,Avaro,Nempntzamoaté.,Avaro. — Nempntzamoaté.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000459,459,ORTEGA1888-TEPIC-IA,35,31,inferred_sequence,1432,1433,Ave,Pinazt. pl. Pinazéri.,Ave. — Pinazt. pl. Pinazéri.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000459,459,ORTEGA1888-TEPIC-IA,35,31,anchored_same_page,1432,1433,Ave,Pinazt. pl. Pinazéri.,Ave. — Pinazt. pl. Pinazéri.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000460,460,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1434,1435,Avecindarse,Ichhnátahuá. lenhuataneá.,Avecindarse. — Ichhnátahuá. lenhuataneá.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000461,461,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1436,1437,Aventaja,Amuaéhyetc Nete.,Aventajar. — Amuaéhyetc Nete.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000462,462,ORTEGA1888-TEPIC-IA,35,31,matched_headword,1438,1439,Aventar como trigo,Neatze. Neti.,Aventar como trigo. — Neatze. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -592,11 +592,11 @@ ORT1888-cand-000590,590,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1736,1737,Cac
 ORT1888-cand-000591,591,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1738,1739,Cada instante,ly apa puche.,Cada instante. .—ly apa puche.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000592,592,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1740,1741,"Cada, uno ser dos",Ceaxuime.,"Cada, uno ser dos. — Ceaxuime.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000593,593,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1742,1743,Cadera,Ketzati.,Cadera. — Ketzati.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000594,594,ORTEGA1888-TEPIC-IA,39,35,inferred_sequence,1744,1745,Cae,Huatéhbe. Natéhebe.,Caer. — Huatéhbe. Natéhebe.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000594,594,ORTEGA1888-TEPIC-IA,39,35,anchored_same_page,1744,1745,Cae,Huatéhbe. Natéhebe.,Caer. — Huatéhbe. Natéhebe.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000595,595,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1746,1747,Caer siesta,Anáme.,Caer siesta. — Anáme.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000596,596,ORTEGA1888-TEPIC-IA,39,35,matched_headword,1748,1753,Caerse de arriba,Acahbet N.,Caerse de arriba. — Acahbet N. | Caerse las hojas del árbol. | Cacrar.^Clui'ita. Ne.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000597,597,ORTEGA1888-TEPIC-IA,40,36,matched_headword,1758,1759,Caiman,Axat. pi. tzi.,Caiman. — Axat. pi. tzi.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000598,598,ORTEGA1888-TEPIC-IA,40,36,inferred_sequence,1760,1761,Cal,vTénzti.,Cal. — vTénzti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000598,598,ORTEGA1888-TEPIC-IA,40,36,anchored_same_page,1760,1761,Cal,vTénzti.,Cal. — vTénzti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000599,599,ORTEGA1888-TEPIC-IA,40,36,matched_headword,1762,1763,Calabaza,Xotziti.,Calabaza. — Xotziti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000600,600,ORTEGA1888-TEPIC-IA,40,36,matched_headword,1764,1765,"Calabaza pequeña, tierna",Xaihnúriti.,"Calabaza pequeña, tierna— Xaihnúriti.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000601,601,ORTEGA1888-TEPIC-IA,40,36,matched_headword,1766,1767,Calabaza que sirve de vaso,Caitzat.,Calabaza que sirve de vaso. — Caitzat.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -823,7 +823,7 @@ ORT1888-cand-000821,821,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2256,2257,Chi
 ORT1888-cand-000822,822,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2258,2260,Chinche que llaman de Compórtela,Taxuát. pl. zeri.,Chinche que llaman de Compórtela. --Taxuát. pl. zeri.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000823,823,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2261,2262,Da d i voso,Capteacu ve.,Da d i voso. — Capteacu ve.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000824,824,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2263,2264,Danza.!,Busca bailar.,Danza.!-. — Busca bailar.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000825,825,ORTEGA1888-TEPIC-IA,47,43,inferred_sequence,2265,2266,Da,Ta. Neteu.,Dar. — Ta. Neteu.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000825,825,ORTEGA1888-TEPIC-IA,47,43,anchored_same_page,2265,2266,Da,Ta. Neteu.,Dar. — Ta. Neteu.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000826,826,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2267,2269,Dar cosas largas como palo,Tachúite. Neteu. Tauihte.,Dar cosas largas como palo. — Tachúite. Neteu. Tauihte. | Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000827,827,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2270,2272,Dar cosas redondas y macizas,Tatezte. Neteu. Tatutui-,Dar cosas redondas y macizas — Tatezte. Neteu. Tatutui- | te. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000828,828,ORTEGA1888-TEPIC-IA,47,43,matched_headword,2273,2275,Dar cosas estendijas como libro,Tai te. Neteu. Tepuihte,Dar cosas estendijas como libro. r-Tai te. Neteu. Tepuihte | Neteu.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
@@ -888,7 +888,7 @@ ORT1888-cand-000886,886,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2403,2404,De 
 ORT1888-cand-000887,887,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2405,2406,Deudo,Taehachrihuame. pl. tzi.,Deudor. -Taehachrihuame. pl. tzi.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000888,888,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2407,2408,Dejar algo,Tahtoa. Neteu.,Dejar algo.— Tahtoa. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000889,889,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2409,2410,Deei,Ñeüea Neti.,Deeir.-Ñeüea Neti.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
-ORT1888-cand-000890,890,ORTEGA1888-TEPIC-IA,49,45,inferred_sequence,2411,2412,Dia,X«tócat.,Dia.-X«tócat.,hyphen_variant,false,low,unreviewed_machine_candidate,false
+ORT1888-cand-000890,890,ORTEGA1888-TEPIC-IA,49,45,anchored_same_page,2411,2412,Dia,X«tócat.,Dia.-X«tócat.,hyphen_variant,false,low,unreviewed_machine_candidate,false
 ORT1888-cand-000891,891,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2413,2414,Dia de fiesta,Teanáme.,Dia de fiesta. -Teanáme.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000892,892,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2415,2416,Diablo,Busca demonio.,Diablo. -Busca demonio.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000893,893,ORTEGA1888-TEPIC-IA,49,45,matched_headword,2417,2418,Diente,Tameti.,Diente. -Tameti.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
@@ -909,7 +909,7 @@ ORT1888-cand-000907,907,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2450,2451,"Ec
 ORT1888-cand-000908,908,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2452,2453,Echarse la bestia,Téhui.,Echarse la bestia. — Téhui.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000909,909,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2454,2455,El ó ella,Aehna. Aehpo.,El ó ella. — Aehna. Aehpo.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000910,910,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2456,2457,Elada ó velo,Cerit.,Elada ó velo. — Cerit.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-000911,911,ORTEGA1888-TEPIC-IA,50,46,inferred_sequence,2458,2459,Ela,Huabet.,Elar.— Huabet.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-000911,911,ORTEGA1888-TEPIC-IA,50,46,anchored_same_page,2458,2459,Ela,Huabet.,Elar.— Huabet.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-000912,912,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2460,2461,El que,Atab.,El que.— Atab.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000913,913,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2462,2463,Embaina,Vcáchehte. Nete,Embainar. — Vcáchehte. Nete,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-000914,914,ORTEGA1888-TEPIC-IA,50,46,matched_headword,2464,2465,Embesti,Antitzete. Ne.,Embestir. — Antitzete. Ne.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1279,7 +1279,7 @@ ORT1888-cand-001277,1277,ORTEGA1888-TEPIC-IA,62,58,matched_headword,3237,3238,La
 ORT1888-cand-001278,1278,ORTEGA1888-TEPIC-IA,62,58,matched_headword,3239,3240,Leche,Tziméti.,Leche. — Tziméti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001279,1279,ORTEGA1888-TEPIC-IA,62,58,matched_headword,3241,3246,Leche de lo narbola,X^ret.,Leche de lo narbolar. — X^ret. | m,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001280,1280,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3250,3251,"Lechuza, ave nocturna",Cihuati. pl. Ciutzi.,"Lechuza, ave nocturna. — Cihuati. pl. Ciutzi.",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001281,1281,ORTEGA1888-TEPIC-IA,63,59,inferred_sequence,3252,3253,Lee,Thté. Neti.,Leer.— Thté. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001281,1281,ORTEGA1888-TEPIC-IA,63,59,anchored_same_page,3252,3253,Lee,Thté. Neti.,Leer.— Thté. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001282,1282,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3254,3255,Lecto,Tuhtacarenm pl. tzi.,Lector.— Tuhtacarenm pl. tzi.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001283,1283,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3256,3257,Lección,-Thterit.,Lección. — -Thterit.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001284,1284,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3258,3259,Legumbres,Cherit.,Legumbres. — Cherit.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1292,7 +1292,7 @@ ORT1888-cand-001290,1290,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3272,3273,Le
 ORT1888-cand-001291,1291,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3274,3275,"Levantarse, pararse",Ache. N.,"Levantarse, pararse. — Ache. N.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001292,1292,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3276,3277,"Levantarse, amotinarse",Ateúha. Natina.,"Levantarse, amotinarse. ^—Ateúha. Natina.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001293,1293,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3278,3279,Lexos,a Eumua..,Lexos.— a Eumua..,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001294,1294,ORTEGA1888-TEPIC-IA,63,59,inferred_sequence,3280,3281,Lia,Curahekehua. Neti.,Liar. — Curahekehua. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001294,1294,ORTEGA1888-TEPIC-IA,63,59,anchored_same_page,3280,3281,Lia,Curahekehua. Neti.,Liar. — Curahekehua. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001295,1295,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3282,3283,Librar de peligro á otro,Vachre. Neti.,Librar de peligro á otro. — Vachre. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001296,1296,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3284,3285,Libro,Yüxarit.,Libro. — Yüxarit.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001297,1297,ORTEGA1888-TEPIC-IA,63,59,matched_headword,3286,3287,Liebre,Tatzu. pl. ri.,Liebre. — Tatzu. pl. ri.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1321,7 +1321,7 @@ ORT1888-cand-001319,1319,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3339,3340,Lu
 ORT1888-cand-001320,1320,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3341,3342,Luida estar la cosa,Cáxe,Luida estar la cosa. — Cáxe,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001321,1321,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3343,3343,Luna planeta del Cielo. Luna haber nueva,• Añahupi. —,Luna planeta del Cielo. Luna haber nueva.— • Añahupi. —,em_dash,true,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001322,1322,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3344,3344,Crecer la luna,Meapurbeyaohraca. — Llenarse la lu-,Crecer la luna. — Meapurbeyaohraca. — Llenarse la lu-,em_dash,true,medium,unreviewed_machine_candidate,false
-ORT1888-cand-001323,1323,ORTEGA1888-TEPIC-IA,64,60,inferred_sequence,3345,3345,na,Meapurbeyaórizt. — Acabarse la luna.-- -Purhua-,na.— Meapurbeyaórizt. — Acabarse la luna.-- -Purhua-,em_dash,true,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001323,1323,ORTEGA1888-TEPIC-IA,64,60,anchored_same_page,3345,3345,na,Meapurbeyaórizt. — Acabarse la luna.-- -Purhua-,na.— Meapurbeyaórizt. — Acabarse la luna.-- -Purhua-,em_dash,true,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001324,1324,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3346,3347,teaxe,Traer la luna agua. — Ahputichaék.,teaxe. — Traer la luna agua. — Ahputichaék.,em_dash,true,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001325,1325,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3348,3349,Lucero,Xuravet. pl. tzi.,Lucero. — Xuravet. pl. tzi.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001326,1326,ORTEGA1888-TEPIC-IA,64,60,matched_headword,3350,3353,"Lucero de la mañana, llaman","Tabatzi, pero por pensar","Lucero de la mañana, llaman. — Tabatzi, pero por pensar | que era hijo del sol, á quien llamaban Tayaobppa, | nuestro padre.",em_dash,false,high,unreviewed_machine_candidate,false
@@ -1438,7 +1438,7 @@ ORT1888-cand-001436,1436,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3620,3620,Me
 ORT1888-cand-001437,1437,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3621,3621,"Mercenario, correo",Ytneií.,"Mercenario, correo. — Ytneií.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001438,1438,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3622,3622,Merece,Nuaite Neteu.,Merecer. — Nuaite Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001439,1439,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3623,3623,Mermar la cosa,Aubet.,Mermar la cosa. — Aubet.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001440,1440,ORTEGA1888-TEPIC-IA,68,64,inferred_sequence,3624,3625,Mes,Matzakere,Mes. — Matzakere,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001440,1440,ORTEGA1888-TEPIC-IA,68,64,anchored_same_page,3624,3625,Mes,Matzakere,Mes. — Matzakere,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001441,1441,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3626,3626,Messar la barba,^ncutñéhri. Nete.,Messar la barba— ^ncutñéhri. Nete.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001442,1442,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3627,3627,Messarlos cabellos,Ciípi. Neteu.,Messarlos cabellos.— Ciípi. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001443,1443,ORTEGA1888-TEPIC-IA,68,64,matched_headword,3628,3628,"Mestruo, baxarle á la muje",Areuze,"Mestruo, baxarle á la mujer.- Areuze",hyphen_variant,false,medium,unreviewed_machine_candidate,false
@@ -1568,8 +1568,8 @@ ORT1888-cand-001566,1566,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3886,3887,Of
 ORT1888-cand-001567,1567,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3888,3889,"Oy, ado de tiempo",Tico.,"Oy, ado de tiempo. — Tico.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001568,1568,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3890,3891,"Oydo, sentido pai a oy",Namuáhxcat.,"Oydo, sentido pai a oyr. ,— Namuáhxcat.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001569,1569,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3892,3893,"Oydor, el que oye","Tinamuahcnme. pl. tzi,","Oydor, el que oye. — Tinamuahcnme. pl. tzi,",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001570,1570,ORTEGA1888-TEPIC-IA,72,68,inferred_sequence,3894,3895,Oy,Namuá. Neti.,Oyr. — Namuá. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
-ORT1888-cand-001571,1571,ORTEGA1888-TEPIC-IA,72,68,inferred_sequence,3896,3897,Ojo,Hauziti.,Ojo. — Hauziti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001570,1570,ORTEGA1888-TEPIC-IA,72,68,anchored_same_page,3894,3895,Oy,Namuá. Neti.,Oyr. — Namuá. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001571,1571,ORTEGA1888-TEPIC-IA,72,68,anchored_same_page,3896,3897,Ojo,Hauziti.,Ojo. — Hauziti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001572,1572,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3898,3899,Olas hacer el agua,xTeutehreyéca.,Olas hacer el agua. — xTeutehreyéca.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001573,1573,ORTEGA1888-TEPIC-IA,72,68,matched_headword,3900,3905,"Oler, hechar de si olo","Te. Ñe,","Oler, hechar de si olor. — Te. Ñe, | vtmmmm",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001574,1574,ORTEGA1888-TEPIC-IA,73,69,matched_headword,3912,3913,Oler con el olfato,Euchm. Neti.,Oler con el olfato.— Euchm. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1642,7 +1642,7 @@ ORT1888-cand-001640,1640,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4065,4066,Pa
 ORT1888-cand-001641,1641,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4067,4068,Parlero,Tixaxatame. pl. tzi.,Parlero. — Tixaxatame. pl. tzi.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001642,1642,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4069,4070,Pascua florida,Xuxut. pascua.,Pascua florida. — Xuxut. pascua.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001643,1643,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4071,4073,Pascua de Navidad,"Nuca, pascua.","Pascua de Navidad. — Nuca, pascua. | Pasar la flecha el blanco quedando atravesada en el cuer-",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001644,1644,ORTEGA1888-TEPIC-IA,75,71,inferred_sequence,4074,4076,po,Atné. N.,"po.^—Atné. N. | Pasar la flecha el blanco, pasando toda por la segunda he-",em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001644,1644,ORTEGA1888-TEPIC-IA,75,71,anchored_same_page,4074,4076,po,Atné. N.,"po.^—Atné. N. | Pasar la flecha el blanco, pasando toda por la segunda he-",em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001645,1645,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4077,4078,rida,Anáhao. N,rida.— Anáhao. N,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001646,1646,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4079,4080,Pasar ;í los otros que caminan,Amuáheyite.,Pasar ;í los otros que caminan. — Amuáheyite.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001647,1647,ORTEGA1888-TEPIC-IA,75,71,matched_headword,4081,4082,Pasar el rio á nado,"Antahaú. N. >,","Pasar el rio á nado. — Antahaú. N. >,",em_dash,false,high,unreviewed_machine_candidate,false
@@ -1803,7 +1803,7 @@ ORT1888-cand-001801,1801,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4402,4403,Pu
 ORT1888-cand-001802,1802,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4404,4405,Punta de cosa delgada,Antipitní,Punta de cosa delgada. — Antipitní,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001803,1803,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4406,4407,"Punta, saca",Antipitnihwe. Neu.,"Punta, sacar.— Antipitnihwe. Neu.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001804,1804,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4408,4413,Purgar la herida,Apuxuachye,Purgar la herida.— Apuxuachye | pl.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001805,1805,ORTEGA1888-TEPIC-IA,80,76,inferred_sequence,4416,4416,Qué?,Titane?,Qué?— Titane?,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001805,1805,ORTEGA1888-TEPIC-IA,80,76,anchored_same_page,4416,4416,Qué?,Titane?,Qué?— Titane?,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001806,1806,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4417,4417,Quebra,Tapoa. Neteu.,"Quebrar.,^- Tapoa. Neteu.",hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001807,1807,ORTEGA1888-TEPIC-IA,80,76,matched_headword,4418,4423,Quebrantar la ley,Busca ofender,Quebrantar la ley.— Busca ofender | 77:,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001808,1808,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4424,4424,Quebrarse el hueso,. Antinácheca.,Quebrarse el hueso.— . Antinácheca.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1826,7 +1826,7 @@ ORT1888-cand-001824,1824,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4440,4440,Qu
 ORT1888-cand-001825,1825,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4441,4446,Qwijada,Aytfí?hrit.,Qwijada.-^Aytfí?hrit. | E.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001826,1826,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4447,4448,Rabadilla,Ket> apoati.,Rabadilla — Ket> apoati.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001827,1827,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4449,4450,Rabo de animal,Ketzapóati.,Rabo de animal. — Ketzapóati.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001828,1828,ORTEGA1888-TEPIC-IA,81,77,inferred_sequence,4451,4452,Rae,Cazizá. Neti.,Raer. — Cazizá. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001828,1828,ORTEGA1888-TEPIC-IA,81,77,anchored_same_page,4451,4452,Rae,Cazizá. Neti.,Raer. — Cazizá. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001829,1829,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4453,4454,"Rayar, hacer raya",Yhte. Neti.,"Rayar, hacer raya. — Yhte. Neti.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001830,1830,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4455,4456,Raiz de árbol,Nanat.,Raiz de árbol. — Nanat.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001831,1831,ORTEGA1888-TEPIC-IA,81,77,matched_headword,4457,4458,Rajar madera,^Aziztara. Ne.,"Rajar madera,— ^Aziztara. Ne.",em_dash,false,high,unreviewed_machine_candidate,false
@@ -1891,7 +1891,7 @@ ORT1888-cand-001889,1889,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4585,4586,Re
 ORT1888-cand-001890,1890,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4587,4588,Rezai,Mu ate. Neti.,Rezai-. — Mu ate. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001891,1891,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4589,4590,Ribera de cualquier agua,Busca orilla,Ribera de cualquier agua. — Busca orilla,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001892,1892,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4591,4592,Rico esta,Aráru. Ne.,Rico estar. ^— Aráru. Ne.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001893,1893,ORTEGA1888-TEPIC-IA,83,79,inferred_sequence,4593,4594,Rio,Até.,Rio.— Até.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001893,1893,ORTEGA1888-TEPIC-IA,83,79,anchored_same_page,4593,4594,Rio,Até.,Rio.— Até.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001894,1894,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4595,4596,Rio de Lerma,Moanimehtzé,Rio de Lerma. — Moanimehtzé,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001895,1895,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4597,4598,Rifa,Nanaihti.,Rifa. — Nanaihti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001896,1896,ORTEGA1888-TEPIC-IA,83,79,matched_headword,4599,4600,Roba,Busca hurtar,Robar. — Busca hurtar,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1922,7 +1922,7 @@ ORT1888-cand-001920,1920,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4653,4654,Sa
 ORT1888-cand-001921,1921,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4655,4656,Sacudi,Teácatze. Neteu.,Sacudir. — Teácatze. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001922,1922,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4657,4658,Saeta,"Emit],","Saeta. — Emit],",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001923,1923,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4659,4660,Sahuma,Ketziviat.,"Sahumar. ,— Ketziviat.",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001924,1924,ORTEGA1888-TEPIC-IA,84,80,inferred_sequence,4661,4662,Sal,Unnti.,Sal. — Unnti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001924,1924,ORTEGA1888-TEPIC-IA,84,80,anchored_same_page,4661,4662,Sal,Unnti.,Sal. — Unnti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001925,1925,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4663,4664,Sala,Unamoa. Neti..,Salar.- — Unamoa. Neti..,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001926,1926,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4665,4666,Salario,Nahchitérit.,Salario. — Nahchitérit.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001927,1927,ORTEGA1888-TEPIC-IA,84,80,matched_headword,4667,4672,Salir de la casa,Vbéme. N.,"Salir de la casa, — Vbéme. N. | mam",em_dash,false,high,unreviewed_machine_candidate,false
@@ -1934,15 +1934,15 @@ ORT1888-cand-001932,1932,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4713,4718,Sa
 ORT1888-cand-001933,1933,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4722,4722,Saiga abri,Acacúnata. Ne.,Saiga abrir. — Acacúnata. Ne.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001934,1934,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4723,4723,k apo,Teacúzt. ],k apo. — Teacúzt. ],em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001935,1935,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4724,4729,Sarna,At/áti.,Sarna. — At/áti. | eacuzi,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001936,1936,ORTEGA1888-TEPIC-IA,85,81,inferred_sequence,4742,4747,l,Hi,l.-Hi | íhti,hyphen_variant,false,low,unreviewed_machine_candidate,false
+ORT1888-cand-001936,1936,ORTEGA1888-TEPIC-IA,85,81,anchored_same_page,4742,4747,l,Hi,l.-Hi | íhti,hyphen_variant,false,low,unreviewed_machine_candidate,false
 ORT1888-cand-001937,1937,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4748,4753,ciarse la fruta,Busca madura estar,ciarse la fruta.- — Busca madura estar | Huatzia. Neti. Y,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001938,1938,ORTEGA1888-TEPIC-IA,85,81,inferred_sequence,4769,4770,Sed,Imwcat.,Sed. — Imwcat.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001938,1938,ORTEGA1888-TEPIC-IA,85,81,anchored_same_page,4769,4770,Sed,Imwcat.,Sed. — Imwcat.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001939,1939,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4771,4774,Sed tene,Imue N<,Sed tener — Imue N< | ¡segar inieses.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001940,1940,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4775,4780,Segui,Tabt,Seguir. — Tabt | ■Zizche. Neti. | e. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001941,1941,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4792,4797,Sembra,At/a. Neti.,Sembrar. — At/a. Neti. | Sí,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001942,1942,ORTEGA1888-TEPIC-IA,85,81,matched_headword,4838,4843,Señala,Ihte. Net,Señalar. — Ihte. Net | •en u l tai,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001943,1943,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4856,4856,Seq ii edad,H u át ú at.,Seq ii edad . — H u át ú at.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001944,1944,ORTEGA1888-TEPIC-IA,86,82,inferred_sequence,4857,4857,Se,Busca al fin.,Ser —Busca al fin.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001944,1944,ORTEGA1888-TEPIC-IA,86,82,anchored_same_page,4857,4857,Se,Busca al fin.,Ser —Busca al fin.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001945,1945,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4858,4858,Servi,Mué. Nefci.,Servir. — Mué. Nefci.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001946,1946,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4859,4859,Servicio tal,Muéat.,Servicio tal — Muéat.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001947,1947,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4860,4860,Sesos,Muchuxeti.,Sesos. .— Muchuxeti.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -1963,7 +1963,7 @@ ORT1888-cand-001961,1961,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4874,4875,So
 ORT1888-cand-001962,1962,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4876,4876,Sobrepuja,Amuaeheyite. Nete.,Sobrepujar. — Amuaeheyite. Nete.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001963,1963,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4877,4877,Sobrina y sobrino,Tinaozi. pl. moatitata. pl. tai.,Sobrina y sobrino. — Tinaozi. pl. moatitata. pl. tai.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001964,1964,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4878,4879,Socorre,"Busca ayudar,","Socorrer. — Busca ayudar,",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-001965,1965,ORTEGA1888-TEPIC-IA,86,82,inferred_sequence,4880,4881,Sol,"Xewcat. Decirle. Tayoappa, es idolatrar, porque de-","Sol. — Xewcat. Decirle. Tayoappa, es idolatrar, porque de- | cían que era su padre.",em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-001965,1965,ORTEGA1888-TEPIC-IA,86,82,anchored_same_page,4880,4881,Sol,"Xewcat. Decirle. Tayoappa, es idolatrar, porque de-","Sol. — Xewcat. Decirle. Tayoappa, es idolatrar, porque de- | cían que era su padre.",em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-001966,1966,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4882,4882,Soldarse el hueso,Antenbite.,"Soldarse el hueso. ,— Antenbite.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001967,1967,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4883,4883,Soltar lo que se tenia,Tátoa. Neteu.,Soltar lo que se tenia. — Tátoa. Neteu.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-001968,1968,ORTEGA1888-TEPIC-IA,86,82,matched_headword,4884,4884,Soltero,Témuávi.,Soltero. — Témuávi.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -2051,7 +2051,7 @@ ORT1888-cand-002049,2049,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5059,5060,"T
 ORT1888-cand-002050,2050,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5061,5062,Tordo,",Tzapuzt. pl. Tzapuzi.","Tordo. — ,Tzapuzt. pl. Tzapuzi.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002051,2051,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5063,5064,Tortuga,Moíirizti. pl. Moarizi.,"Tortuga,. — Moíirizti. pl. Moarizi.",em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002052,2052,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5065,5066,Tose,Caz tda.h mu'i ti.,Toser. — Caz tda.h mu'i ti.,em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-002053,2053,ORTEGA1888-TEPIC-IA,89,85,inferred_sequence,5067,5068,Tos,Casteahuariti.,Tos — Casteahuariti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-002053,2053,ORTEGA1888-TEPIC-IA,89,85,anchored_same_page,5067,5068,Tos,Casteahuariti.,Tos — Casteahuariti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-002054,2054,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5069,5070,Tosta,Eré. Neti.,Tostar.— Eré. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002055,2055,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5071,5072,Tostar maiz,Xáxche. Neti.,Tostar maiz.— Xáxche. Neti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002056,2056,ORTEGA1888-TEPIC-IA,89,85,matched_headword,5073,5074,Trabajo,> Mué rit.,Trabajo.— > Mué rit.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -2096,7 +2096,7 @@ ORT1888-cand-002094,2094,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5156,5157,"V
 ORT1888-cand-002095,2095,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5158,5159,Varón,Teata. pl. Teteácari.,Varón. — Teata. pl. Teteácari.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002096,2096,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5160,5161,Vaso,Caitzat,Vaso. — Caitzat,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002097,2097,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5162,5163,Vasura,Xaériti,Vasura.-^Xaériti,hyphen_variant,false,medium,unreviewed_machine_candidate,false
-ORT1888-cand-002098,2098,ORTEGA1888-TEPIC-IA,91,87,inferred_sequence,5164,5165,Vee,Oéfia. Neti.,Veer.— Oéfia. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-002098,2098,ORTEGA1888-TEPIC-IA,91,87,anchored_same_page,5164,5165,Vee,Oéfia. Neti.,Veer.— Oéfia. Neti.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-002099,2099,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5166,5167,Vello del c:¡erpo,Vxafc.,Vello del c:¡erpo. — Vxafc.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002100,2100,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5168,5169,Vena,Tátat.,Vena.— Tátat.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002101,2101,ORTEGA1888-TEPIC-IA,91,87,matched_headword,5170,5171,Venado,Muaxati. pl. eri.,Venado. — Muaxati. pl. eri.,em_dash,false,high,unreviewed_machine_candidate,false
@@ -2131,7 +2131,7 @@ ORT1888-cand-002129,2129,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5223,5223,Vi
 ORT1888-cand-002130,2130,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5224,5224,Vista,Céhriat.,Vista. — Céhriat.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002131,2131,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5225,5225,Voluntad,-Xéhviat.,Voluntad.- -Xéhviat.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-002132,2132,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5226,5226,Vomita,Ha. Neti,"Vomitar. ,— Ha. Neti",em_dash,false,high,unreviewed_machine_candidate,false
-ORT1888-cand-002133,2133,ORTEGA1888-TEPIC-IA,92,88,inferred_sequence,5227,5229,Vle,Vret.,Vle.— Vret.,em_dash,false,medium,unreviewed_machine_candidate,false
+ORT1888-cand-002133,2133,ORTEGA1888-TEPIC-IA,92,88,anchored_same_page,5227,5229,Vle,Vret.,Vle.— Vret.,em_dash,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-002134,2134,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5230,5231,Zela,Trafcza. JNeti.,Zelar. — Trafcza. JNeti.,em_dash,false,high,unreviewed_machine_candidate,false
 ORT1888-cand-002135,2135,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5232,5233,Zelo,Teatzacat.,Zelo. -Teatzacat.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
 ORT1888-cand-002136,2136,ORTEGA1888-TEPIC-IA,92,88,matched_headword,5234,5235,Zorra,Arachuihti. pl. Arachuizi.,Zorra. ^-Arachuihti. pl. Arachuizi.,hyphen_variant,false,medium,unreviewed_machine_candidate,false
