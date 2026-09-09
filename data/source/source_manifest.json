@@ -9,7 +9,7 @@
   },
   "downloaded_sha256": {
     "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512",
-    "html_or_text_wrapper": "c5216159fb827ffca0e1254d7841c052032def8b9acc4af6f221781a1e9ac159"
+    "html_or_text_wrapper": "5403cc32acfea79f7d04a44e89e22a86490ad2490f9324692ee86ea48adf7499"
   },
   "note": "Source binaries are downloaded reproducibly and are not committed to Git."
 }
