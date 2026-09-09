@@ -15,9 +15,9 @@
     "machine_candidates": 2140,
     "em_dash_candidates": 1951,
     "hyphen_variant_candidates": 189,
-    "page_alignment_matched": 2114,
-    "page_alignment_anchored_same_page": 21,
-    "page_alignment_inferred": 5,
+    "page_alignment_matched": 2131,
+    "page_alignment_anchored_same_page": 6,
+    "page_alignment_inferred": 3,
     "human_verified": 0
   },
   "epistemic_status": "machine-only candidate inventory; no independent human validation claimed"
