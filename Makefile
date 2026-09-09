@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate reconciliation-queue validate-reconciliation stats
+.PHONY: ingest validate reconciliation-queue reconciliation-summary validate-reconciliation stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -10,6 +10,9 @@ validate:
 
 reconciliation-queue:
 	$(PYTHON) scripts/build_reconciliation_queue.py
+
+reconciliation-summary:
+	$(PYTHON) scripts/summarize_reconciliation_queue.py
 
 validate-reconciliation:
 	$(PYTHON) scripts/validate_reconciliation_decisions.py
