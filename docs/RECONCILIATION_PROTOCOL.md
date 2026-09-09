@@ -12,15 +12,22 @@ La cola de revisión es una ayuda de priorización generada por máquina. Su pun
 
 El OCR, `candidates.csv` y los demás objetos de procedencia se conservan sin sobrescritura. Una corrección editorial debe quedar expresada como una nueva capa trazable.
 
+## Alineación de página
+
+La alineación automática distingue tres estados con distinta fuerza de evidencia. `matched_headword` significa que la guía castellana normalizada fue localizada directamente en el texto extraído de la página PDF. `anchored_same_page` significa que no hubo coincidencia directa para ese candidato, pero sus anclajes directos anterior y posterior más próximos coinciden en una misma página y esa página es exactamente la que ya tenía asignada el candidato por secuencia. `inferred_sequence` conserva los casos que no satisfacen ninguna de esas condiciones.
+
+La segunda categoría es deliberadamente conservadora: no modifica `source_pdf_page`, `source_printed_page`, el OCR ni la confianza de extracción; únicamente hace explícito un respaldo estructural ya presente en la secuencia. Los candidatos reclasificados no se reutilizan como anclajes, por lo que la inferencia no se propaga recursivamente.
+
 ## Orden de revisión
 
 `scripts/build_reconciliation_queue.py` genera una cola determinista a partir de señales ya presentes en el corpus. Se revisan primero los casos con mayor riesgo estructural:
 
-1. alineación de página inferida secuencialmente;
-2. confianza de extracción baja o media;
-3. múltiples separadores detectados;
-4. spans multilínea, especialmente los extensos;
-5. artefactos superficiales de OCR que puedan ocultar una frontera.
+1. alineación de página todavía inferida secuencialmente;
+2. alineación respaldada sólo por anclajes concordantes en la misma página, con prioridad menor que una inferencia pura;
+3. confianza de extracción baja o media;
+4. múltiples separadores detectados;
+5. spans multilínea, especialmente los extensos;
+6. artefactos superficiales de OCR que puedan ocultar una frontera.
 
 Los casos sin señales de riesgo también permanecen en la cola como revisión basal. El puntaje sirve únicamente para ordenar trabajo.
 
