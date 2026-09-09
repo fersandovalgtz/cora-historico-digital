@@ -40,3 +40,5 @@ jobs:
             git commit -m 'Build initial Ortega 1888 corpus'
             git push
           fi
+
+# Bootstrap pipeline initialized 2026-09-09.
