@@ -21,6 +21,7 @@ jobs:
       - run: python scripts/validate_candidates.py
       - run: python scripts/build_reconciliation_queue.py --output /tmp/review_queue.csv
       - run: python scripts/summarize_reconciliation_queue.py --input /tmp/review_queue.csv --output /tmp/reconciliation_queue_summary.json
+      - run: python scripts/build_inferred_review_batch.py --json-output /tmp/inferred_review_batch.json --markdown-output /tmp/inferred_review_batch.md
       - run: python scripts/validate_reconciliation_decisions.py
       - name: Verify reconciliation queue completeness
         run: |
@@ -44,5 +45,7 @@ jobs:
           path: |
             /tmp/review_queue.csv
             /tmp/reconciliation_queue_summary.json
+            /tmp/inferred_review_batch.json
+            /tmp/inferred_review_batch.md
           if-no-files-found: error
           retention-days: 30
