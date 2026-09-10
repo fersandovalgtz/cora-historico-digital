@@ -158,25 +158,51 @@ def iter_records(directory: Path):
             yield f"{path}:{line_number}", payload
 
 
+def validate_collection(records, candidates: dict[str, dict[str, str]]) -> list[dict]:
+    """Validate a decision set and prohibit contradictory candidate ownership."""
+    seen_decisions: dict[str, str] = {}
+    claimed_candidates: dict[str, tuple[str, str]] = {}
+    validated: list[dict] = []
+
+    for location, record in records:
+        did = validate_record(record, candidates)
+        if did in seen_decisions:
+            error(
+                f"duplicate reconciliation decision_id {did}: "
+                f"{seen_decisions[did]} and {location}"
+            )
+        seen_decisions[did] = location
+
+        for candidate_id in record["candidate_ids"]:
+            if candidate_id in claimed_candidates:
+                previous_did, previous_location = claimed_candidates[candidate_id]
+                error(
+                    f"candidate {candidate_id} is reconciled more than once: "
+                    f"{previous_did} at {previous_location} and {did} at {location}"
+                )
+            claimed_candidates[candidate_id] = (did, location)
+        validated.append(record)
+
+    return validated
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, default=CANDIDATES)
     parser.add_argument("--decisions-dir", type=Path, default=DECISIONS)
     args = parser.parse_args()
 
-    candidates = load_candidates(args.candidates)
-    seen = set()
-    count = 0
-    for location, record in iter_records(args.decisions_dir):
-        try:
-            did = validate_record(record, candidates)
-        except (ValueError, json.JSONDecodeError) as exc:
-            raise SystemExit(f"invalid reconciliation decision at {location}: {exc}") from exc
-        if did in seen:
-            raise SystemExit(f"duplicate reconciliation decision_id: {did}")
-        seen.add(did)
-        count += 1
-    print(f"validated {count} reconciliation decisions against {len(candidates)} machine candidates")
+    try:
+        candidates = load_candidates(args.candidates)
+        decisions = validate_collection(iter_records(args.decisions_dir), candidates)
+    except (ValueError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"invalid reconciliation decision set: {exc}") from exc
+
+    covered = sum(len(record["candidate_ids"]) for record in decisions)
+    print(
+        f"validated {len(decisions)} reconciliation decisions covering {covered} "
+        f"of {len(candidates)} machine candidates"
+    )
 
 
 if __name__ == "__main__":
