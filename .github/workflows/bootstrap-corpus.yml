@@ -27,6 +27,8 @@ jobs:
         run: python scripts/ingest_ortega1888.py
       - name: Validate candidates
         run: python scripts/validate_candidates.py
+      - name: Validate existing human reconciliation decisions
+        run: python scripts/validate_reconciliation_decisions.py
       - name: Build unresolved alignment review packet
         run: |
           python scripts/build_inferred_review_batch.py \
@@ -41,6 +43,17 @@ jobs:
         with:
           name: phase2-facsimile-review
           path: artifacts/phase2_facsimile_review
+          if-no-files-found: error
+          retention-days: 30
+      - name: Render scalable page review packet
+        run: python scripts/render_page_review_facsimile.py --output-dir artifacts/phase2_page_review --dpi 120
+      - name: Build page-by-page human review workbench
+        run: python scripts/build_page_review_sheet.py --output artifacts/phase2_page_review/review_sheet.html
+      - name: Upload phase-2 page review workbench
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase2-page-review
+          path: artifacts/phase2_page_review
           if-no-files-found: error
           retention-days: 30
       - name: Remove downloaded source binaries before commit
