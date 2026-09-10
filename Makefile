@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate reconciliation-queue reconciliation-summary inferred-review-batch render-inferred-facsimile human-review-sheet validate-reconciliation reconciliation-status stats
+.PHONY: ingest validate reconciliation-queue reconciliation-summary inferred-review-batch render-inferred-facsimile human-review-sheet validate-reconciliation reconciliation-status canonicalization-plan stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -28,6 +28,9 @@ validate-reconciliation:
 
 reconciliation-status:
 	$(PYTHON) scripts/summarize_reconciliation_status.py
+
+canonicalization-plan:
+	$(PYTHON) scripts/plan_canonicalization.py
 
 stats:
 	$(PYTHON) -c "import json; print(json.dumps(json.load(open('reports/ingest_report.json')), ensure_ascii=False, indent=2))"
