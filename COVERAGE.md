@@ -9,10 +9,11 @@
 | `matched_headword` | 2,131 |
 | `anchored_same_page` | 6 |
 | `inferred_sequence` | 3 |
-| artículos `machine_accepted` esperados | 2,137 |
-| candidatos `machine_uncertain` esperados | 3 |
+| artículos `machine_accepted` | 2,137 |
+| artefactos `machine_rejected` | 2 |
+| candidatos `machine_uncertain` | 1 |
 | etapa de revisión humana | no existe |
 
-Los 2,140 candidatos son una métrica de segmentación del cuerpo alfabético. La capa machine-only conserva una distinción explícita entre artículos aceptados por reglas reproducibles y candidatos inciertos; estos últimos permanecen trazables y no se fuerzan a convertirse en artículos.
+La cobertura de resolución es exhaustiva: los **2,140 candidatos** reciben un estado computacional explícito sin borrarse. Los 2,137 artículos aceptados conservan ID estable; dos candidatos se clasifican como artefactos estructurales de segmentación y uno permanece incierto.
 
 Los apéndices de numerales y verbos/partículas quedan fuera de este conteo y se preservan completos mediante OCR e inventarios automáticos propios.
