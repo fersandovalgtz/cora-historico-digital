@@ -5,7 +5,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'data/reconciliation/decisions/**'
+      - 'data/reconciliation/decisions/*.json'
+      - 'data/reconciliation/decisions/*.jsonl'
 
 permissions:
   contents: write
