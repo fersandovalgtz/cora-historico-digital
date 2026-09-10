@@ -32,6 +32,8 @@ jobs:
         run: python scripts/audit_source_coverage.py
       - name: Build appendix machine inventory
         run: python scripts/build_appendix_machine_inventory.py
+      - name: Build structured numeral machine lexicon
+        run: python scripts/build_numeral_machine_lexicon.py
       - name: Build machine-only lexicon
         run: python scripts/build_machine_corpus.py
       - name: Remove downloaded source binaries before commit

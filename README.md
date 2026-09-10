@@ -21,9 +21,10 @@ La implementación inicial trabaja con el *Vocabulario de las lenguas castellana
 | artículos `machine_accepted` | **2,137** |
 | artefactos `machine_rejected` | **2** |
 | candidatos `machine_uncertain` | **1** |
+| pares explícitos del apéndice numeral | **27** |
 | revisión humana dentro del repo | **no existe** |
 
-Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto. Numerales y verbos/partículas se preservan completos como OCR y tienen inventarios machine-only separados.
+Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto. El apéndice numeral cuenta además con **27 pares explícitos** estructurados: 22 de cuenta general, 3 de frecuencia y 2 de conteo animado. El apéndice de verbos/partículas permanece preservado como OCR e inventario machine-only a la espera de su modelo estructural propio.
 
 ## Arquitectura de evidencia
 
@@ -31,13 +32,13 @@ Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolu
 testimonio digital bloqueado por checksum
         ↓
 OCR bruto preservado
-        ↓
-ORT1888-cand-######
-        ↓
-resolución computacional reproducible
-        ├─ machine_accepted → ORT1888-art-######
-        ├─ machine_uncertain → candidato preservado, sin artículo
-        └─ machine_rejected → candidato preservado como artefacto documentado
+        ├─ cuerpo alfabético → ORT1888-cand-###### → resolución máquina
+        │                       ├─ machine_accepted → ORT1888-art-######
+        │                       ├─ machine_uncertain
+        │                       └─ machine_rejected
+        └─ apéndices
+             ├─ numerales → ORT1888-num-###
+             └─ verbos/partículas → inventario OCR machine-only
         ↓
 derivados interoperables y releases citables
 ```
@@ -47,6 +48,8 @@ Un caso incierto o rechazado sigue siendo evidencia trazable. La arquitectura pr
 ## Reglas de resolución máquina
 
 Los estados no dependen de juicio humano ni de listas de excepciones por ID. Las coincidencias directas y los anclajes conservadores de misma página producen `machine_accepted`. Una regla estructural adicional detecta ruido OCR situado antes del folio de la página siguiente sólo cuando el candidato es `hyphen_variant`, de baja confianza, queda entre dos anclas directas de páginas consecutivas y su propio span contiene como segmento aislado el número impreso siguiente. Esa regla identifica dos falsos candidatos sin alterar el OCR fuente.
+
+El extractor numeral trabaja únicamente sobre líneas con pares explícitos separados por marcas documentales reconocibles. No asigna valores numéricos normalizados ni corrige grafías OCR; `general_count`, `frequency_count` y `animate_count` reflejan transiciones expresamente anunciadas por la fuente.
 
 ## Reproducibilidad
 
@@ -60,10 +63,11 @@ make ingest
 make validate
 make source-coverage
 make appendix-machine-inventory
+make numeral-machine-lexicon
 make machine-corpus
 ```
 
-`qa` ejecuta pruebas, cobertura documental e invariantes de la capa máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; ya no genera facsímiles, formularios ni colas para revisión humana.
+`qa` ejecuta pruebas, cobertura documental e invariantes de las capas máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; no genera facsímiles, formularios ni colas para revisión humana.
 
 ## Datos principales
 
@@ -71,7 +75,9 @@ make machine-corpus
 - `data/source/source_manifest.json`: procedencia y hashes.
 - `data/lexicon/candidates.csv` / `.jsonl`: hipótesis de segmentación fuente.
 - `data/lexicon/machine_lexicon.csv` / `.jsonl`: capa machine-only derivada.
-- `data/appendices/machine_inventory.json`: unidades de navegación automática de los apéndices.
+- `data/appendices/machine_inventory.json`: navegación automática íntegra de los apéndices.
+- `data/appendices/numerals_machine.csv` / `.jsonl`: 27 pares explícitos del apéndice numeral.
+- `reports/numerals_machine.json`: métricas y política de extracción numeral.
 - `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
 - `reports/source_coverage.json`: auditoría de conservación completa del testimonio.
 
@@ -83,7 +89,7 @@ CHD no es un diccionario normativo del náayeri contemporáneo, no asigna autom�
 
 ## Ruta científica
 
-La siguiente meta es resolver o caracterizar mejor el único candidato `machine_uncertain`, estructurar automáticamente los apéndices con modelos propios y preparar una release citable. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
+La subfase numeral está estructurada. La siguiente meta es modelar automáticamente el apéndice de verbos irregulares/partículas, mantener caracterizado el único candidato alfabético `machine_uncertain` y preparar una release citable. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
 
 ## Licencias y citación
 

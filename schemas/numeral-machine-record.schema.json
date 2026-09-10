@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fersandovalgtz/cora-historico-digital/schemas/numeral-machine-record.schema.json",
+  "title": "CHD Ortega 1888 Numeral Machine Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "numeral_id",
+    "order",
+    "source_witness_id",
+    "source_path",
+    "source_appendix_line",
+    "semantic_series",
+    "spanish_expression_ocr",
+    "cora_expression_ocr",
+    "raw_line_ocr",
+    "separator_type",
+    "record_status",
+    "authority_status",
+    "human_verified"
+  ],
+  "properties": {
+    "numeral_id": {"type": "string", "pattern": "^ORT1888-num-[0-9]{3}$"},
+    "order": {"type": "integer", "minimum": 1},
+    "source_witness_id": {"const": "ORTEGA1888-TEPIC-IA"},
+    "source_path": {"const": "data/appendices/numerals_ocr.txt"},
+    "source_appendix_line": {"type": "integer", "minimum": 1},
+    "semantic_series": {"enum": ["general_count", "frequency_count", "animate_count"]},
+    "spanish_expression_ocr": {"type": "string", "minLength": 1},
+    "cora_expression_ocr": {"type": "string", "minLength": 1},
+    "raw_line_ocr": {"type": "string", "minLength": 1},
+    "separator_type": {"enum": ["em_dash", "hyphen_variant"]},
+    "record_status": {"const": "machine_extracted_explicit_pair"},
+    "authority_status": {"const": "machine_derived"},
+    "human_verified": {"const": false}
+  }
+}

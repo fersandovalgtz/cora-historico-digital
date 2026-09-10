@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate source-coverage appendix-machine-inventory machine-corpus stats
+.PHONY: ingest validate source-coverage appendix-machine-inventory numeral-machine-lexicon machine-corpus stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -14,8 +14,11 @@ source-coverage:
 appendix-machine-inventory:
 	$(PYTHON) scripts/build_appendix_machine_inventory.py
 
+numeral-machine-lexicon:
+	$(PYTHON) scripts/build_numeral_machine_lexicon.py
+
 machine-corpus:
 	$(PYTHON) scripts/build_machine_corpus.py
 
 stats:
-	$(PYTHON) -c "import json; print(json.dumps(json.load(open('reports/machine_resolution.json')), ensure_ascii=False, indent=2))"
+	$(PYTHON) -c "import json; print(json.dumps({'lexicon': json.load(open('reports/machine_resolution.json')), 'numerals': json.load(open('reports/numerals_machine.json'))}, ensure_ascii=False, indent=2))"

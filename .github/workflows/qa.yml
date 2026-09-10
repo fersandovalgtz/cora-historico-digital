@@ -23,6 +23,24 @@ jobs:
         run: python scripts/audit_source_coverage.py --output /tmp/source_coverage.json
       - name: Build appendix machine inventory
         run: python scripts/build_appendix_machine_inventory.py --output /tmp/appendix_machine_inventory.json --report /tmp/appendix_machine_inventory_report.json
+      - name: Build structured numeral machine lexicon
+        run: python scripts/build_numeral_machine_lexicon.py --jsonl /tmp/numerals_machine.jsonl --csv /tmp/numerals_machine.csv --report /tmp/numerals_machine_report.json
+      - name: Verify numeral machine invariants
+        run: |
+          python - <<'PY'
+          import csv, json
+          with open('/tmp/numerals_machine.jsonl', encoding='utf-8') as handle:
+              records = [json.loads(line) for line in handle if line.strip()]
+          with open('/tmp/numerals_machine_report.json', encoding='utf-8') as handle:
+              report = json.load(handle)
+          assert len(records) == report['explicit_pair_total'] > 0
+          assert [r['order'] for r in records] == list(range(1, len(records) + 1))
+          assert len({r['numeral_id'] for r in records}) == len(records)
+          assert all(r['human_verified'] is False for r in records)
+          assert all(r['authority_status'] == 'machine_derived' for r in records)
+          assert all(r['record_status'] == 'machine_extracted_explicit_pair' for r in records)
+          print(f"numeral layer contains {len(records)} explicit pairs across {report['series_counts']}")
+          PY
       - name: Build machine-only lexicon
         run: python scripts/build_machine_corpus.py --jsonl /tmp/machine_lexicon.jsonl --csv /tmp/machine_lexicon.csv --report /tmp/machine_resolution.json
       - name: Verify machine corpus coverage
@@ -46,6 +64,9 @@ jobs:
             /tmp/source_coverage.json
             /tmp/appendix_machine_inventory.json
             /tmp/appendix_machine_inventory_report.json
+            /tmp/numerals_machine.jsonl
+            /tmp/numerals_machine.csv
+            /tmp/numerals_machine_report.json
             /tmp/machine_lexicon.jsonl
             /tmp/machine_lexicon.csv
             /tmp/machine_resolution.json
