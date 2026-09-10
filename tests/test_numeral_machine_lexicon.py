@@ -29,10 +29,10 @@ class NumeralMachineLexiconTests(unittest.TestCase):
             ("Dos veces", "Huappoax.", "hyphen_variant"),
         )
 
-    def test_single_hyphen_variant_is_supported(self):
+    def test_single_hyphen_variant_preserves_left_ocr(self):
         self.assertEqual(
             split_explicit_pair("Tres'.-sMahiuzM'ca."),
-            ("Tres", "sMahiuzM'ca.", "hyphen_variant"),
+            ("Tres'", "sMahiuzM'ca.", "hyphen_variant"),
         )
 
     def test_word_final_hyphenation_is_not_a_pair(self):
