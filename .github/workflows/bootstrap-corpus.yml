@@ -29,6 +29,8 @@ jobs:
         run: python scripts/validate_candidates.py
       - name: Audit complete OCR source coverage
         run: python scripts/audit_source_coverage.py
+      - name: Build appendix structural-review inventory
+        run: python scripts/build_appendix_review_inventory.py
       - name: Validate existing human reconciliation decisions
         run: python scripts/validate_reconciliation_decisions.py
       - name: Build unresolved alignment review packet
