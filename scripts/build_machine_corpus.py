@@ -2,14 +2,16 @@
 """Build the machine-only lexical layer from Ortega 1888 candidates.
 
 This step never claims human verification. It promotes candidates with sufficient
-reproducible alignment evidence to stable machine article IDs and preserves
-residual ambiguous candidates explicitly as machine_uncertain.
+reproducible alignment evidence to stable machine article IDs, rejects narrowly
+defined OCR boundary artifacts, and preserves residual ambiguity explicitly as
+``machine_uncertain``.
 """
 from __future__ import annotations
 
 import argparse
 import csv
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -24,13 +26,76 @@ ACCEPTED_ALIGNMENTS = {
     "anchored_same_page": "same_page_anchor_support",
 }
 KNOWN_ALIGNMENTS = set(ACCEPTED_ALIGNMENTS) | {"inferred_sequence"}
+DIRECT_ALIGNMENT = "matched_headword"
 
 
 def as_int(value: object) -> int:
     return int(str(value).strip())
 
 
-def resolve_candidate(row: dict[str, str]) -> dict[str, Any]:
+def raw_span_has_standalone_page_number(raw_span: str, page_number: int) -> bool:
+    """Return true only for a standalone OCR span segment equal to the folio number.
+
+    Candidate spans join non-empty OCR lines with `` | ``. Requiring an entire
+    segment to equal the expected next printed page avoids matching ordinary
+    numerals embedded in lexical content.
+    """
+    return any(part.strip() == str(page_number) for part in raw_span.split("|"))
+
+
+def is_prefolio_boundary_noise(
+    row: dict[str, str],
+    previous_row: dict[str, str] | None,
+    next_row: dict[str, str] | None,
+) -> bool:
+    """Detect a narrow class of false candidates caused by page-top OCR noise.
+
+    The rule is intentionally structural rather than linguistic. A candidate is
+    rejected only when all of the following hold:
+
+    * its page alignment is unresolved (``inferred_sequence``);
+    * it came from the weak hyphen-variant extractor with low confidence;
+    * the nearest source-order neighbours are direct page matches;
+    * the previous direct match is on the candidate's assigned PDF page;
+    * the next direct match is exactly one PDF page later; and
+    * the candidate OCR span itself contains, as a standalone line, the printed
+      number of that next page.
+
+    This encodes the observed pattern ``page-top noise → folio number → first
+    genuine entry`` without hard-coding candidate IDs or lexical forms.
+    """
+    if row.get("page_alignment_status") != "inferred_sequence":
+        return False
+    if row.get("separator_type") != "hyphen_variant":
+        return False
+    if row.get("extraction_confidence") != "low":
+        return False
+    if previous_row is None or next_row is None:
+        return False
+    if previous_row.get("page_alignment_status") != DIRECT_ALIGNMENT:
+        return False
+    if next_row.get("page_alignment_status") != DIRECT_ALIGNMENT:
+        return False
+
+    candidate_pdf = as_int(row["source_pdf_page"])
+    previous_pdf = as_int(previous_row["source_pdf_page"])
+    next_pdf = as_int(next_row["source_pdf_page"])
+    next_printed = as_int(next_row["source_printed_page"])
+
+    if previous_pdf != candidate_pdf:
+        return False
+    if next_pdf != candidate_pdf + 1:
+        return False
+    if next_printed != next_pdf - 4:
+        return False
+    return raw_span_has_standalone_page_number(row.get("raw_span_ocr", ""), next_printed)
+
+
+def resolve_candidate(
+    row: dict[str, str],
+    previous_row: dict[str, str] | None = None,
+    next_row: dict[str, str] | None = None,
+) -> dict[str, Any]:
     alignment = row.get("page_alignment_status", "")
     if alignment not in KNOWN_ALIGNMENTS:
         raise ValueError(f"unknown page_alignment_status for {row.get('candidate_id')}: {alignment}")
@@ -39,16 +104,23 @@ def resolve_candidate(row: dict[str, str]) -> dict[str, Any]:
     expected_id = f"ORT1888-cand-{order:06d}"
     if candidate_id != expected_id:
         raise ValueError(f"candidate/order mismatch: {candidate_id} != {expected_id}")
+
     if alignment in ACCEPTED_ALIGNMENTS:
         machine_status = "machine_accepted"
         article_id: str | None = f"ORT1888-art-{order:06d}"
         rationale = ACCEPTED_ALIGNMENTS[alignment]
         release_eligible = True
+    elif is_prefolio_boundary_noise(row, previous_row, next_row):
+        machine_status = "machine_rejected"
+        article_id = None
+        rationale = "prefolio_noise_between_consecutive_direct_page_anchors"
+        release_eligible = False
     else:
         machine_status = "machine_uncertain"
         article_id = None
         rationale = "page_alignment_unresolved"
         release_eligible = False
+
     return {
         "article_id": article_id,
         "candidate_id": candidate_id,
@@ -74,19 +146,28 @@ def resolve_candidate(row: dict[str, str]) -> dict[str, Any]:
 
 def build_machine_corpus(rows: list[dict[str, str]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     ordered = sorted(rows, key=lambda row: as_int(row["order"]))
-    records = [resolve_candidate(row) for row in ordered]
-    orders = [record["order"] for record in records]
-    if orders != list(range(1, len(records) + 1)):
+    orders = [as_int(row["order"]) for row in ordered]
+    if orders != list(range(1, len(ordered) + 1)):
         raise ValueError("candidate order must be contiguous 1..N")
-    candidate_ids = [record["candidate_id"] for record in records]
+
+    candidate_ids = [row["candidate_id"] for row in ordered]
     if len(candidate_ids) != len(set(candidate_ids)):
         raise ValueError("duplicate candidate IDs")
+
+    records: list[dict[str, Any]] = []
+    for index, row in enumerate(ordered):
+        previous_row = ordered[index - 1] if index > 0 else None
+        next_row = ordered[index + 1] if index + 1 < len(ordered) else None
+        records.append(resolve_candidate(row, previous_row, next_row))
+
     article_ids = [record["article_id"] for record in records if record["article_id"]]
     if len(article_ids) != len(set(article_ids)):
         raise ValueError("duplicate article IDs")
+
     status_counts = Counter(record["machine_status"] for record in records)
     alignment_counts = Counter(record["page_alignment_status"] for record in records)
     uncertain = [record["candidate_id"] for record in records if record["machine_status"] == "machine_uncertain"]
+    rejected = [record["candidate_id"] for record in records if record["machine_status"] == "machine_rejected"]
     report = {
         "artifact_type": "machine_resolution_report",
         "source_witness_id": "ORTEGA1888-TEPIC-IA",
@@ -99,7 +180,8 @@ def build_machine_corpus(rows: list[dict[str, str]]) -> tuple[list[dict[str, Any
         "machine_status_counts": dict(sorted(status_counts.items())),
         "page_alignment_counts": dict(sorted(alignment_counts.items())),
         "machine_uncertain_candidate_ids": uncertain,
-        "release_policy": "A machine-only release may retain machine_uncertain candidates. Only machine_accepted records receive stable ORT1888-art IDs; uncertainty is preserved rather than guessed.",
+        "machine_rejected_candidate_ids": rejected,
+        "release_policy": "A machine-only release may retain machine_uncertain and machine_rejected source candidates. Only machine_accepted records receive stable ORT1888-art IDs; uncertainty is preserved and rejected segmentation artifacts remain traceable rather than deleted.",
         "id_policy": "Accepted article IDs reuse the six-digit numeric suffix of their source candidate. This prevents renumbering when another candidate later changes machine status.",
     }
     return records, report
@@ -134,7 +216,13 @@ def main() -> None:
     args = parser.parse_args()
     records, report = build_machine_corpus(load_candidates(args.candidates))
     write_outputs(records, report, args.jsonl, args.csv_path, args.report)
-    print(f"machine corpus: {report['machine_article_total']} accepted articles; {report['machine_uncertain_total']} uncertain candidates; human_verified=false")
+    print(
+        "machine corpus: "
+        f"{report['machine_article_total']} accepted articles; "
+        f"{report['machine_rejected_total']} rejected segmentation artifacts; "
+        f"{report['machine_uncertain_total']} uncertain candidates; "
+        "human_verified=false"
+    )
 
 
 if __name__ == "__main__":
