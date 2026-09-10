@@ -1,19 +1,12 @@
 # Procedencia
 
-## Cadena documental
+`ORTEGA1732` (obra) → `ORTEGA1888-TEPIC-IA` (reimpresión/testimonio) → John Carter Brown Library / Internet Archive → OCR/texto extraíble → candidatos → resolución machine-only → derivados.
 
-`ORTEGA1732` (obra impresa) → `ORTEGA1888-TEPIC-IA` (reimpresión/testimonio) → digitalización John Carter Brown Library / Internet Archive → OCR y texto extraíble → candidatos computacionales → futuras capas editoriales.
-
-## Identificador del testimonio
-
+## Testimonio digital
 - Internet Archive: `vocabulariodelas00orte`
 - PDF: `https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf`
-- texto completo/OCR: `https://archive.org/stream/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt`
+- DjVu TXT: `https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt`
 
-Cada ejecución de `scripts/ingest_ortega1888.py` registra los SHA-256 efectivamente descargados en `data/source/source_manifest.json` y `reports/ingest_report.json`.
+Cada ingestión verifica las dos fuentes contra `data/source/source_lock.json`. Una diferencia de SHA-256 detiene el pipeline antes de escribir derivados.
 
-## Actividad inicial
-
-La ingestión separa preliminares, cuerpo lexicográfico, numerales y materiales finales mediante anclas documentales; genera candidatos a inicio de artículo y alinea encabezamientos con texto extraído del PDF. Una coincidencia automática de encabezamiento no equivale a cotejo visual ni a validación filológica.
-
-No se afirma en `0.1.0-dev` revisión humana independiente, equivalencia lingüística moderna, normalización ortográfica autorizada ni identidad dialectal contemporánea.
+La alineación de encabezamientos y la resolución de candidatos son inferencias computacionales. `machine_accepted` no significa cotejo humano ni validación filológica; `machine_uncertain` conserva los casos para los que las reglas actuales no bastan.

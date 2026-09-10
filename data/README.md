@@ -1,3 +1,10 @@
 # Datos
 
-Los datos se organizan por capas: `source/` conserva procedencia y OCR derivado; `grammar/` separa los preliminares; `lexicon/` contiene candidatos computacionales; `appendices/` conserva numerales y materiales finales. Los archivos binarios de fuente se descargan reproduciblemente desde Internet Archive durante la ingestión y no se versionan en Git.
+- `source/`: testimonio, OCR y manifiesto de procedencia.
+- `grammar/`: preliminares preservados.
+- `lexicon/candidates.*`: hipótesis de segmentación del cuerpo alfabético.
+- `lexicon/machine_lexicon.*`: resolución computacional exhaustiva de los candidatos.
+- `appendices/*_ocr.txt`: OCR íntegro de los apéndices.
+- `appendices/machine_inventory.json`: unidades automáticas de navegación de los apéndices.
+
+Las capas machine-only conservan `human_verified=false` como declaración de autoridad, no como trabajo pendiente.

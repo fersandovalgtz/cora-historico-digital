@@ -1,57 +1,51 @@
 # Cora Histórico Digital
 
-**Cora Histórico Digital (CHD)** es una infraestructura de investigación para convertir testimonios históricos de la lengua cora en objetos digitales **trazables, versionados, citables y reproducibles**, sin confundir OCR, segmentación computacional, reconstrucción editorial e interpretación lingüística.
+**Cora Histórico Digital (CHD)** es un corpus histórico-digital reproducible para estudiar testimonios históricos de la lengua cora/náayeri sin confundir fuente, OCR, segmentación, inferencia computacional e interpretación lingüística.
 
-La implementación inicial trabaja con el *Vocabulario de las lenguas castellana y cora* de José de Ortega a partir de la **reimpresión de Tepic de 1888**, que reproduce la obra impresa originalmente en México en **1732**. El testimonio digital de trabajo corresponde al ejemplar de John Carter Brown Library difundido por Internet Archive con identificador `vocabulariodelas00orte`.
+La implementación inicial trabaja con el *Vocabulario de las lenguas castellana y cora* de José de Ortega mediante la reimpresión de Tepic de 1888, derivada de la obra impresa en México en 1732. El testimonio digital canónico procede de John Carter Brown Library / Internet Archive (`vocabulariodelas00orte`).
 
 [![CI](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml/badge.svg)](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml)
 
-> **Estado científico: `0.1.0-dev`.** El corpus actual es un inventario computacional inicial. No se afirma validación filológica o lingüística humana independiente.
+> **Estado científico: `0.1.0-dev`, machine-only.** El repositorio no tiene etapa de revisión humana. Ninguna salida se presenta como validación filológica o lingüística humana.
 
-## Fuente y distinción obra/testimonio
+## Estado actual
 
-CHD mantiene separados dos niveles documentales:
-
-- **obra histórica:** José de Ortega, *Vocabulario en lengua castellana y cora*, México, 1732;
-- **testimonio utilizado:** *Vocabulario de las lenguas castellana y cora, reimpresso en Tepic, por orden del Sr. Gral. D. Leopoldo Romano*, Tepic, Imprenta de Antonio Lagaspi, 1888.
-
-La ficha de Open Library/Internet Archive señala que el vocabulario español-cora ocupa las páginas impresas **15–90**. En el PDF digital de 98 páginas, la página impresa 15 corresponde a la página física 19.
-
-## Estado de la ingestión
-
-| Dimensión | Estado `0.1.0-dev` |
+| Dimensión | Estado |
 |---|---:|
 | páginas físicas del PDF | **98** |
-| candidatos computacionales | **2,140** |
-| candidatos con alineación automática de página | **2,105** |
-| alineaciones secuenciales inferidas | **35** |
-| revisión humana independiente | **0** |
+| líneas OCR preservadas | **5,388** |
+| candidatos del cuerpo alfabético | **2,140** |
+| `matched_headword` | **2,131** |
+| `anchored_same_page` | **6** |
+| `inferred_sequence` | **3** |
+| artículos `machine_accepted` esperados | **2,137** |
+| candidatos `machine_uncertain` esperados | **3** |
+| revisión humana dentro del repo | **no existe** |
 
-Los **2,140 candidatos no equivalen todavía a 2,140 entradas históricas**. El OCR contiene pérdidas de separadores, cortes de línea, caracteres espurios y posibles fusiones de artículos; el censo definitivo requiere reconciliación contra página.
+Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. Numerales y verbos/partículas se preservan completos como OCR y tienen inventarios machine-only separados.
 
 ## Arquitectura de evidencia
 
 ```text
-testimonio digital / facsímil
+testimonio digital bloqueado por checksum
         ↓
 OCR bruto preservado
         ↓
-segmentación computacional de candidatos
+ORT1888-cand-######
         ↓
-reconciliación contra evidencia de página
+resolución computacional reproducible
+        ├─ machine_accepted → ORT1888-art-######
+        ├─ machine_uncertain → candidato preservado, sin artículo
+        └─ machine_rejected → candidato preservado como artefacto documentado
         ↓
-artículos lexicográficos canónicos
-        ↓
-capas editoriales, procedencia e incertidumbre
-        ↓
-derivados reproducibles: CSV · JSONL · TEI Lex-0 · CLDF, cuando proceda
+derivados interoperables y releases citables
 ```
 
-Tres reglas gobiernan el corpus: la fuente no se sobrescribe; la procedencia acompaña a cada transformación; la autoridad de una capa está tipada.
+Un caso incierto es un resultado válido. La arquitectura prefiere conservar incertidumbre antes que fabricar completitud.
 
 ## Reproducibilidad
 
-Los archivos binarios de fuente **no se versionan en Git**. El pipeline los descarga desde Internet Archive, registra URLs y SHA-256, produce el OCR y el inventario de candidatos y elimina los binarios antes de confirmar los derivados.
+Los binarios fuente no se versionan. El pipeline descarga PDF y DjVu TXT desde Internet Archive, verifica SHA-256 contra `data/source/source_lock.json`, reconstruye derivados y falla ante deriva de la fuente.
 
 ```bash
 python -m venv .venv
@@ -59,40 +53,33 @@ source .venv/bin/activate
 pip install -r requirements.txt
 make ingest
 make validate
-make reconciliation-queue
+make source-coverage
+make appendix-machine-inventory
+make machine-corpus
 ```
 
-La acción `bootstrap-corpus` ejecuta el proceso de ingestión en GitHub Actions. La acción `qa` valida los candidatos y comprueba que la cola de reconciliación pueda regenerarse de forma completa.
+`qa` ejecuta pruebas, cobertura documental e invariantes de la capa máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; ya no genera facsímiles, formularios ni colas para revisión humana.
 
-## Datos
+## Datos principales
 
-- `data/source/ocr/`: OCR completo y extracción por página;
-- `data/source/source_manifest.json`: procedencia y hashes del testimonio descargado;
-- `data/grammar/`: preliminares y advertencias lingüísticas del testimonio;
-- `data/lexicon/candidates.csv` y `.jsonl`: inventario provisional;
-- `data/reconciliation/`: cola derivada y futuras decisiones humanas de reconciliación;
-- `data/appendices/`: numerales y materiales finales;
-- `schemas/`: contratos de datos iniciales;
-- `reports/`: métricas de ingestión reproducibles.
+- `data/source/ocr/`: OCR completo y extracción textual por página.
+- `data/source/source_manifest.json`: procedencia y hashes.
+- `data/lexicon/candidates.csv` / `.jsonl`: hipótesis de segmentación fuente.
+- `data/lexicon/machine_lexicon.csv` / `.jsonl`: capa machine-only derivada.
+- `data/appendices/machine_inventory.json`: unidades de navegación automática de los apéndices.
+- `reports/machine_resolution.json`: conteos, incertidumbre y política de IDs.
+- `reports/source_coverage.json`: auditoría de conservación completa del testimonio.
 
-## Reconciliación de fronteras
+## Autoridad y límites
 
-La fase 2 ya cuenta con una cola reproducible de revisión humana. `scripts/build_reconciliation_queue.py` prioriza candidatos usando únicamente señales explícitas de extracción y alineación más advertencias superficiales de OCR. El puntaje **no constituye una decisión filológica o lingüística** y todos los elementos de la cola conservan `human_verified=false`.
+`machine_accepted`, `machine_uncertain` y `machine_rejected` son estados computacionales. `human_verified=false` funciona sólo como declaración epistemológica; no es una cola de trabajo ni una condición futura del pipeline.
 
-Las decisiones humanas se registran en una capa distinta conforme a `schemas/reconciliation-decision.schema.json`. El procedimiento completo se documenta en `docs/RECONCILIATION_PROTOCOL.md`.
-
-## Variedad histórica
-
-Ortega distingue tres “ramos” del idioma y declara haber dispuesto el vocabulario según el habla de los **Ateacari**, vinculada por él con las orillas del río de Jesús María. CHD conserva esa afirmación como evidencia histórica del autor y **no asigna automáticamente una variedad o identificador lingüístico contemporáneo** a ese testimonio.
+CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales.
 
 ## Ruta científica
 
-La prioridad actual es reconciliar los 2,140 candidatos contra las páginas del testimonio, detectar omisiones y fusiones y registrar cada decisión con trazabilidad. Solo después se fijarán artículos canónicos con identificadores persistentes `ORT1888-art-######` y se producirán TEI Lex-0, CLDF u otras proyecciones interoperables.
+La siguiente meta es estabilizar la capa machine-only, estructurar automáticamente los apéndices con modelos propios y preparar una release citable con incertidumbre explícita. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
 
-## Licencias
+## Licencias y citación
 
-Código: MIT. Metadatos, anotaciones y derivados originales de CHD: CC BY 4.0 salvo indicación contraria. El texto histórico es de dominio público; CHD no reclama autoría sobre la obra ni sobre la digitalización institucional.
-
-## Citación
-
-Mientras el proyecto permanezca en `0.1.0-dev`, cite el testimonio histórico y el commit utilizado. `CITATION.cff` fija la forma provisional de citar el repositorio; el DOI se incorporará al publicar una release archivada.
+Código: MIT. Metadatos, anotaciones y derivados originales: CC BY 4.0 salvo indicación contraria. La obra histórica es de dominio público; CHD no reclama autoría sobre la digitalización institucional. Mientras el proyecto permanezca en `0.1.0-dev`, cite el testimonio y el commit utilizado; el DOI se añadirá cuando exista una release archivada.

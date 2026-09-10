@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fersandovalgtz/cora-historico-digital/schemas/machine-lexicon-record.schema.json",
+  "title": "CHD Machine Lexicon Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["article_id","candidate_id","order","source_witness_id","source_pdf_page","source_printed_page","source_ocr_line_start","source_ocr_line_end","headword_es_ocr","cora_ocr","raw_span_ocr","separator_type","page_alignment_status","extraction_confidence","machine_status","machine_rationale","authority_status","release_eligible","human_verified"],
+  "properties": {
+    "article_id":{"type":["string","null"],"pattern":"^ORT1888-art-[0-9]{6}$"},
+    "candidate_id":{"type":"string","pattern":"^ORT1888-cand-[0-9]{6}$"},
+    "order":{"type":"integer","minimum":1},"source_witness_id":{"const":"ORTEGA1888-TEPIC-IA"},
+    "source_pdf_page":{"type":"integer","minimum":1},"source_printed_page":{"type":"integer","minimum":1},
+    "source_ocr_line_start":{"type":"integer","minimum":1},"source_ocr_line_end":{"type":"integer","minimum":1},
+    "headword_es_ocr":{"type":"string","minLength":1},"cora_ocr":{"type":"string","minLength":1},"raw_span_ocr":{"type":"string","minLength":1},
+    "separator_type":{"enum":["em_dash","hyphen_variant"]},"page_alignment_status":{"enum":["matched_headword","anchored_same_page","inferred_sequence"]},
+    "extraction_confidence":{"enum":["high","medium","low"]},"machine_status":{"enum":["machine_accepted","machine_uncertain","machine_rejected"]},
+    "machine_rationale":{"type":"string","minLength":1},"authority_status":{"const":"machine_derived"},"release_eligible":{"type":"boolean"},"human_verified":{"const":false}
+  },
+  "allOf": [
+    {"if":{"properties":{"machine_status":{"const":"machine_accepted"}}},"then":{"properties":{"article_id":{"type":"string","pattern":"^ORT1888-art-[0-9]{6}$"},"release_eligible":{"const":true}}}},
+    {"if":{"properties":{"machine_status":{"enum":["machine_uncertain","machine_rejected"]}}},"then":{"properties":{"article_id":{"type":"null"},"release_eligible":{"const":false}}}}
+  ]
+}
