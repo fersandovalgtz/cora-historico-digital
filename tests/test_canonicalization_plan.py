@@ -15,6 +15,7 @@ def candidate(order: int, start: int | None = None, end: int | None = None) -> d
     return {
         "candidate_id": f"ORT1888-cand-{order:06d}",
         "order": str(order),
+        "source_witness_id": "ORTEGA1888-TEPIC-IA",
         "source_pdf_page": str(20 + order),
         "source_printed_page": str(16 + order),
         "page_alignment_status": "matched_headword",
@@ -26,9 +27,14 @@ def candidate(order: int, start: int | None = None, end: int | None = None) -> d
 def decision(number: int, action: str, candidate_ids: list[str], **extra):
     record = {
         "decision_id": f"ORT1888-rec-{number:06d}",
+        "source_witness_id": "ORTEGA1888-TEPIC-IA",
         "action": action,
         "candidate_ids": candidate_ids,
-        "source_pdf_pages": [21],
+        "source_pdf_pages": [21, 22, 23, 24, 25, 26],
+        "reviewer": "Human Reviewer",
+        "reviewed_at": "2026-09-09T18:00:00-06:00",
+        "rationale": "Synthetic human-reviewed test fixture.",
+        "human_verified": True,
     }
     record.update(extra)
     return record
@@ -112,8 +118,9 @@ class CanonicalizationPlanTests(unittest.TestCase):
             build_plan(candidates, decisions)
 
     def test_defer_uncertain_blocks_plan(self):
-        candidates = {candidate(1)["candidate_id"]: candidate(1)}
-        decisions = [decision(1, "defer_uncertain", ["ORT1888-cand-000001"])]
+        row = candidate(1)
+        candidates = {row["candidate_id"]: row}
+        decisions = [decision(1, "defer_uncertain", [row["candidate_id"]])]
         with self.assertRaisesRegex(ValueError, "1 candidates are defer_uncertain"):
             build_plan(candidates, decisions)
 
@@ -170,6 +177,14 @@ class CanonicalizationPlanTests(unittest.TestCase):
         ]
         with self.assertRaisesRegex(ValueError, "candidate order 1 is duplicated"):
             build_plan(candidates, decisions)
+
+    def test_build_plan_rejects_nonhuman_decision_even_when_called_directly(self):
+        row = candidate(1)
+        candidates = {row["candidate_id"]: row}
+        record = decision(1, "accept_boundary", [row["candidate_id"]])
+        record["human_verified"] = False
+        with self.assertRaisesRegex(ValueError, "human_verified must be the JSON boolean true"):
+            build_plan(candidates, [record])
 
 
 if __name__ == "__main__":
