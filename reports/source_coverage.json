@@ -22,7 +22,7 @@
       "source_ocr_line_end": 5244,
       "line_total": 4698,
       "content_role": "alphabetical_vocabulary_body",
-      "structured_status": "machine_candidates_pending_human_reconciliation",
+      "structured_status": "machine_candidates",
       "machine_candidate_total": 2140
     },
     {
@@ -32,7 +32,7 @@
       "source_ocr_line_end": 5327,
       "line_total": 83,
       "content_role": "lexical_numeral_appendix",
-      "structured_status": "raw_ocr_retained_pending_structuring"
+      "structured_status": "raw_ocr_plus_machine_navigation_inventory"
     },
     {
       "partition_id": "irregular_verbs_particles_appendix",
@@ -41,7 +41,7 @@
       "source_ocr_line_end": 5388,
       "line_total": 61,
       "content_role": "lexical_grammatical_appendix",
-      "structured_status": "raw_ocr_retained_pending_structuring"
+      "structured_status": "raw_ocr_plus_machine_navigation_inventory"
     }
   ],
   "coverage": {
@@ -60,7 +60,10 @@
     "alphabetical_body_structured_as_machine_candidates": true,
     "numerals_appendix_structured": false,
     "irregular_verbs_particles_appendix_structured": false,
-    "witness_lexical_content_fully_structured": false
+    "witness_lexical_content_fully_structured": false,
+    "numerals_appendix_machine_inventory": true,
+    "irregular_verbs_particles_appendix_machine_inventory": true,
+    "human_review_stage": false
   },
-  "scope_note": "The ORT1888-cand inventory represents only the alphabetical vocabulary body. The numerals and irregular-verbs/particles appendices are retained as raw OCR but are not yet represented as structured lexical records."
+  "scope_note": "ORT1888-cand covers only the alphabetical vocabulary body. The two appendices retain complete raw OCR and receive separate machine navigation inventories; they are not folded into the alphabetical candidate namespace."
 }

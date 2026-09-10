@@ -23,9 +23,9 @@
   "scope": {
     "machine_candidate_inventory": "alphabetical_lexicon_body_only",
     "alphabetical_body_structured_as_machine_candidates": true,
-    "numerals_appendix_structured": false,
-    "irregular_verbs_particles_appendix_structured": false,
-    "witness_lexical_content_fully_structured": false
+    "appendices_machine_navigation_inventory": true,
+    "witness_lexical_content_fully_canonicalized": false,
+    "human_review_stage": false
   },
   "source_partitions": [
     {
@@ -40,7 +40,7 @@
       "path": "data/source/ocr/lexicon_body_raw.txt",
       "source_ocr_line_start": 547,
       "source_ocr_line_end": 5244,
-      "structured_status": "machine_candidates_pending_human_reconciliation",
+      "structured_status": "machine_candidates",
       "machine_candidate_total": 2140
     },
     {
@@ -48,16 +48,16 @@
       "path": "data/appendices/numerals_ocr.txt",
       "source_ocr_line_start": 5245,
       "source_ocr_line_end": 5327,
-      "structured_status": "raw_ocr_retained_pending_structuring"
+      "structured_status": "raw_ocr_plus_machine_navigation_inventory"
     },
     {
       "partition_id": "irregular_verbs_particles_appendix",
       "path": "data/appendices/irregular_verbs_particles_ocr.txt",
       "source_ocr_line_start": 5328,
       "source_ocr_line_end": 5388,
-      "structured_status": "raw_ocr_retained_pending_structuring"
+      "structured_status": "raw_ocr_plus_machine_navigation_inventory"
     }
   ],
   "source_coverage_report": "reports/source_coverage.json",
-  "epistemic_status": "machine-only alphabetical-body candidate inventory; lexical appendices retained as raw OCR and not yet structured; no independent human validation claimed"
+  "epistemic_status": "machine-only historical-digital corpus; no human-review stage; uncertainty remains explicit and no human philological validation is claimed"
 }

@@ -1,0 +1,26 @@
+{
+  "artifact_type": "machine_resolution_report",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "authority_status": "machine_derived",
+  "human_verified": false,
+  "candidate_total": 2140,
+  "machine_article_total": 2137,
+  "machine_uncertain_total": 3,
+  "machine_rejected_total": 0,
+  "machine_status_counts": {
+    "machine_accepted": 2137,
+    "machine_uncertain": 3
+  },
+  "page_alignment_counts": {
+    "anchored_same_page": 6,
+    "inferred_sequence": 3,
+    "matched_headword": 2131
+  },
+  "machine_uncertain_candidate_ids": [
+    "ORT1888-cand-000342",
+    "ORT1888-cand-001106",
+    "ORT1888-cand-001457"
+  ],
+  "release_policy": "A machine-only release may retain machine_uncertain candidates. Only machine_accepted records receive stable ORT1888-art IDs; uncertainty is preserved rather than guessed.",
+  "id_policy": "Accepted article IDs reuse the six-digit numeric suffix of their source candidate. This prevents renumbering when another candidate later changes machine status."
+}
