@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate source-coverage reconciliation-queue reconciliation-summary inferred-review-batch render-inferred-facsimile human-review-sheet render-page-review-facsimile page-review-sheet validate-reconciliation reconciliation-status canonicalization-plan stats
+.PHONY: ingest validate source-coverage appendix-review-inventory reconciliation-queue reconciliation-summary inferred-review-batch render-inferred-facsimile human-review-sheet render-page-review-facsimile page-review-sheet validate-reconciliation reconciliation-status canonicalization-plan stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -10,6 +10,9 @@ validate:
 
 source-coverage:
 	$(PYTHON) scripts/audit_source_coverage.py
+
+appendix-review-inventory:
+	$(PYTHON) scripts/build_appendix_review_inventory.py
 
 reconciliation-queue:
 	$(PYTHON) scripts/build_reconciliation_queue.py
