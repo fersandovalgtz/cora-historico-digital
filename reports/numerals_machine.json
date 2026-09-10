@@ -1,0 +1,25 @@
+{
+  "artifact_type": "numeral_machine_extraction_report",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "source_path": "data/appendices/numerals_ocr.txt",
+  "authority_status": "machine_derived",
+  "human_verified": false,
+  "source_line_total": 82,
+  "source_nonempty_line_total": 45,
+  "explicit_pair_total": 27,
+  "series_counts": {
+    "animate_count": 2,
+    "frequency_count": 3,
+    "general_count": 22
+  },
+  "separator_counts": {
+    "em_dash": 25,
+    "hyphen_variant": 2
+  },
+  "series_policy": {
+    "general_count": "default series before any explicit source transition",
+    "frequency_count": "begins at the source marker 'Para decir una vez, dos veces, etc. dicen:'",
+    "animate_count": "begins at the source marker 'Para decir dos hombres, tres hombres...'"
+  },
+  "scope_note": "Records represent only explicit separator-bearing Spanish–Cora lines. Narrative instructions, multiplication rules, page numbers and OCR noise remain in the preserved source and navigation inventory; no missing form is inferred."
+}
