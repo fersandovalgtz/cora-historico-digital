@@ -1,0 +1,38 @@
+name: reconciliation-status
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/reconciliation/decisions/*.json'
+      - 'data/reconciliation/decisions/*.jsonl'
+
+permissions:
+  contents: write
+
+jobs:
+  status:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Validate human reconciliation decisions
+        run: python scripts/validate_reconciliation_decisions.py
+      - name: Generate reconciliation coverage report
+        run: python scripts/summarize_reconciliation_status.py --output reports/reconciliation_status.json
+      - name: Commit status report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/reconciliation_status.json
+          if git diff --cached --quiet; then
+            echo 'No reconciliation status changes.'
+          else
+            git commit -m 'Update reconciliation status'
+            git push
+          fi

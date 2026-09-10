@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from validate_reconciliation_decisions import validate_record
+from validate_reconciliation_decisions import validate_collection, validate_record
 
 
 CANDIDATES = {
@@ -93,6 +93,57 @@ class ReconciliationDecisionValidationTests(unittest.TestCase):
             validate_record(record, CANDIDATES),
             "ORT1888-rec-000001",
         )
+
+
+class ReconciliationDecisionCollectionTests(unittest.TestCase):
+    def test_accepts_distinct_decisions_for_distinct_candidates(self):
+        first = valid_record()
+        second = valid_record()
+        second["decision_id"] = "ORT1888-rec-000002"
+        second["candidate_ids"] = ["ORT1888-cand-000002"]
+        second["source_pdf_pages"] = [20]
+        validated = validate_collection(
+            [("first.json", first), ("second.json", second)], CANDIDATES
+        )
+        self.assertEqual(len(validated), 2)
+
+    def test_rejects_duplicate_decision_id_across_files(self):
+        first = valid_record()
+        second = valid_record()
+        second["candidate_ids"] = ["ORT1888-cand-000002"]
+        second["source_pdf_pages"] = [20]
+        with self.assertRaisesRegex(ValueError, "duplicate reconciliation decision_id"):
+            validate_collection(
+                [("first.json", first), ("second.json", second)], CANDIDATES
+            )
+
+    def test_rejects_candidate_reconciled_twice(self):
+        first = valid_record()
+        second = valid_record()
+        second["decision_id"] = "ORT1888-rec-000002"
+        second["action"] = "reject_false_boundary"
+        second["rationale"] = "Second contradictory decision."
+        with self.assertRaisesRegex(ValueError, "reconciled more than once"):
+            validate_collection(
+                [("accept.json", first), ("reject.json", second)], CANDIDATES
+            )
+
+    def test_merge_claims_all_member_candidates(self):
+        merged = valid_record()
+        merged["action"] = "merge_candidates"
+        merged["candidate_ids"] = [
+            "ORT1888-cand-000001",
+            "ORT1888-cand-000002",
+        ]
+        merged["source_pdf_pages"] = [19, 20]
+        later = valid_record()
+        later["decision_id"] = "ORT1888-rec-000002"
+        later["candidate_ids"] = ["ORT1888-cand-000002"]
+        later["source_pdf_pages"] = [20]
+        with self.assertRaisesRegex(ValueError, "ORT1888-cand-000002.*more than once"):
+            validate_collection(
+                [("merge.json", merged), ("later.json", later)], CANDIDATES
+            )
 
 
 if __name__ == "__main__":
