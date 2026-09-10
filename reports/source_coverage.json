@@ -1,23 +1,18 @@
 {
+  "artifact_type": "source_coverage_audit",
   "source_witness_id": "ORTEGA1888-TEPIC-IA",
-  "work_first_printed": 1732,
-  "witness_reprint": 1888,
-  "internet_archive_identifier": "vocabulariodelas00orte",
-  "urls": {
-    "pdf": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte.pdf",
-    "text": "https://archive.org/download/vocabulariodelas00orte/vocabulariodelas00orte_djvu.txt"
-  },
-  "downloaded_sha256": {
-    "djvu_text": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16",
-    "pdf": "d877ed741af7cebc17127c6b24e5a488fdced9d7d78fb6395d497688377c8512"
-  },
-  "checksum_lock": "data/source/source_lock.json",
-  "content_partitions": [
+  "machine_generated": true,
+  "human_verified": false,
+  "full_ocr_path": "data/source/ocr/ortega1888_full_ocr.txt",
+  "full_ocr_line_total": 5388,
+  "partitions": [
     {
       "partition_id": "preliminary_matter",
       "path": "data/grammar/preliminary_ocr.txt",
       "source_ocr_line_start": 1,
       "source_ocr_line_end": 546,
+      "line_total": 546,
+      "content_role": "preliminary_matter",
       "structured_status": "raw_ocr_context"
     },
     {
@@ -25,6 +20,8 @@
       "path": "data/source/ocr/lexicon_body_raw.txt",
       "source_ocr_line_start": 547,
       "source_ocr_line_end": 5244,
+      "line_total": 4698,
+      "content_role": "alphabetical_vocabulary_body",
       "structured_status": "machine_candidates_pending_human_reconciliation",
       "machine_candidate_total": 2140
     },
@@ -33,6 +30,8 @@
       "path": "data/appendices/numerals_ocr.txt",
       "source_ocr_line_start": 5245,
       "source_ocr_line_end": 5327,
+      "line_total": 83,
+      "content_role": "lexical_numeral_appendix",
       "structured_status": "raw_ocr_retained_pending_structuring"
     },
     {
@@ -40,16 +39,28 @@
       "path": "data/appendices/irregular_verbs_particles_ocr.txt",
       "source_ocr_line_start": 5328,
       "source_ocr_line_end": 5388,
+      "line_total": 61,
+      "content_role": "lexical_grammatical_appendix",
       "structured_status": "raw_ocr_retained_pending_structuring"
     }
   ],
-  "structured_scope": {
-    "machine_candidate_inventory": "alphabetical_lexicon_body_only",
+  "coverage": {
+    "contiguous": true,
+    "gap_count": 0,
+    "overlap_count": 0,
+    "derived_partition_files_match_full_ocr": true
+  },
+  "candidate_scope": {
+    "candidate_total": 2140,
+    "candidate_order_min": 1,
+    "candidate_order_max": 2140,
+    "all_candidates_within_alphabetical_body": true
+  },
+  "lexical_scope": {
     "alphabetical_body_structured_as_machine_candidates": true,
     "numerals_appendix_structured": false,
     "irregular_verbs_particles_appendix_structured": false,
     "witness_lexical_content_fully_structured": false
   },
-  "coverage_audit": "reports/source_coverage.json",
-  "note": "Source binaries are downloaded reproducibly, verified against the checksum lock, and are not committed to Git. The 2,140-candidate inventory covers only the alphabetical vocabulary body; lexical appendices remain retained as raw OCR pending separate structuring."
+  "scope_note": "The ORT1888-cand inventory represents only the alphabetical vocabulary body. The numerals and irregular-verbs/particles appendices are retained as raw OCR but are not yet represented as structured lexical records."
 }

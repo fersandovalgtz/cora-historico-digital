@@ -20,5 +20,44 @@
     "page_alignment_inferred": 3,
     "human_verified": 0
   },
-  "epistemic_status": "machine-only candidate inventory; no independent human validation claimed"
+  "scope": {
+    "machine_candidate_inventory": "alphabetical_lexicon_body_only",
+    "alphabetical_body_structured_as_machine_candidates": true,
+    "numerals_appendix_structured": false,
+    "irregular_verbs_particles_appendix_structured": false,
+    "witness_lexical_content_fully_structured": false
+  },
+  "source_partitions": [
+    {
+      "partition_id": "preliminary_matter",
+      "path": "data/grammar/preliminary_ocr.txt",
+      "source_ocr_line_start": 1,
+      "source_ocr_line_end": 546,
+      "structured_status": "raw_ocr_context"
+    },
+    {
+      "partition_id": "alphabetical_lexicon_body",
+      "path": "data/source/ocr/lexicon_body_raw.txt",
+      "source_ocr_line_start": 547,
+      "source_ocr_line_end": 5244,
+      "structured_status": "machine_candidates_pending_human_reconciliation",
+      "machine_candidate_total": 2140
+    },
+    {
+      "partition_id": "numerals_appendix",
+      "path": "data/appendices/numerals_ocr.txt",
+      "source_ocr_line_start": 5245,
+      "source_ocr_line_end": 5327,
+      "structured_status": "raw_ocr_retained_pending_structuring"
+    },
+    {
+      "partition_id": "irregular_verbs_particles_appendix",
+      "path": "data/appendices/irregular_verbs_particles_ocr.txt",
+      "source_ocr_line_start": 5328,
+      "source_ocr_line_end": 5388,
+      "structured_status": "raw_ocr_retained_pending_structuring"
+    }
+  ],
+  "source_coverage_report": "reports/source_coverage.json",
+  "epistemic_status": "machine-only alphabetical-body candidate inventory; lexical appendices retained as raw OCR and not yet structured; no independent human validation claimed"
 }
