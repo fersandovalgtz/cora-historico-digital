@@ -21,6 +21,11 @@ jobs:
       - run: python scripts/validate_candidates.py
       - name: Audit complete OCR source coverage
         run: python scripts/audit_source_coverage.py --output /tmp/source_coverage.json
+      - name: Build appendix structural-review inventory
+        run: |
+          python scripts/build_appendix_review_inventory.py \
+            --output /tmp/appendix_review_inventory.json \
+            --report /tmp/appendix_review_inventory_report.json
       - run: python scripts/build_reconciliation_queue.py --output /tmp/review_queue.csv
       - run: python scripts/summarize_reconciliation_queue.py --input /tmp/review_queue.csv --output /tmp/reconciliation_queue_summary.json
       - run: python scripts/build_inferred_review_batch.py --json-output /tmp/inferred_review_batch.json --markdown-output /tmp/inferred_review_batch.md
@@ -47,6 +52,8 @@ jobs:
           name: phase2-reconciliation-review
           path: |
             /tmp/source_coverage.json
+            /tmp/appendix_review_inventory.json
+            /tmp/appendix_review_inventory_report.json
             /tmp/review_queue.csv
             /tmp/reconciliation_queue_summary.json
             /tmp/inferred_review_batch.json
