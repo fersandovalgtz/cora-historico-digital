@@ -64,6 +64,10 @@ class PageReviewFacsimileTests(unittest.TestCase):
         )
         self.assertEqual(inferred, ["ORT1888-cand-000003"])
 
+    def test_unknown_alignment_status_fails_closed(self):
+        with self.assertRaisesRegex(ValueError, "unsupported bulk-review alignment status"):
+            select_reviewable_rows([candidate(1, 1, "future_status")], set())
+
     def test_packet_renders_each_review_page_once_and_stays_machine_only(self):
         rows = [
             candidate(1, 1),
@@ -83,6 +87,10 @@ class PageReviewFacsimileTests(unittest.TestCase):
         self.assertFalse(manifest["human_verified"])
         self.assertTrue(manifest["facsimile_required"])
         self.assertTrue(manifest["machine_generated"])
+        self.assertEqual(
+            manifest["reviewable_alignment_statuses"],
+            ["anchored_same_page", "matched_headword"],
+        )
         self.assertEqual(manifest["candidate_total"], 5)
         self.assertEqual(manifest["already_reconciled_candidate_total"], 1)
         self.assertEqual(manifest["reviewable_candidate_total"], 3)
