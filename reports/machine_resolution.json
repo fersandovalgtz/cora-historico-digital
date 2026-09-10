@@ -5,11 +5,12 @@
   "human_verified": false,
   "candidate_total": 2140,
   "machine_article_total": 2137,
-  "machine_uncertain_total": 3,
-  "machine_rejected_total": 0,
+  "machine_uncertain_total": 1,
+  "machine_rejected_total": 2,
   "machine_status_counts": {
     "machine_accepted": 2137,
-    "machine_uncertain": 3
+    "machine_rejected": 2,
+    "machine_uncertain": 1
   },
   "page_alignment_counts": {
     "anchored_same_page": 6,
@@ -17,10 +18,12 @@
     "matched_headword": 2131
   },
   "machine_uncertain_candidate_ids": [
-    "ORT1888-cand-000342",
-    "ORT1888-cand-001106",
     "ORT1888-cand-001457"
   ],
-  "release_policy": "A machine-only release may retain machine_uncertain candidates. Only machine_accepted records receive stable ORT1888-art IDs; uncertainty is preserved rather than guessed.",
+  "machine_rejected_candidate_ids": [
+    "ORT1888-cand-000342",
+    "ORT1888-cand-001106"
+  ],
+  "release_policy": "A machine-only release may retain machine_uncertain and machine_rejected source candidates. Only machine_accepted records receive stable ORT1888-art IDs; uncertainty is preserved and rejected segmentation artifacts remain traceable rather than deleted.",
   "id_policy": "Accepted article IDs reuse the six-digit numeric suffix of their source candidate. This prevents renumbering when another candidate later changes machine status."
 }
