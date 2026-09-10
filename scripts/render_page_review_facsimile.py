@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Render full-page facsimile evidence for scalable phase-2 human review.
 
-Only unreconciled candidates with non-inferred page alignment are included. The
-output remains machine evidence (`human_verified=false`); no human decision is
-created by this script.
+Only unreconciled candidates with conservative, non-inferred page alignment are
+included. The output remains machine evidence (`human_verified=false`); no human
+decision is created by this script.
 """
 
 from __future__ import annotations
@@ -23,6 +23,8 @@ from validate_reconciliation_decisions import DECISIONS, iter_records, load_cand
 DEFAULT_CANDIDATES = Path("data/lexicon/candidates.csv")
 DEFAULT_PDF = Path("data/source/original/ortega_cora_1888_ia.pdf")
 DEFAULT_OUTPUT_DIR = Path("artifacts/phase2_page_review")
+BULK_REVIEWABLE_STATUSES = {"matched_headword", "anchored_same_page"}
+INFERRED_STATUS = "inferred_sequence"
 
 
 def as_int(value: object, default: int = 0) -> int:
@@ -72,9 +74,14 @@ def select_reviewable_rows(
         candidate_id = row.get("candidate_id", "")
         if candidate_id in claimed_ids:
             continue
-        if row.get("page_alignment_status") == "inferred_sequence":
+        status = row.get("page_alignment_status", "")
+        if status == INFERRED_STATUS:
             inferred.append(candidate_id)
             continue
+        if status not in BULK_REVIEWABLE_STATUSES:
+            raise ValueError(
+                f"candidate {candidate_id!r} has unsupported bulk-review alignment status {status!r}"
+            )
         reviewable.append(row)
     return reviewable, inferred
 
@@ -106,7 +113,6 @@ def render_page_packet(
         grouped[page].append(row)
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    pages_dir = output_dir / "pages"
     document = fitz.open(pdf_path)
     page_records: list[dict[str, Any]] = []
 
@@ -145,6 +151,7 @@ def render_page_packet(
         "machine_generated": True,
         "human_verified": False,
         "facsimile_required": True,
+        "reviewable_alignment_statuses": sorted(BULK_REVIEWABLE_STATUSES),
         "render_dpi": dpi,
         "candidate_total": len(rows),
         "already_reconciled_candidate_total": len(claimed_ids),
@@ -154,9 +161,10 @@ def render_page_packet(
         "review_page_total": len(page_records),
         "pages": page_records,
         "method_note": (
-            "This packet groups unreconciled non-inferred candidates by physical PDF page for "
-            "human inspection. Page images and candidate metadata are machine-generated evidence; "
-            "no candidate is human-verified until a reviewer explicitly records a decision."
+            "This packet groups unreconciled matched_headword and anchored_same_page candidates "
+            "by physical PDF page for human inspection. Inferred or unknown alignment states never "
+            "enter bulk review. Page images and metadata are machine-generated evidence; no "
+            "candidate is human-verified until a reviewer explicitly records a decision."
         ),
     }
     (output_dir / "page_review_manifest.json").write_text(
