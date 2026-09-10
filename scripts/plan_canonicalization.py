@@ -167,6 +167,10 @@ def build_plan(
     decisions: list[dict[str, Any]],
 ) -> dict[str, Any]:
     """Return a deterministic plan; fail closed unless phase 2 is complete."""
+    decisions = validate_collection(
+        [(f"<in-memory:{index}>", decision) for index, decision in enumerate(decisions, start=1)],
+        candidates,
+    )
     _validate_unique_orders(candidates)
     _validate_complete_coverage(candidates, decisions)
 
