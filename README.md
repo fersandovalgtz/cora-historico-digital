@@ -18,11 +18,12 @@ La implementación inicial trabaja con el *Vocabulario de las lenguas castellana
 | `matched_headword` | **2,131** |
 | `anchored_same_page` | **6** |
 | `inferred_sequence` | **3** |
-| artículos `machine_accepted` esperados | **2,137** |
-| candidatos `machine_uncertain` esperados | **3** |
+| artículos `machine_accepted` | **2,137** |
+| artefactos `machine_rejected` | **2** |
+| candidatos `machine_uncertain` | **1** |
 | revisión humana dentro del repo | **no existe** |
 
-Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. Numerales y verbos/partículas se preservan completos como OCR y tienen inventarios machine-only separados.
+Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto. Numerales y verbos/partículas se preservan completos como OCR y tienen inventarios machine-only separados.
 
 ## Arquitectura de evidencia
 
@@ -41,7 +42,11 @@ resolución computacional reproducible
 derivados interoperables y releases citables
 ```
 
-Un caso incierto es un resultado válido. La arquitectura prefiere conservar incertidumbre antes que fabricar completitud.
+Un caso incierto o rechazado sigue siendo evidencia trazable. La arquitectura prefiere conservar incertidumbre y artefactos fuente antes que fabricar completitud o borrar errores de segmentación.
+
+## Reglas de resolución máquina
+
+Los estados no dependen de juicio humano ni de listas de excepciones por ID. Las coincidencias directas y los anclajes conservadores de misma página producen `machine_accepted`. Una regla estructural adicional detecta ruido OCR situado antes del folio de la página siguiente sólo cuando el candidato es `hyphen_variant`, de baja confianza, queda entre dos anclas directas de páginas consecutivas y su propio span contiene como segmento aislado el número impreso siguiente. Esa regla identifica dos falsos candidatos sin alterar el OCR fuente.
 
 ## Reproducibilidad
 
@@ -67,7 +72,7 @@ make machine-corpus
 - `data/lexicon/candidates.csv` / `.jsonl`: hipótesis de segmentación fuente.
 - `data/lexicon/machine_lexicon.csv` / `.jsonl`: capa machine-only derivada.
 - `data/appendices/machine_inventory.json`: unidades de navegación automática de los apéndices.
-- `reports/machine_resolution.json`: conteos, incertidumbre y política de IDs.
+- `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
 - `reports/source_coverage.json`: auditoría de conservación completa del testimonio.
 
 ## Autoridad y límites
@@ -78,7 +83,7 @@ CHD no es un diccionario normativo del náayeri contemporáneo, no asigna autom�
 
 ## Ruta científica
 
-La siguiente meta es estabilizar la capa machine-only, estructurar automáticamente los apéndices con modelos propios y preparar una release citable con incertidumbre explícita. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
+La siguiente meta es resolver o caracterizar mejor el único candidato `machine_uncertain`, estructurar automáticamente los apéndices con modelos propios y preparar una release citable. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
 
 ## Licencias y citación
 
