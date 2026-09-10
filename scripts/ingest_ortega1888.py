@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from pathlib import Path
 from pypdf import PdfReader
 from urllib.request import Request, urlopen
@@ -189,6 +188,44 @@ counts = {
     'page_alignment_inferred': sum(r['page_alignment_status'] == 'inferred_sequence' for r in rows),
     'human_verified': 0,
 }
+content_partitions = [
+    {
+        'partition_id': 'preliminary_matter',
+        'path': 'data/grammar/preliminary_ocr.txt',
+        'source_ocr_line_start': 1 if start > 0 else None,
+        'source_ocr_line_end': start if start > 0 else None,
+        'structured_status': 'raw_ocr_context',
+    },
+    {
+        'partition_id': 'alphabetical_lexicon_body',
+        'path': 'data/source/ocr/lexicon_body_raw.txt',
+        'source_ocr_line_start': start + 1,
+        'source_ocr_line_end': num,
+        'structured_status': 'machine_candidates_pending_human_reconciliation',
+        'machine_candidate_total': len(rows),
+    },
+    {
+        'partition_id': 'numerals_appendix',
+        'path': 'data/appendices/numerals_ocr.txt',
+        'source_ocr_line_start': num + 1,
+        'source_ocr_line_end': irr,
+        'structured_status': 'raw_ocr_retained_pending_structuring',
+    },
+    {
+        'partition_id': 'irregular_verbs_particles_appendix',
+        'path': 'data/appendices/irregular_verbs_particles_ocr.txt',
+        'source_ocr_line_start': irr + 1,
+        'source_ocr_line_end': len(lines),
+        'structured_status': 'raw_ocr_retained_pending_structuring',
+    },
+]
+structured_scope = {
+    'machine_candidate_inventory': 'alphabetical_lexicon_body_only',
+    'alphabetical_body_structured_as_machine_candidates': True,
+    'numerals_appendix_structured': False,
+    'irregular_verbs_particles_appendix_structured': False,
+    'witness_lexical_content_fully_structured': False,
+}
 report = {
     'project': 'Cora Histórico Digital',
     'version': '0.1.0-dev',
@@ -197,7 +234,10 @@ report = {
     'source_hashes': source_hashes,
     'source_lock': 'data/source/source_lock.json',
     'counts': counts,
-    'epistemic_status': 'machine-only candidate inventory; no independent human validation claimed',
+    'scope': structured_scope,
+    'source_partitions': content_partitions,
+    'source_coverage_report': 'reports/source_coverage.json',
+    'epistemic_status': 'machine-only alphabetical-body candidate inventory; lexical appendices retained as raw OCR and not yet structured; no independent human validation claimed',
 }
 (ROOT / 'reports/ingest_report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 source_manifest = {
@@ -208,7 +248,10 @@ source_manifest = {
     'urls': {'pdf': PDF_URL, 'text': TEXT_URL},
     'downloaded_sha256': source_hashes,
     'checksum_lock': 'data/source/source_lock.json',
-    'note': 'Source binaries are downloaded reproducibly, verified against the checksum lock, and are not committed to Git.',
+    'content_partitions': content_partitions,
+    'structured_scope': structured_scope,
+    'coverage_audit': 'reports/source_coverage.json',
+    'note': 'Source binaries are downloaded reproducibly, verified against the checksum lock, and are not committed to Git. The 2,140-candidate inventory covers only the alphabetical vocabulary body; lexical appendices remain retained as raw OCR pending separate structuring.',
 }
 (ROOT / 'data/source/source_manifest.json').write_text(json.dumps(source_manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(counts, ensure_ascii=False, indent=2))
