@@ -25,11 +25,23 @@ Por tanto, la expresión correcta es:
 
 No debe describirse esa cifra como «2,140 entradas de todo el testimonio» ni como «léxico completo de Ortega 1888».
 
-## Contenido retenido pero pendiente de estructuración
+## Contenido retenido y preestructuración de revisión
 
-Los bloques de numerales y de verbos irregulares/partículas forman parte del contenido léxico-gramatical del testimonio y están preservados como OCR. Todavía no tienen un modelo estructurado propio, IDs canónicos ni reconciliación humana.
+Los bloques de numerales y de verbos irregulares/partículas forman parte del contenido léxico-gramatical del testimonio y están preservados como OCR. No deben incorporarse a `data/lexicon/candidates.csv` mediante la heurística del cuerpo alfabético, porque su organización interna es distinta y hacerlo desestabilizaría la trazabilidad de la fase 2.
 
-No deben incorporarse a `data/lexicon/candidates.csv` mediante la heurística del cuerpo alfabético. Hacerlo alteraría el significado del inventario existente y podría desestabilizar la trazabilidad de la fase 2. Su modelado deberá diseñarse como una fase separada, con un esquema adecuado a cada tipo de contenido y sin renumerar los `ORT1888-cand-######` ya existentes.
+Como paso previo a cualquier segmentación lexicográfica, `scripts/build_appendix_review_inventory.py` transforma **cada párrafo OCR no vacío** en una unidad exhaustiva de navegación para revisión humana. Los IDs `ORT1888-numunit-###` y `ORT1888-irrunit-###` pertenecen exclusivamente a este inventario de máquina y no amplían ni renumeran `ORT1888-cand-######`.
+
+Cada unidad conserva el texto OCR íntegro, el orden dentro de su apéndice, una clasificación automática meramente descriptiva y `human_verified=false`. Las clases pueden señalar, por ejemplo, que un bloque parece contener un separador de equivalencia, prosa instructiva, descripción de partícula o un marcador de página/ruido OCR. Ninguna clase equivale a `accept`, `reject`, `merge`, `split`, corrección de lectura o delimitación canónica.
+
+El inventario se genera con:
+
+```bash
+make appendix-review-inventory
+```
+
+Los productos reproducibles son `data/appendices/review_inventory.json` y `reports/appendix_review_inventory.json`. El `bootstrap-corpus` los regenera después de reconstruir el testimonio y QA produce además copias temporales para verificar que el constructor funciona sobre las particiones vigentes.
+
+Este paso **no significa que los apéndices ya estén estructurados como léxico canónico**. Su función es hacer auditable y manejable la revisión posterior sin imponer prematuramente una ontología de entrada a materiales heterogéneos.
 
 ## Auditoría automática
 
@@ -55,6 +67,6 @@ El reporte de cobertura es una comprobación mecánica de conservación, segment
 El estado actual se expresa explícitamente así:
 
 - cuerpo alfabético: estructurado como candidatos de máquina, pendiente de reconciliación humana;
-- apéndice numeral: OCR retenido, pendiente de estructuración;
-- verbos irregulares y partículas: OCR retenido, pendiente de estructuración;
+- apéndice numeral: OCR retenido y organizado en unidades de revisión de máquina, pendiente de estructura lexicográfica humana;
+- verbos irregulares y partículas: OCR retenido y organizado en unidades de revisión de máquina, pendiente de estructura lexicográfico-gramatical humana;
 - contenido léxico del testimonio completamente estructurado: **no**.
