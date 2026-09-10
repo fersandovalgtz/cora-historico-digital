@@ -6,7 +6,10 @@
 - sustituye la antigua reconciliación humana por una resolución computacional exhaustiva de los 2,140 candidatos;
 - define `machine_accepted`, `machine_uncertain` y `machine_rejected` como estados de autoridad computacional;
 - asigna `ORT1888-art-######` sólo a candidatos aceptados, preservando el sufijo del candidato fuente para estabilidad de IDs;
-- conserva tres `inferred_sequence` como incertidumbre explícita en lugar de fabricar una decisión;
+- mejora la alineación automática hasta **2,131 `matched_headword`**, **6 `anchored_same_page`** y **3 `inferred_sequence`**;
+- incorpora una regla estructural de rechazo para ruido OCR pre-folio, sin listas de excepciones ni juicio lingüístico;
+- clasifica `ORT1888-cand-000342` y `ORT1888-cand-001106` como `machine_rejected` y conserva `ORT1888-cand-001457` como `machine_uncertain`;
+- deja la capa alfabética en **2,137 artículos `machine_accepted` / 2 artefactos `machine_rejected` / 1 candidato `machine_uncertain`**;
 - transforma los apéndices de numerales y verbos/partículas en inventarios machine-only separados;
 - elimina interfaces, facsímiles, colas, schemas, workflows y pruebas cuya única finalidad era revisión humana;
 - elimina `pymupdf` y simplifica QA/bootstrap para reducir dependencias y costo de ejecución;

@@ -4,7 +4,9 @@ Cora Histórico Digital (CHD) is a reproducible **machine-only historical corpus
 
 The repository preserves the source witness, OCR, provenance and uncertainty as separate layers. It contains no human-review stage and does not claim human philological or linguistic validation.
 
-Current baseline: 5,388 OCR lines; 2,140 machine candidates in the alphabetical vocabulary body; 2,131 direct page matches; 6 conservative same-page anchors; 3 `inferred_sequence` cases. Machine resolution promotes reproducibly supported candidates to stable `ORT1888-art-######` IDs and retains unresolved cases as `machine_uncertain` rather than guessing.
+Current baseline: 5,388 OCR lines; 2,140 machine candidates in the alphabetical vocabulary body; 2,131 direct page matches; 6 conservative same-page anchors; and 3 `inferred_sequence` candidates. Machine resolution currently yields **2,137 `machine_accepted` articles, 2 `machine_rejected` segmentation artifacts, and 1 `machine_uncertain` candidate**.
+
+The two rejected candidates match a narrow structural rule for page-top OCR noise: a low-confidence `hyphen_variant` candidate is bracketed by direct matches on consecutive pages and its own OCR span contains the next printed folio number as a standalone segment. Rejected source candidates are retained rather than deleted. The remaining ambiguous candidate is kept explicitly uncertain.
 
 ```bash
 make ingest
