@@ -1,0 +1,677 @@
+{
+  "artifact_type": "appendix_machine_review_inventory",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "machine_generated": true,
+  "human_verified": false,
+  "unit_semantics": "OCR paragraph review units only; unit boundaries are navigation aids, not canonical lexicographic or grammatical boundaries.",
+  "id_policy": "ORT1888-numunit-### and ORT1888-irrunit-### are appendix-local machine review IDs; they do not modify or extend ORT1888-cand-######.",
+  "appendices": [
+    {
+      "appendix_id": "numerals_appendix",
+      "source_path": "data/appendices/numerals_ocr.txt",
+      "unit_count": 32,
+      "units": [
+        {
+          "unit_id": "ORT1888-numunit-001",
+          "appendix_id": "numerals_appendix",
+          "order": 1,
+          "raw_text_ocr": "Cuenta  para  contar  todo  lo  numerable.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-002",
+          "appendix_id": "numerals_appendix",
+          "order": 2,
+          "raw_text_ocr": "Una. — CWut. \nDos. — Huahpoa. \nTres.— Hur/e/ca. \nCuatro. — Moácua, \nCinco. — Amxube. \nSeis. — Acevi. \nSiete.— Ahuapoa.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark",
+            "contains_multiple_separator_like_marks"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-003",
+          "appendix_id": "numerals_appendix",
+          "order": 3,
+          "raw_text_ocr": "■",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-004",
+          "appendix_id": "numerals_appendix",
+          "order": 4,
+          "raw_text_ocr": "89",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-005",
+          "appendix_id": "numerals_appendix",
+          "order": 5,
+          "raw_text_ocr": "Ocho.--— Ahufltf  i  ca .",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark",
+            "contains_multiple_separator_like_marks"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-006",
+          "appendix_id": "numerals_appendix",
+          "order": 6,
+          "raw_text_ocr": "Nueve— sAmoácua.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-007",
+          "appendix_id": "numerals_appendix",
+          "order": 7,
+          "raw_text_ocr": "Diez. — Tamoá  mata.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-008",
+          "appendix_id": "numerals_appendix",
+          "order": 8,
+          "raw_text_ocr": "Once.— >Tamoániata.  apoan.  ceaut:  es  decir,  sobre  diez  uno.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-009",
+          "appendix_id": "numerals_appendix",
+          "order": 9,
+          "raw_text_ocr": "Y  así  van  contando  hasta  veinte  que  dicen: \nVeinte.  —  Ceitevi.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-010",
+          "appendix_id": "numerals_appendix",
+          "order": 10,
+          "raw_text_ocr": "Veinte  y  una.  —  Ceitevi  apoan.   cenut.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-011",
+          "appendix_id": "numerals_appendix",
+          "order": 11,
+          "raw_text_ocr": "Veinte  y  dos. — Ceitevi.  apoan.  Huáppoa.  &.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-012",
+          "appendix_id": "numerals_appendix",
+          "order": 12,
+          "raw_text_ocr": "Treinta. — Ceitevi.  apoan.  tamonmata.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-013",
+          "appendix_id": "numerals_appendix",
+          "order": 13,
+          "raw_text_ocr": "Treinta  y  uno. — Ceitevi.  apoan.   tamoámata.  apoan.  ceaut.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-014",
+          "appendix_id": "numerals_appendix",
+          "order": 14,
+          "raw_text_ocr": "Así  van  contando  hnsta  cuarenta  y  dicen:",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-015",
+          "appendix_id": "numerals_appendix",
+          "order": 15,
+          "raw_text_ocr": "Cuarenta.— ^Huxaci  xa  te  vi.  Huahpoatévi",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-016",
+          "appendix_id": "numerals_appendix",
+          "order": 16,
+          "raw_text_ocr": "Sesenta.  — -Hurt^'catévi.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-017",
+          "appendix_id": "numerals_appendix",
+          "order": 17,
+          "raw_text_ocr": "Ochenta,  r—  Moacuatévi.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-018",
+          "appendix_id": "numerals_appendix",
+          "order": 18,
+          "raw_text_ocr": "Ciento.  ^— Anxutévi.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-019",
+          "appendix_id": "numerals_appendix",
+          "order": 19,
+          "raw_text_ocr": "Dos  cientos. — Tnmoamntatevi.   apoan.  nnsutévi",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-020",
+          "appendix_id": "numerals_appendix",
+          "order": 20,
+          "raw_text_ocr": "Cuatrocientos. — Ceitevi  té  vi.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-021",
+          "appendix_id": "numerals_appendix",
+          "order": 21,
+          "raw_text_ocr": "Y  así  van  multiplicando  hasta  el  número  que  hubieren \nmenester.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-022",
+          "appendix_id": "numerals_appendix",
+          "order": 22,
+          "raw_text_ocr": "Cuando  las  cosas  ó  personas  son  tantas  que  paresen  innu- \nmerables dicen:",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-023",
+          "appendix_id": "numerals_appendix",
+          "order": 23,
+          "raw_text_ocr": "Ceviat  ó  Cemuúti;  que  quiere  decir  una  heredad,  ó  una \ncabeza  con  pelos.",
+          "machine_classification": "unclassified_text_unit",
+          "machine_observations": [
+            "requires_human_structural_review"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-024",
+          "appendix_id": "numerals_appendix",
+          "order": 24,
+          "raw_text_ocr": "Para  decir  una  vez,  dos  veces,  etc.  dicen:",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-025",
+          "appendix_id": "numerals_appendix",
+          "order": 25,
+          "raw_text_ocr": "Una  vez.  — Cevix.  vel.  cóxu.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-026",
+          "appendix_id": "numerals_appendix",
+          "order": 26,
+          "raw_text_ocr": "Dos  veces. --Huappoax.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-027",
+          "appendix_id": "numerals_appendix",
+          "order": 27,
+          "raw_text_ocr": "Y  así  de  los  demás  números  añadiendo  siempre,  según  las \nveces  que  fueren,  una  x  al  número  de  la  cuenta  general.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-028",
+          "appendix_id": "numerals_appendix",
+          "order": 28,
+          "raw_text_ocr": "Diez  veces. — Taomamatax.  &.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-029",
+          "appendix_id": "numerals_appendix",
+          "order": 29,
+          "raw_text_ocr": "Para  decir  dos  hombres,    tres    hombres,  ú  otra  cualquiera",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-030",
+          "appendix_id": "numerals_appendix",
+          "order": 30,
+          "raw_text_ocr": "cosa  animada,  se  dice: \nDos. — Mahuahpoa. \nTres'.-sMahiuzM'ca. ;  y  así  los  demás,   anteponiendo   siem-",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-031",
+          "appendix_id": "numerals_appendix",
+          "order": 31,
+          "raw_text_ocr": "90",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-numunit-032",
+          "appendix_id": "numerals_appendix",
+          "order": 32,
+          "raw_text_ocr": "pre  al  número  la  partícula  Ma.",
+          "machine_classification": "particle_description_like",
+          "machine_observations": [
+            "mentions_particle"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        }
+      ]
+    },
+    {
+      "appendix_id": "irregular_verbs_particles_appendix",
+      "source_path": "data/appendices/irregular_verbs_particles_ocr.txt",
+      "unit_count": 22,
+      "units": [
+        {
+          "unit_id": "ORT1888-irrunit-001",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 1,
+          "raw_text_ocr": "Por  último  pondrá  aqui  algunos  verbos  irregulares,  y \nalgunas  partículas  que  no  han  tenido  lugar  en  el  cuerpo \nde  este  vocabulario.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-002",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 2,
+          "raw_text_ocr": "El  verbo  Arieú,  tiene  solo  dos  personas.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-003",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 3,
+          "raw_text_ocr": "Imperativo. .— Arixu,  Anda  ó  vete. — Arieú,",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark",
+            "contains_multiple_separator_like_marks"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-004",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 4,
+          "raw_text_ocr": "Andad  ó  ¡dos. — Cearicú.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-005",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 5,
+          "raw_text_ocr": "Hahua,  •",
+          "machine_classification": "unclassified_text_unit",
+          "machine_observations": [
+            "requires_human_structural_review"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-006",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 6,
+          "raw_text_ocr": "Estí  a  y  tu  padre? — Necaemaháhua  ayaoppa?",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-007",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 7,
+          "raw_text_ocr": "No  está  ay — Capuh'ihua,  vel.  Capuyahahua.  Caniyá.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-008",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 8,
+          "raw_text_ocr": "Sociégate.  —  Caniyá",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-009",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 9,
+          "raw_text_ocr": "Socegaos. — Cecaniyá.",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-010",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 10,
+          "raw_text_ocr": "Tetákast,  vel.  Putebákazt,  vel.  Tatoan.  Putebákazt.",
+          "machine_classification": "unclassified_text_unit",
+          "machine_observations": [
+            "requires_human_structural_review"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-011",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 11,
+          "raw_text_ocr": "Los  Gobernadores  <jiie  eran. — Timuericat.  Máhtacatziz- \nti.  puri,  quiere  decir  vulgarmente  hablando;  yakstú^dtjníoX",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-012",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 12,
+          "raw_text_ocr": "Poahel,  es  señal  de  admiración,  si  bien  no  se  usa  de  ella \npor  cosas  serias  ni  sagradas.",
+          "machine_classification": "unclassified_text_unit",
+          "machine_observations": [
+            "requires_human_structural_review"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-013",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 13,
+          "raw_text_ocr": "Preguntando  uno  una  adivinanza,  si  no  acierta  el  que \nresponde  le  dice  el  que  pregunta:  Ea,  vel.  Ei.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-014",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 14,
+          "raw_text_ocr": "Che,  es  partícula  de  que  se  usa  en    los   optativos:    Che \nDios  niamuahchéaea,  Dios  te  ame. \nNuca,   k  e  usa  de  él  cuando  sov  tercero  de  otro  que  se  halla.",
+          "machine_classification": "particle_description_like",
+          "machine_observations": [
+            "mentions_particle"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-015",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 15,
+          "raw_text_ocr": "Dice  uno:  Taimevé:  trae  una  lumbre,  le  diré  }7o  al  que \nse  lo  manda:  taitmúca,  lumbre  te  piden.  Ama  tú  á  Dios, \npamuahche  eu  Dios,  y  diré  yo  á  quien  se  lo  dicen,  si  no  lo \noyó  ó  si  no  lo  entendió.  Pamuahche  núc.  en  Dios.  ■",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-016",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 16,
+          "raw_text_ocr": "Llamo  yo  á  uno  por  su  nombre  v.  g.  Miguel,  y  si  él  no \nme  oyó,  le  dice  el  que  me  ha  oydo:  Miguel  nuca.  Ahe  es \npartícula  con  que  saluda  el  que  entra  en  la  casa,  y  el  due- \nño responde.   Ahui.  pícate.",
+          "machine_classification": "narrative_or_grammatical_instruction",
+          "machine_observations": [
+            "prose_instruction_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-017",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 17,
+          "raw_text_ocr": "Cancan — No  es  así?  '-  '  -",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-018",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 18,
+          "raw_text_ocr": "Neriu?— De  verdad?",
+          "machine_classification": "entry_or_example_like",
+          "machine_observations": [
+            "contains_equivalence_separator_like_mark"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-019",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 19,
+          "raw_text_ocr": ":•■  .pin/'  . -...  :::.-v  -.«-yt'l",
+          "machine_classification": "unclassified_text_unit",
+          "machine_observations": [
+            "requires_human_structural_review"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-020",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 20,
+          "raw_text_ocr": "m",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-021",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 21,
+          "raw_text_ocr": "wm",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        },
+        {
+          "unit_id": "ORT1888-irrunit-022",
+          "appendix_id": "irregular_verbs_particles_appendix",
+          "order": 22,
+          "raw_text_ocr": "I",
+          "machine_classification": "page_marker_or_ocr_noise",
+          "machine_observations": [
+            "machine_noise_like"
+          ],
+          "review_status": "pending_human_structural_review",
+          "human_verified": false
+        }
+      ]
+    }
+  ],
+  "total_unit_count": 54,
+  "all_units_pending_human_review": true
+}
