@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/**'
+      - 'schemas/**'
       - 'requirements.txt'
       - 'Makefile'
       - '.github/workflows/bootstrap-corpus.yml'
@@ -29,37 +30,10 @@ jobs:
         run: python scripts/validate_candidates.py
       - name: Audit complete OCR source coverage
         run: python scripts/audit_source_coverage.py
-      - name: Build appendix structural-review inventory
-        run: python scripts/build_appendix_review_inventory.py
-      - name: Validate existing human reconciliation decisions
-        run: python scripts/validate_reconciliation_decisions.py
-      - name: Build unresolved alignment review packet
-        run: |
-          python scripts/build_inferred_review_batch.py \
-            --json-output artifacts/phase2_facsimile_review/inferred_review_batch.json \
-            --markdown-output artifacts/phase2_facsimile_review/inferred_review_batch.md
-      - name: Render locked facsimile evidence
-        run: python scripts/render_inferred_facsimile.py --output-dir artifacts/phase2_facsimile_review
-      - name: Build guarded human review sheet
-        run: python scripts/build_human_review_sheet.py --output artifacts/phase2_facsimile_review/review_sheet.html
-      - name: Upload phase-2 facsimile review packet
-        uses: actions/upload-artifact@v4
-        with:
-          name: phase2-facsimile-review
-          path: artifacts/phase2_facsimile_review
-          if-no-files-found: error
-          retention-days: 30
-      - name: Render scalable page review packet
-        run: python scripts/render_page_review_facsimile.py --output-dir artifacts/phase2_page_review --dpi 120
-      - name: Build page-by-page human review workbench
-        run: python scripts/build_page_review_sheet.py --output artifacts/phase2_page_review/review_sheet.html
-      - name: Upload phase-2 page review workbench
-        uses: actions/upload-artifact@v4
-        with:
-          name: phase2-page-review
-          path: artifacts/phase2_page_review
-          if-no-files-found: error
-          retention-days: 30
+      - name: Build appendix machine inventory
+        run: python scripts/build_appendix_machine_inventory.py
+      - name: Build machine-only lexicon
+        run: python scripts/build_machine_corpus.py
       - name: Remove downloaded source binaries before commit
         run: rm -rf data/source/original
       - name: Commit reproducible derived data
@@ -70,8 +44,8 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No generated changes.'
           else
-            git commit -m 'Build initial Ortega 1888 corpus'
+            git commit -m 'Build Ortega 1888 machine corpus'
             git push
           fi
 
-# Bootstrap pipeline initialized 2026-09-09.
+# Machine-only corpus pipeline; no human-review stage.

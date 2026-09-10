@@ -21,43 +21,33 @@ jobs:
       - run: python scripts/validate_candidates.py
       - name: Audit complete OCR source coverage
         run: python scripts/audit_source_coverage.py --output /tmp/source_coverage.json
-      - name: Build appendix structural-review inventory
-        run: |
-          python scripts/build_appendix_review_inventory.py \
-            --output /tmp/appendix_review_inventory.json \
-            --report /tmp/appendix_review_inventory_report.json
-      - run: python scripts/build_reconciliation_queue.py --output /tmp/review_queue.csv
-      - run: python scripts/summarize_reconciliation_queue.py --input /tmp/review_queue.csv --output /tmp/reconciliation_queue_summary.json
-      - run: python scripts/build_inferred_review_batch.py --json-output /tmp/inferred_review_batch.json --markdown-output /tmp/inferred_review_batch.md
-      - run: python scripts/validate_reconciliation_decisions.py
-      - run: python scripts/summarize_reconciliation_status.py --output /tmp/reconciliation_status.json
-      - name: Verify reconciliation queue completeness
+      - name: Build appendix machine inventory
+        run: python scripts/build_appendix_machine_inventory.py --output /tmp/appendix_machine_inventory.json --report /tmp/appendix_machine_inventory_report.json
+      - name: Build machine-only lexicon
+        run: python scripts/build_machine_corpus.py --jsonl /tmp/machine_lexicon.jsonl --csv /tmp/machine_lexicon.csv --report /tmp/machine_resolution.json
+      - name: Verify machine corpus coverage
         run: |
           python - <<'PY'
-          import csv
-
-          def count(path, encoding):
-              with open(path, encoding=encoding, newline='') as handle:
-                  return sum(1 for _ in csv.DictReader(handle))
-
-          candidates = count('data/lexicon/candidates.csv', 'utf-8-sig')
-          queue = count('/tmp/review_queue.csv', 'utf-8')
-          assert candidates == queue, (candidates, queue)
-          assert queue > 0
-          print(f'reconciliation queue covers {queue} candidates')
+          import csv, json
+          with open('data/lexicon/candidates.csv', encoding='utf-8-sig', newline='') as handle:
+              candidates = list(csv.DictReader(handle))
+          with open('/tmp/machine_lexicon.jsonl', encoding='utf-8') as handle:
+              records = [json.loads(line) for line in handle if line.strip()]
+          assert len(candidates) == len(records) > 0
+          assert all(record['human_verified'] is False for record in records)
+          assert all(record['authority_status'] == 'machine_derived' for record in records)
+          print(f'machine layer covers all {len(records)} candidates')
           PY
-      - name: Upload phase-2 review artifacts
+      - name: Upload machine QA artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: phase2-reconciliation-review
+          name: machine-corpus-qa
           path: |
             /tmp/source_coverage.json
-            /tmp/appendix_review_inventory.json
-            /tmp/appendix_review_inventory_report.json
-            /tmp/review_queue.csv
-            /tmp/reconciliation_queue_summary.json
-            /tmp/inferred_review_batch.json
-            /tmp/inferred_review_batch.md
-            /tmp/reconciliation_status.json
+            /tmp/appendix_machine_inventory.json
+            /tmp/appendix_machine_inventory_report.json
+            /tmp/machine_lexicon.jsonl
+            /tmp/machine_lexicon.csv
+            /tmp/machine_resolution.json
           if-no-files-found: error
           retention-days: 30
