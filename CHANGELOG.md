@@ -1,5 +1,15 @@
 # Changelog
 
+## Post-release metadata hygiene — 2026-09-11
+
+- actualiza la documentación pública para reflejar que `v0.1.0` ya fue publicada y elimina referencias obsoletas a `0.1.0-dev` como estado vigente;
+- amplía la procedencia bibliográfica distinguiendo obra original de 1732, reimpresión/testimonio de Tepic de 1888, ejemplar de la John Carter Brown Library, objeto digital de Internet Archive y derivados de CHD;
+- documenta la procedencia del ejemplar de la John Carter Brown Library asociada a Nicolás León y el identificador/ARK del objeto digital;
+- incorpora la edición original de 1732 a la bibliografía CLDF sin reemplazar la referencia primaria al testimonio de 1888 utilizado por el pipeline;
+- mejora `CITATION.cff`, CodeMeta, `DATASHEET.md`, `PROVENANCE.md` y la autoevaluación FAIR;
+- mantiene el DOI como pendiente externo: no se inventa ni anticipa ningún identificador persistente;
+- conserva intacta la etiqueta científica `v0.1.0`; estos ajustes en `main` son higiene documental posterior y no reescriben el snapshot publicado.
+
 ## `0.1.0` — 2026-09-11
 
 - incorpora una proyección regenerable de la capa alfabética a **TEI Lex-0 0.9.5**;
