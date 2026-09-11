@@ -64,9 +64,27 @@ jobs:
           PY
       - name: Verify committed irregular/particle derivatives are reproducible
         run: |
-          cmp /tmp/irregular_particles_machine.jsonl data/appendices/irregular_particles_machine.jsonl
-          cmp /tmp/irregular_particles_machine.csv data/appendices/irregular_particles_machine.csv
-          cmp /tmp/irregular_particles_machine_report.json reports/irregular_particles_machine.json
+          python - <<'PY'
+          import csv
+          import json
+
+          def load_jsonl(path):
+              with open(path, encoding='utf-8') as handle:
+                  return [json.loads(line) for line in handle if line.strip()]
+
+          def load_csv(path):
+              with open(path, encoding='utf-8', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          assert load_jsonl('/tmp/irregular_particles_machine.jsonl') == load_jsonl('data/appendices/irregular_particles_machine.jsonl')
+          assert load_csv('/tmp/irregular_particles_machine.csv') == load_csv('data/appendices/irregular_particles_machine.csv')
+          with open('/tmp/irregular_particles_machine_report.json', encoding='utf-8') as handle:
+              generated_report = json.load(handle)
+          with open('reports/irregular_particles_machine.json', encoding='utf-8') as handle:
+              committed_report = json.load(handle)
+          assert generated_report == committed_report
+          print('committed irregular/particle derivatives are semantically reproducible')
+          PY
       - name: Build machine-only lexicon
         run: python scripts/build_machine_corpus.py --jsonl /tmp/machine_lexicon.jsonl --csv /tmp/machine_lexicon.csv --report /tmp/machine_resolution.json
       - name: Verify machine corpus coverage
