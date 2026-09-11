@@ -144,7 +144,7 @@ make cldf-dictionary
 - `data/interoperability/cldf/senses.csv`: 2,137 descripciones Cora/Náayeri no segmentadas.
 - `data/interoperability/cldf/languages.csv`: lenguas `spa` y `crn`.
 - `data/interoperability/cldf/residuals.csv`: 3 candidatos no promovidos, conservados como evidencia.
-- `data/interoperability/cldf/sources.bib`: referencias bibliográficas de la obra de 1732 y del testimonio de 1888.
+- `data/interoperability/cldf/sources.bib`: referencia bibliográfica del testimonio de 1888 usado por la proyección CLDF.
 - `reports/numerals_machine.json`: métricas y política de extracción numeral.
 - `reports/irregular_particles_machine.json`: cobertura y distribución de tipos del apéndice gramatical.
 - `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
@@ -176,4 +176,4 @@ Para citar CHD antes de que exista DOI, use la versión y la URL de la release:
 
 > Sandoval Gutiérrez, Fernando. 2026. *Cora Histórico Digital*. Version 0.1.0. Dataset/corpus histórico-digital. GitHub. https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0
 
-Cuando el uso dependa de las formas históricas, cite además el testimonio de Ortega de 1888 y, cuando corresponda al argumento histórico-bibliográfico, la edición original de 1732. `CITATION.cff` contiene los metadatos del proyecto; `data/interoperability/cldf/sources.bib` contiene las referencias de la fuente histórica.
+Cuando el uso dependa de las formas históricas, cite además el testimonio de Ortega de 1888 y, cuando corresponda al argumento histórico-bibliográfico, la edición original de 1732. `CITATION.cff` contiene los metadatos del proyecto; `PROVENANCE.md` documenta la historia bibliográfica y `data/interoperability/cldf/sources.bib` conserva la referencia del testimonio de 1888 empleado por la proyección CLDF.
