@@ -1,0 +1,384 @@
+{
+    "@context": [
+        "http://www.w3.org/ns/csvw",
+        {
+            "@language": "en"
+        }
+    ],
+    "dc:bibliographicCitation": "Ortega, Jos\u00e9 de. 1888. Vocabulario de las lenguas castellana y cora. Reimpresi\u00f3n de Tepic: Imprenta de Antonio Lagaspi. Machine-only CLDF projection by Cora Hist\u00f3rico Digital.",
+    "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#Dictionary",
+    "dc:creator": "Cora Hist\u00f3rico Digital",
+    "dc:identifier": "https://github.com/fersandovalgtz/cora-historico-digital",
+    "dc:license": "https://creativecommons.org/licenses/by/4.0/",
+    "dc:source": "sources.bib",
+    "dc:title": "Cora Hist\u00f3rico Digital \u2014 Ortega 1888 CLDF Dictionary projection",
+    "rdf:ID": "cora-historico-digital-ortega1888",
+    "tables": [
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#EntryTable",
+            "dc:extent": 2137,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#languageReference",
+                        "required": true,
+                        "name": "Language_ID"
+                    },
+                    {
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#headword",
+                        "required": true,
+                        "name": "Headword"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#partOfSpeech",
+                        "required": false,
+                        "name": "Part_Of_Speech"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "separator": ";",
+                        "name": "Source"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Candidate_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Source_Witness_ID"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "CHD_Source_PDF_Page"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Source_Printed_Page"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "CHD_Source_OCR_Line_Start"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "CHD_Source_OCR_Line_End"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Raw_Span_OCR"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Separator_Type"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Page_Alignment_Status"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Extraction_Confidence"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Machine_Status"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Machine_Rationale"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Authority_Status"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "CHD_Release_Eligible"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "CHD_Human_Verified"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "entries.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#SenseTable",
+            "dc:extent": 2137,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#description",
+                        "required": true,
+                        "name": "Description"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#entryReference",
+                        "required": true,
+                        "name": "Entry_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Description_Language_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Candidate_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "CHD_Authority_Status"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "CHD_Human_Verified"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Entry_ID"
+                        ],
+                        "reference": {
+                            "resource": "entries.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Description_Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "senses.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable",
+            "dc:extent": 2,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
+                        "required": false,
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#macroarea",
+                        "required": false,
+                        "name": "Macroarea"
+                    },
+                    {
+                        "datatype": {
+                            "base": "decimal",
+                            "minimum": "-90",
+                            "maximum": "90"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#latitude",
+                        "required": false,
+                        "name": "Latitude"
+                    },
+                    {
+                        "datatype": {
+                            "base": "decimal",
+                            "minimum": "-180",
+                            "maximum": "180"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#longitude",
+                        "required": false,
+                        "name": "Longitude"
+                    },
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-z0-9]{4}[1-9][0-9]{3}"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#glottocode",
+                        "required": false,
+                        "valueUrl": "http://glottolog.org/resource/languoid/id/{Glottocode}",
+                        "name": "Glottocode"
+                    },
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-z]{3}"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code",
+                        "required": false,
+                        "name": "ISO639P3code"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "languages.csv"
+        },
+        {
+            "dc:description": "Machine-uncertain and machine-rejected CHD candidates retained as documentary evidence; rows in this table are not CLDF dictionary entries.",
+            "dc:extent": 3,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "separator": ";",
+                        "name": "Source"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "Order"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Headword_ES_OCR"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Cora_OCR"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Raw_Span_OCR"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Source_Witness_ID"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "Source_PDF_Page"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Source_Printed_Page"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "Source_OCR_Line_Start"
+                    },
+                    {
+                        "datatype": "integer",
+                        "name": "Source_OCR_Line_End"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Separator_Type"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Page_Alignment_Status"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Extraction_Confidence"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Machine_Status"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Machine_Rationale"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Authority_Status"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "Human_Verified"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "residuals.csv"
+        }
+    ]
+}

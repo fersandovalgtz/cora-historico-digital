@@ -1,0 +1,4 @@
+ID,Source,Order,Headword_ES_OCR,Cora_OCR,Raw_Span_OCR,Source_Witness_ID,Source_PDF_Page,Source_Printed_Page,Source_OCR_Line_Start,Source_OCR_Line_End,Separator_Type,Page_Alignment_Status,Extraction_Confidence,Machine_Status,Machine_Rationale,Authority_Status,Human_Verified
+ORT1888-cand-000342,Ortega1888[26],342,mu,*n,mu-*n | 27,ORTEGA1888-TEPIC-IA,30,26,1197,1202,hyphen_variant,inferred_sequence,low,machine_rejected,prefolio_noise_between_consecutive_direct_page_anchors,machine_derived,false
+ORT1888-cand-001106,Ortega1888[52],1106,f^y,rziiix,f^y-^rziiix | 53,ORTEGA1888-TEPIC-IA,56,52,2884,2889,hyphen_variant,inferred_sequence,low,machine_rejected,prefolio_noise_between_consecutive_direct_page_anchors,machine_derived,false
+ORT1888-cand-001457,Ortega1888[64],1457,I,Nteanhtealía,I. — Nteanhtealía | Nete. | Tinuiabcheactzi.,ORTEGA1888-TEPIC-IA,68,64,3649,3654,em_dash,inferred_sequence,medium,machine_uncertain,page_alignment_unresolved,machine_derived,false

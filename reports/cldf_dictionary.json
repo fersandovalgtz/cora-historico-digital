@@ -1,0 +1,24 @@
+{
+  "artifact_type": "cldf_dictionary_projection_report",
+  "target_cldf_spec": "1.3",
+  "module": "Dictionary",
+  "metadata_path": "data/interoperability/cldf/Dictionary-metadata.json",
+  "source_path": "data/lexicon/machine_lexicon.csv",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "source_record_total": 2140,
+  "entry_total": 2137,
+  "sense_total": 2137,
+  "residual_total": 3,
+  "machine_status_counts": {
+    "machine_accepted": 2137,
+    "machine_rejected": 2,
+    "machine_uncertain": 1
+  },
+  "entry_language_id": "spa",
+  "sense_description_language_id": "crn",
+  "authority_status": "machine_derived",
+  "human_verified": false,
+  "validation": "pycldf Dataset.validate() passed",
+  "projection_policy": "Each machine_accepted article becomes one EntryTable row and exactly one SenseTable row whose Description is the complete cora_ocr field. No sense or equivalent splitting occurs. Non-accepted candidates remain in residuals.csv.",
+  "normalization_policy": "headword_es_ocr, cora_ocr and raw_span_ocr are preserved without OCR correction, modern spelling normalization, dialect reassignment or grammatical inference."
+}
