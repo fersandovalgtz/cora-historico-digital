@@ -2,10 +2,12 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "Cora Histórico Digital",
-  "description": "Infraestructura reproducible para edición histórico-digital y procesamiento computacional de un vocabulario cora histórico.",
+  "description": "Infraestructura reproducible y corpus histórico-digital machine-only derivado de la reimpresión de Tepic de 1888 del vocabulario cora de José de Ortega, obra impresa originalmente en México en 1732. Conserva procedencia, incertidumbre OCR y autoridad computacional, y ofrece vistas validadas TEI Lex-0 y CLDF.",
   "version": "0.1.0",
   "dateCreated": "2026-09-09",
+  "dateModified": "2026-09-11",
   "codeRepository": "https://github.com/fersandovalgtz/cora-historico-digital",
+  "url": "https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0",
   "license": "https://spdx.org/licenses/MIT.html",
   "author": [{
     "@type": "Person",
@@ -14,5 +16,17 @@
     "id": "https://orcid.org/0000-0002-3168-6725"
   }],
   "programmingLanguage": "Python",
-  "keywords": ["Cora", "historical lexicography", "digital humanities", "missionary linguistics", "reproducibility"]
+  "isBasedOn": "https://archive.org/details/vocabulariodelas00orte",
+  "keywords": [
+    "Cora",
+    "Náayeri",
+    "historical lexicography",
+    "digital humanities",
+    "missionary linguistics",
+    "indigenous languages",
+    "low-resource languages",
+    "TEI Lex-0",
+    "CLDF",
+    "reproducibility"
+  ]
 }
