@@ -26,4 +26,12 @@ Cada registro conserva línea de origen, expresiones OCR castellana y cora, sepa
 
 No se incluye todavía un campo de valor numérico normalizado. Si se añade posteriormente, deberá ser una capa derivada separada y no sustituirá `spanish_expression_ocr` ni `cora_expression_ocr`.
 
-Los productos interoperables deben regenerarse desde estas capas y conservar procedencia, estructura documental y autoridad.
+## Registros de verbos irregulares y partículas
+`schemas/irregular-particle-machine-record.schema.json` modela el apéndice heterogéneo de verbos irregulares y partículas a escala de párrafo OCR. Los IDs `ORT1888-irr-###` siguen el orden documental y enlazan uno-a-uno con los IDs de navegación `ORT1888-irrunit-###`.
+
+Cada registro conserva `raw_text_ocr`, span de líneas, observaciones superficiales y un `record_type` documental. Los tipos admitidos son `imperative_example`, `expression_example`, `particle_description`, `irregular_verb_description`, `form_cluster`, `explanatory_prose` y `ocr_noise`.
+
+Estos tipos no constituyen una gramática moderna ni una edición crítica. Son clasificaciones computacionales reproducibles para preservar heterogeneidad y permitir proyecciones posteriores sin forzar el apéndice al modelo del vocabulario alfabético.
+
+## Regla para vistas interoperables
+TEI Lex-0, CLDF u otros formatos deben generarse como proyecciones derivadas. Ninguna vista interoperable sustituirá los objetos internos ni podrá omitir procedencia, autoridad computacional, estado de incertidumbre o vínculo con el OCR fuente.
