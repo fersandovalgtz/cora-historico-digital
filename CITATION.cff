@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this repository, cite Cora Histórico Digital version 0.1.0 (or the exact version/commit consulted) and cite the Ortega 1888 historical witness when your analysis depends on source forms."
+message: "If you use this repository, cite Cora Histórico Digital version 0.1.0 using DOI 10.5281/zenodo.22712736."
 title: "Cora Histórico Digital"
 type: dataset
 abstract: "Reproducible machine-only historical-digital corpus derived from the 1888 Tepic reprint of José de Ortega's Cora vocabulary, first printed in Mexico in 1732. The project preserves provenance, OCR uncertainty and computational authority and provides validated TEI Lex-0 and CLDF views."
@@ -9,9 +9,10 @@ authors:
     orcid: "https://orcid.org/0000-0002-3168-6725"
 version: "0.1.0"
 date-released: "2026-09-11"
+doi: "10.5281/zenodo.22712736"
 license: "CC-BY-4.0"
 repository-code: "https://github.com/fersandovalgtz/cora-historico-digital"
-url: "https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0"
+url: "https://doi.org/10.5281/zenodo.22712736"
 keywords:
   - Cora
   - Náayeri
