@@ -28,7 +28,7 @@ jobs:
       - name: Verify numeral machine invariants
         run: |
           python - <<'PY'
-          import csv, json
+          import json
           with open('/tmp/numerals_machine.jsonl', encoding='utf-8') as handle:
               records = [json.loads(line) for line in handle if line.strip()]
           with open('/tmp/numerals_machine_report.json', encoding='utf-8') as handle:
@@ -100,6 +100,62 @@ jobs:
           assert all(record['authority_status'] == 'machine_derived' for record in records)
           print(f'machine layer covers all {len(records)} candidates')
           PY
+      - name: Build TEI Lex-0 projection
+        run: python scripts/build_tei_lex0.py --source /tmp/machine_lexicon.csv --output /tmp/ortega1888_tei_lex0.xml --report /tmp/tei_lex0_report.json
+      - name: Verify TEI Lex-0 projection invariants
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          import xml.etree.ElementTree as ET
+
+          TEI = 'http://www.tei-c.org/ns/1.0'
+          XML = 'http://www.w3.org/XML/1998/namespace'
+          q = lambda name: f'{{{TEI}}}{name}'
+
+          with open('/tmp/machine_lexicon.csv', encoding='utf-8-sig', newline='') as handle:
+              source = list(csv.DictReader(handle))
+          accepted = [r for r in source if r['machine_status'] == 'machine_accepted']
+          residual = [r for r in source if r['machine_status'] != 'machine_accepted']
+          source_by_article = {r['article_id']: r for r in accepted}
+
+          root = ET.parse('/tmp/ortega1888_tei_lex0.xml').getroot()
+          assert root.tag == q('TEI')
+          assert root.attrib['type'] == 'lex-0'
+          entries = root.findall(f".//{q('body')}/{q('entry')}")
+          residual_items = root.findall(f".//{q('back')}//{q('item')}")
+          assert len(entries) == len(accepted) == 2137
+          assert len(residual_items) == len(residual) == 3
+          assert {e.attrib[f'{{{XML}}}id'] for e in entries} == set(source_by_article)
+
+          for entry in entries:
+              article_id = entry.attrib[f'{{{XML}}}id']
+              row = source_by_article[article_id]
+              lemma = entry.find(f"./{q('form')}/{q('orth')}")
+              cit = entry.find(f"./{q('sense')}/{q('cit')}[@type='translationEquivalent']")
+              translated = cit.find(f"./{q('form')}/{q('orth')}")
+              assert entry.attrib[f'{{{XML}}}lang'] == 'es'
+              assert entry.attrib['type'] == 'mainEntry'
+              assert entry.attrib['corresp'] == f"urn:chd:{row['candidate_id']}"
+              assert lemma.text == row['headword_es_ocr']
+              assert cit.attrib[f'{{{XML}}}lang'] == 'crn'
+              assert translated.text == row['cora_ocr']
+
+          with open('/tmp/tei_lex0_report.json', encoding='utf-8') as handle:
+              report = json.load(handle)
+          assert report['source_record_total'] == len(source) == 2140
+          assert report['entry_total'] == 2137
+          assert report['residual_total'] == 3
+          assert report['machine_status_counts'] == {
+              'machine_accepted': 2137,
+              'machine_rejected': 2,
+              'machine_uncertain': 1,
+          }
+          assert report['object_language'] == 'es'
+          assert report['target_language'] == 'crn'
+          assert report['human_verified'] is False
+          print('TEI Lex-0 projection preserves all accepted entries and all residual machine candidates')
+          PY
       - name: Upload machine QA artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -117,5 +173,7 @@ jobs:
             /tmp/machine_lexicon.jsonl
             /tmp/machine_lexicon.csv
             /tmp/machine_resolution.json
+            /tmp/ortega1888_tei_lex0.xml
+            /tmp/tei_lex0_report.json
           if-no-files-found: error
           retention-days: 30
