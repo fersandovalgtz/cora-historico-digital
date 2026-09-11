@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml/badge.svg)](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml)
 [![Release](https://img.shields.io/github/v/release/fersandovalgtz/cora-historico-digital)](https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22712736.svg)](https://doi.org/10.5281/zenodo.22712736)
 
 > **Estado científico: `v0.1.0`, release pública, machine-only.** El repositorio no contiene una etapa de revisión humana. Ninguna salida se presenta como validación filológica o lingüística humana, diccionario normativo contemporáneo ni edición crítica.
 
@@ -158,11 +159,13 @@ make cldf-dictionary
 
 CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales. En CLDF, una fila de `SenseTable` por artículo es una representación documental del equivalente OCR completo, no una afirmación de que cada artículo posea lingüísticamente un único sentido.
 
-## Release científica
+## Release científica y preservación
 
 La versión pública actual es **[`v0.1.0`](https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0)**, publicada el **11 de septiembre de 2026**. La release fija un snapshot científico reproducible e incluye manifiesto de integridad y `SHA256SUMS`.
 
-El siguiente paso de preservación es el depósito en un archivador externo y el registro de un **DOI real** cuando sea emitido. El repositorio no anticipa ni inventa identificadores persistentes. La etiqueta `v0.1.0` permanece como snapshot científico; cualquier actualización posterior de metadatos en `main` no reescribe retroactivamente ese tag.
+La versión `0.1.0` está archivada en **Zenodo** con DOI de versión **[10.5281/zenodo.22712736](https://doi.org/10.5281/zenodo.22712736)**. El DOI conceptual **[10.5281/zenodo.22712735](https://doi.org/10.5281/zenodo.22712735)** representa la familia de versiones y resuelve a la versión más reciente disponible.
+
+La etiqueta `v0.1.0` permanece como snapshot científico inmutable; cualquier actualización posterior de metadatos en `main` no reescribe retroactivamente ese tag ni los artefactos científicos congelados.
 
 Nuevos formatos, normalizaciones o integraciones sólo se justificarán si añaden valor científico concreto. La prioridad es explotar el activo ya estable mediante citación, reutilización docente e institucional, investigación, curación/consultoría y colaboraciones financiadas, evitando elevar innecesariamente el costo marginal del proyecto.
 
@@ -172,8 +175,10 @@ Nuevos formatos, normalizaciones o integraciones sólo se justificarán si añad
 - Metadatos, anotaciones y derivados originales de CHD: **CC BY 4.0**, salvo indicación contraria.
 - La obra histórica se encuentra en dominio público; CHD no reclama autoría ni propiedad sobre la digitalización institucional de la John Carter Brown Library / Internet Archive.
 
-Para citar CHD antes de que exista DOI, use la versión y la URL de la release:
+Para citar exactamente la versión `0.1.0`, use el DOI de versión:
 
-> Sandoval Gutiérrez, Fernando. 2026. *Cora Histórico Digital*. Version 0.1.0. Dataset/corpus histórico-digital. GitHub. https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0
+> Sandoval Gutiérrez, Fernando. 2026. *Cora Histórico Digital*. Version 0.1.0. Dataset/corpus histórico-digital. Zenodo. https://doi.org/10.5281/zenodo.22712736
+
+Para referirse al proyecto o a la familia de versiones sin fijar una versión concreta, puede usarse el DOI conceptual `10.5281/zenodo.22712735`.
 
 Cuando el uso dependa de las formas históricas, cite además el testimonio de Ortega de 1888 y, cuando corresponda al argumento histórico-bibliográfico, la edición original de 1732. `CITATION.cff` contiene los metadatos del proyecto; `PROVENANCE.md` documenta la historia bibliográfica y `data/interoperability/cldf/sources.bib` conserva la referencia del testimonio de 1888 empleado por la proyección CLDF.

@@ -6,6 +6,8 @@
   "version": "0.1.0",
   "dateCreated": "2026-09-09",
   "dateModified": "2026-09-11",
+  "identifier": "https://doi.org/10.5281/zenodo.22712735",
+  "citation": "https://doi.org/10.5281/zenodo.22712736",
   "codeRepository": "https://github.com/fersandovalgtz/cora-historico-digital",
   "url": "https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0",
   "license": "https://spdx.org/licenses/MIT.html",
