@@ -25,6 +25,7 @@ LEX0_VERSION = "0.9.5"
 OBJECT_LANGUAGE = "es"
 TARGET_LANGUAGE = "crn"
 SOURCE_WITNESS_ID = "ORTEGA1888-TEPIC-IA"
+SOURCE_WITNESS_URL = "https://archive.org/details/vocabulariodelas00orte"
 
 ET.register_namespace("", TEI_NS)
 
@@ -147,9 +148,9 @@ def add_header(root: ET.Element, accepted_count: int, residual_count: int) -> No
     text_element(imprint, "date", "1888", when="1888")
     text_element(
         bibl_struct,
-        "idno",
-        "https://archive.org/details/vocabulariodelas00orte",
-        type="URI",
+        "ref",
+        "Internet Archive digital witness",
+        target=SOURCE_WITNESS_URL,
     )
 
     encoding_desc = ET.SubElement(header, q("encodingDesc"))
