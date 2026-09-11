@@ -16,22 +16,24 @@ El apéndice numeral conserva su inventario OCR íntegro y añade una representa
 ### 3B. Verbos irregulares y partículas — completada
 El apéndice se representa mediante **22 unidades documentales `ORT1888-irr-###`**, enlazadas uno-a-uno con `ORT1888-irrunit-###`. La tipificación machine-only distingue ejemplos imperativos, expresiones, descripciones de partículas, descripción de verbo irregular, grupos de formas, prosa explicativa y ruido OCR. Cada registro conserva texto OCR y span de líneas; las categorías son documentales, no análisis lingüísticos normalizados.
 
-## Fase 4 — interoperabilidad — activa
+## Fase 4 — interoperabilidad — completada
 
 ### 4A. TEI Lex-0 — completada
 La vista derivada orientada a **TEI Lex-0 0.9.5** proyecta los 2,137 registros `machine_accepted` como entradas castellanas con equivalentes cora/náayeri (`crn`) sin normalizar OCR. Los 3 registros residuales permanecen visibles como evidencia documental y no se promueven a entradas.
 
-La proyección preserva IDs, `headword_es_ocr`, `cora_ocr`, procedencia y autoridad machine-only; se regenera desde las capas internas y valida formalmente con Jing contra el Relax NG oficial archivado de TEI Lex-0 0.9.5. El schema queda fijado por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa`; QA y bootstrap deben fallar si cambia el schema o si el XML deja de validar.
+La proyección preserva IDs, `headword_es_ocr`, `cora_ocr`, procedencia y autoridad machine-only; se regenera desde las capas internas y valida formalmente con Jing contra el Relax NG oficial archivado de TEI Lex-0 0.9.5. El schema queda fijado por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa`; QA y bootstrap fallan si cambia el schema o si el XML deja de validar.
 
-### 4B. CLDF Dictionary — activa
-Evaluar e implementar una segunda vista derivada mediante el módulo **CLDF Dictionary**, no `Wordlist`. El mapeo base debe usar `EntryTable` y `SenseTable` sin inventar segmentación semántica: cada artículo aceptado conservará su ID estable y su lema OCR castellano, mientras el equivalente cora/náayeri se representará en la capa de sentido únicamente en la medida permitida por el contrato CLDF.
+### 4B. CLDF Dictionary — completada
+La segunda vista derivada usa el módulo **CLDF Dictionary**, no `Wordlist`. Proyecta **2,137 `EntryTable` rows** con lema OCR castellano (`spa`) y **2,137 `SenseTable` rows** uno-a-uno cuya `Description` conserva íntegramente `cora_ocr` y se identifica como `crn`. La relación 1:1 es documental: no divide equivalentes ni infiere polisemia.
 
-Las extensiones CHD deberán preservar OCR literal, procedencia, páginas, candidato fuente, autoridad `machine_derived` y `human_verified=false`. Los 3 registros residuales no deberán presentarse como entradas lexicográficas válidas; si CLDF no ofrece una representación estándar adecuada, se conservarán en una tabla de extensión documental explícitamente no léxica.
+Las columnas CHD adicionales preservan candidato fuente, OCR, páginas, líneas, alineación, confianza, racional computacional, autoridad `machine_derived`, elegibilidad y `human_verified=false`. Los **3 candidatos residuales** se conservan en `residuals.csv`, tabla CSVW explícitamente no léxica, y nunca se presentan como entradas. El dataset se regenera desde la capa interna y valida mediante `pycldf` / `cldf validate` en QA y bootstrap.
 
-Criterio de salida de fase 4: mantener TEI Lex-0 validado y producir una segunda vista CLDF regenerable y validable sin pérdida de IDs, fuente, autoridad ni incertidumbre.
+Criterio de salida cumplido: existen dos vistas interoperables independientes, regenerables y validadas —TEI Lex-0 y CLDF Dictionary— sin pérdida de IDs, fuente, autoridad ni incertidumbre.
 
-## Fase 5 — release científica
-Congelar contratos, ejecutar QA, publicar release archivada, DOI, citación estable, informe técnico-académico y sitio público de consulta. Una release puede contener `machine_uncertain` si queda declarado.
+## Fase 5 — release científica — siguiente
+Congelar contratos, ejecutar QA de release, definir versión, producir manifiesto y checksums de artefactos, añadir citación estable, publicar una release archivada con DOI y preparar informe técnico-académico y sitio público de consulta. Una release puede contener `machine_uncertain` si queda declarado.
+
+El primer objetivo de esta fase es **congelar el contrato `0.1.0` y preparar una release reproducible**, no añadir nuevos formatos de interoperabilidad sin una justificación científica concreta.
 
 ## Regla de inversión
 El desarrollo adicional debe reutilizar la infraestructura histórico-digital existente y mantener bajo costo marginal. Integraciones o productos comerciales específicos sólo se priorizan ante una ruta verificable a evidencia académica, colaboración financiada, docencia reutilizable, consultoría, servicio gestionado u otra captura legítima de valor.

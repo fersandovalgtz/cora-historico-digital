@@ -156,6 +156,62 @@ jobs:
           assert report['human_verified'] is False
           print('TEI Lex-0 projection preserves all accepted entries and all residual machine candidates')
           PY
+      - name: Build CLDF Dictionary projection
+        run: python scripts/build_cldf_dictionary.py --source /tmp/machine_lexicon.csv --output-dir /tmp/cldf --report /tmp/cldf_dictionary_report.json
+      - name: Verify CLDF Dictionary projection invariants
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pycldf import Dictionary
+
+          def rows(path):
+              with open(path, encoding='utf-8', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          source = rows('/tmp/machine_lexicon.csv')
+          accepted = [r for r in source if r['machine_status'] == 'machine_accepted']
+          residual_source = [r for r in source if r['machine_status'] != 'machine_accepted']
+          source_by_article = {r['article_id']: r for r in accepted}
+
+          entries = rows('/tmp/cldf/entries.csv')
+          senses = rows('/tmp/cldf/senses.csv')
+          residuals = rows('/tmp/cldf/residuals.csv')
+          languages = rows('/tmp/cldf/languages.csv')
+          assert len(entries) == len(senses) == len(accepted) == 2137
+          assert len(residuals) == len(residual_source) == 3
+          assert {r['ID'] for r in languages} == {'spa', 'crn'}
+          assert {r['ID'] for r in entries} == set(source_by_article)
+          senses_by_entry = {r['Entry_ID']: r for r in senses}
+          assert len(senses_by_entry) == len(entries)
+          for entry in entries:
+              row = source_by_article[entry['ID']]
+              sense = senses_by_entry[entry['ID']]
+              assert entry['Language_ID'] == 'spa'
+              assert entry['Headword'] == row['headword_es_ocr']
+              assert entry['CHD_Candidate_ID'] == row['candidate_id']
+              assert entry['CHD_Authority_Status'] == 'machine_derived'
+              assert entry['CHD_Human_Verified'].lower() == 'false'
+              assert sense['Description'] == row['cora_ocr']
+              assert sense['Description_Language_ID'] == 'crn'
+              assert sense['CHD_Human_Verified'].lower() == 'false'
+          assert {r['ID'] for r in residuals} == {r['candidate_id'] for r in residual_source}
+          assert all(r['Authority_Status'] == 'machine_derived' for r in residuals)
+          assert all(r['Human_Verified'].lower() == 'false' for r in residuals)
+
+          dataset = Dictionary.from_metadata('/tmp/cldf/Dictionary-metadata.json')
+          assert dataset.validate()
+          with open('/tmp/cldf_dictionary_report.json', encoding='utf-8') as handle:
+              report = json.load(handle)
+          assert report['source_record_total'] == 2140
+          assert report['entry_total'] == 2137
+          assert report['sense_total'] == 2137
+          assert report['residual_total'] == 3
+          assert report['human_verified'] is False
+          print('CLDF Dictionary preserves all accepted entries, unsplit Cora OCR senses, and residual machine evidence')
+          PY
+      - name: Validate CLDF Dictionary with pycldf CLI
+        run: cldf validate /tmp/cldf/Dictionary-metadata.json
       - name: Install Relax NG validator
         run: |
           sudo apt-get update
@@ -185,6 +241,8 @@ jobs:
             /tmp/machine_resolution.json
             /tmp/ortega1888_tei_lex0.xml
             /tmp/tei_lex0_report.json
+            /tmp/cldf
+            /tmp/cldf_dictionary_report.json
             /tmp/lex-0-v0.9.5.rng
           if-no-files-found: error
           retention-days: 30

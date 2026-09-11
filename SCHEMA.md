@@ -6,6 +6,10 @@ fuente / metadatos
 OCR bruto
         ├─ cuerpo alfabético → ORT1888-cand → resolución máquina → ORT1888-art / estados residuales
         └─ apéndices → inventarios de navegación → modelos machine-only específicos
+        ↓
+vistas derivadas
+        ├─ TEI Lex-0 0.9.5
+        └─ CLDF Dictionary
 ```
 
 ## Candidatos
@@ -33,5 +37,21 @@ Cada registro conserva `raw_text_ocr`, span de líneas, observaciones superficia
 
 Estos tipos no constituyen una gramática moderna ni una edición crítica. Son clasificaciones computacionales reproducibles para preservar heterogeneidad y permitir proyecciones posteriores sin forzar el apéndice al modelo del vocabulario alfabético.
 
+## Proyección TEI Lex-0
+`data/interoperability/ortega1888_tei_lex0.xml` es una vista regenerable orientada a TEI Lex-0 0.9.5. Sólo los registros `machine_accepted` se convierten en `<entry>` y conservan el `article_id` como `xml:id`. El lema castellano y el equivalente cora se emiten literalmente desde `headword_es_ocr` y `cora_ocr`; los tres candidatos no aceptados permanecen en material posterior como evidencia documental.
+
+El documento preserva procedencia y categorías de autoridad mediante referencias y taxonomía internas. Se valida con Jing contra el Relax NG oficial archivado de TEI Lex-0 0.9.5, fijado por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa`.
+
+## Proyección CLDF Dictionary
+`data/interoperability/cldf/Dictionary-metadata.json` describe una vista CLDF Dictionary regenerable. No se usa `Wordlist` porque el objeto fuente es un vocabulario histórico de entradas y equivalentes, no una lista comparativa de formas por concepto.
+
+Cada `machine_accepted` produce exactamente una fila en `EntryTable`: `ID=article_id`, `Language_ID=spa` y `Headword=headword_es_ocr`. Produce también exactamente una fila en `SenseTable`, con ID `<article_id>-s1`, `Entry_ID=article_id`, `Description=cora_ocr` y `Description_Language_ID=crn`. Esta relación uno-a-uno es documental; no significa que cada artículo tenga lingüísticamente un solo sentido y no autoriza a dividir automáticamente las secuencias OCR.
+
+Las columnas prefijadas `CHD_` conservan candidato fuente, testimonio, páginas, líneas OCR, texto bruto, separación observada, alineación, confianza, racional, autoridad, elegibilidad y `human_verified=false`. `LanguageTable` declara `spa` y `crn`. `sources.bib` registra el testimonio Ortega 1888 y las entradas preservan referencias por página impresa cuando ésta existe.
+
+`residuals.csv` es una tabla CSVW adicional, no una tabla de entradas. Contiene los dos `machine_rejected` y el `machine_uncertain` para mantener incertidumbre y artefactos trazables sin promoverlos a objetos lexicográficos válidos.
+
+La proyección debe pasar `pycldf` / `cldf validate`; QA compara además cada lema y cada descripción Cora contra la capa canónica.
+
 ## Regla para vistas interoperables
-TEI Lex-0, CLDF u otros formatos deben generarse como proyecciones derivadas. Ninguna vista interoperable sustituirá los objetos internos ni podrá omitir procedencia, autoridad computacional, estado de incertidumbre o vínculo con el OCR fuente.
+TEI Lex-0, CLDF u otros formatos se generan como proyecciones derivadas. Ninguna vista interoperable sustituye los objetos internos ni puede omitir procedencia, autoridad computacional, estado de incertidumbre o vínculo con el OCR fuente. Nuevos formatos sólo se añaden si ofrecen interoperabilidad concreta sin forzar los objetos heterogéneos del corpus a un modelo semánticamente falso.
