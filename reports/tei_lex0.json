@@ -1,0 +1,23 @@
+{
+  "artifact_type": "tei_lex0_projection_report",
+  "tei_namespace": "http://www.tei-c.org/ns/1.0",
+  "tei_root_type": "lex-0",
+  "target_lex0_version": "0.9.5",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "source_path": "data/lexicon/machine_lexicon.csv",
+  "object_language": "es",
+  "target_language": "crn",
+  "source_record_total": 2140,
+  "entry_total": 2137,
+  "residual_total": 3,
+  "machine_status_counts": {
+    "machine_accepted": 2137,
+    "machine_rejected": 2,
+    "machine_uncertain": 1
+  },
+  "authority_status": "machine_derived",
+  "human_verified": false,
+  "projection_policy": "machine_accepted records become TEI Lex-0 entries; machine_uncertain and machine_rejected records remain residual documentary items in back matter.",
+  "normalization_policy": "headword_es_ocr and cora_ocr are emitted verbatim; no OCR correction, equivalent splitting, modern dialect assignment, or grammatical normalization occurs.",
+  "validation_scope": "This subphase checks XML well-formedness, source coverage, ID stability and field fidelity. Full validation against the official TEI Lex-0 schema remains a separate gate before phase 4 closes."
+}
