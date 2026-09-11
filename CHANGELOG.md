@@ -17,7 +17,7 @@
 - consolida `scripts/build_release_manifest.py`, `release/manifest.json` y `release/SHA256SUMS` como controles reproducibles de integridad para los artefactos versionados;
 - incorpora pruebas de determinismo y detección de deriva de inventario/bytes, además del workflow `release-candidate`;
 - fija `CITATION.cff` y CodeMeta en la versión **0.1.0** tras la decisión explícita de publicación del 11 de septiembre de 2026;
-- incorpora un workflow de publicación de una sola vez que, después de un `qa` exitoso en `main`, crea la GitHub Release `v0.1.0` si todavía no existe y adjunta el manifiesto de integridad y `SHA256SUMS`;
+- utiliza un workflow transitorio de publicación que, después de un `qa` exitoso en `main`, crea la GitHub Release `v0.1.0` y adjunta el manifiesto final de integridad y `SHA256SUMS`; el workflow se retira después de comprobar la release para evitar ejecuciones futuras innecesarias;
 - no inventa ni anticipa DOI: el identificador persistente sólo se añadirá a los metadatos después de que un archivador externo lo emita realmente.
 
 ## `0.1.0-dev` — 2026-09-10
