@@ -18,15 +18,17 @@ El apéndice se representa mediante **22 unidades documentales `ORT1888-irr-###`
 
 ## Fase 4 — interoperabilidad — activa
 
-### 4A. TEI Lex-0 — en implementación
-Generar una vista derivada orientada a **TEI Lex-0 0.9.5**. Los 2,137 registros `machine_accepted` se proyectan como entradas castellanas con equivalentes cora/náayeri (`crn`) sin normalizar OCR. Los 3 registros residuales no se promueven a entradas y deben permanecer visibles como evidencia documental.
+### 4A. TEI Lex-0 — completada
+La vista derivada orientada a **TEI Lex-0 0.9.5** proyecta los 2,137 registros `machine_accepted` como entradas castellanas con equivalentes cora/náayeri (`crn`) sin normalizar OCR. Los 3 registros residuales permanecen visibles como evidencia documental y no se promueven a entradas.
 
-Primer control: XML bien formado, cobertura exhaustiva de aceptados y residuales, estabilidad de IDs, preservación literal de `headword_es_ocr` / `cora_ocr` y autoridad machine-only. Antes de cerrar 4A se añadirá validación contra el schema oficial completo de TEI Lex-0.
+La proyección preserva IDs, `headword_es_ocr`, `cora_ocr`, procedencia y autoridad machine-only; se regenera desde las capas internas y valida formalmente con Jing contra el Relax NG oficial archivado de TEI Lex-0 0.9.5. El schema queda fijado por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa`; QA y bootstrap deben fallar si cambia el schema o si el XML deja de validar.
 
-### 4B. CLDF — pendiente de evaluación
-Evaluar CLDF sólo después de estabilizar TEI Lex-0. La selección de componente deberá justificar cómo representar un vocabulario histórico castellano–cora sin perder OCR, procedencia, autoridad ni incertidumbre.
+### 4B. CLDF Dictionary — activa
+Evaluar e implementar una segunda vista derivada mediante el módulo **CLDF Dictionary**, no `Wordlist`. El mapeo base debe usar `EntryTable` y `SenseTable` sin inventar segmentación semántica: cada artículo aceptado conservará su ID estable y su lema OCR castellano, mientras el equivalente cora/náayeri se representará en la capa de sentido únicamente en la medida permitida por el contrato CLDF.
 
-Criterio de salida de fase 4: producir al menos una vista interoperable regenerable y validada desde las capas internas sin pérdida de IDs, fuente ni autoridad.
+Las extensiones CHD deberán preservar OCR literal, procedencia, páginas, candidato fuente, autoridad `machine_derived` y `human_verified=false`. Los 3 registros residuales no deberán presentarse como entradas lexicográficas válidas; si CLDF no ofrece una representación estándar adecuada, se conservarán en una tabla de extensión documental explícitamente no léxica.
+
+Criterio de salida de fase 4: mantener TEI Lex-0 validado y producir una segunda vista CLDF regenerable y validable sin pérdida de IDs, fuente, autoridad ni incertidumbre.
 
 ## Fase 5 — release científica
 Congelar contratos, ejecutar QA, publicar release archivada, DOI, citación estable, informe técnico-académico y sitio público de consulta. Una release puede contener `machine_uncertain` si queda declarado.
