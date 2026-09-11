@@ -1,0 +1,59 @@
+name: release-candidate
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'reports/**'
+      - 'schemas/**'
+      - 'release/**'
+      - 'scripts/build_release_manifest.py'
+      - 'tests/test_release_manifest.py'
+      - '.github/workflows/release-candidate.yml'
+  workflow_dispatch:
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build release candidate manifest
+        run: python scripts/build_release_manifest.py --output /tmp/manifest.json --sha256sums /tmp/SHA256SUMS
+      - name: Verify manifest against repository artifacts
+        run: python scripts/build_release_manifest.py --verify --output /tmp/manifest.json
+      - name: Verify standard SHA256SUMS
+        run: sha256sum -c /tmp/SHA256SUMS
+      - name: Verify release candidate policy
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path('/tmp/manifest.json').read_text(encoding='utf-8'))
+          assert manifest['target_version'] == '0.1.0'
+          assert manifest['release_status'] == 'candidate'
+          assert manifest['hash_algorithm'] == 'sha256'
+          assert manifest['artifact_count'] > 0
+          assert not any(row['path'].startswith('data/source/original/') for row in manifest['files'])
+          assert {row['path'] for row in manifest['files']} >= {
+              'data/source/source_lock.json',
+              'data/lexicon/machine_lexicon.csv',
+              'data/interoperability/ortega1888_tei_lex0.xml',
+              'data/interoperability/cldf/Dictionary-metadata.json',
+              'reports/tei_lex0.json',
+              'reports/cldf_dictionary.json',
+          }
+          print(f"release candidate covers {manifest['artifact_count']} versioned artifacts")
+          PY
+      - name: Upload release candidate integrity artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate-integrity
+          path: |
+            /tmp/manifest.json
+            /tmp/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 30
