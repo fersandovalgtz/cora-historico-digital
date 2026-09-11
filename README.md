@@ -1,18 +1,54 @@
 # Cora Histórico Digital
 
-**Cora Histórico Digital (CHD)** es un corpus histórico-digital reproducible para estudiar testimonios históricos de la lengua cora/náayeri sin confundir fuente, OCR, segmentación, inferencia computacional e interpretación lingüística.
-
-La implementación inicial trabaja con el *Vocabulario de las lenguas castellana y cora* de José de Ortega mediante la reimpresión de Tepic de 1888, derivada de la obra impresa en México en 1732. El testimonio digital canónico procede de John Carter Brown Library / Internet Archive (`vocabulariodelas00orte`).
+**Cora Histórico Digital (CHD)** es un corpus histórico-digital reproducible para estudiar testimonios históricos de la lengua cora/náayeri sin confundir obra histórica, testimonio bibliográfico, digitalización institucional, OCR, segmentación, inferencia computacional e interpretación lingüística.
 
 [![CI](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml/badge.svg)](https://github.com/fersandovalgtz/cora-historico-digital/actions/workflows/qa.yml)
+[![Release](https://img.shields.io/github/v/release/fersandovalgtz/cora-historico-digital)](https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0)
 
-> **Estado científico: `0.1.0-dev`, machine-only.** El repositorio no tiene etapa de revisión humana. Ninguna salida se presenta como validación filológica o lingüística humana.
+> **Estado científico: `v0.1.0`, release pública, machine-only.** El repositorio no contiene una etapa de revisión humana. Ninguna salida se presenta como validación filológica o lingüística humana, diccionario normativo contemporáneo ni edición crítica.
+
+## Origen histórico y testimonio utilizado
+
+CHD parte de una obra lexicográfica atribuida al jesuita **José de Ortega (1700–1768)**. La obra fue impresa por primera vez en **México en 1732** con el título *Vocabulario en lengua castellana y cora. Dispuesto por el P. Joseph de Ortega, de la Compañia de Jesus*, por **los herederos de la Viuda de Francisco Rodríguez Lupercio**.
+
+El corpus **no transcribe directamente un ejemplar digital de la impresión de 1732**. Su testimonio de trabajo es la **reimpresión de Tepic de 1888**, titulada *Vocabulario de las lenguas castellana y cora, reimpresso en Tepic, por orden del Sr. Gral. D. Leopoldo Romano*, publicada por la **Imprenta de Antonio Lagaspi**.
+
+El ejemplar digital canónico utilizado por CHD pertenece a la **John Carter Brown Library** y se consulta mediante Internet Archive con el identificador [`vocabulariodelas00orte`](https://archive.org/details/vocabulariodelas00orte) y ARK `ark:/13960/t2t44qw20`. El registro de Internet Archive documenta además la procedencia del ejemplar mediante ex libris de **Nicolás León (1859–1929)** y señala que la copia de la John Carter Brown Library es imperfecta y carece aparentemente del título de cubierta.
+
+La relación documental se modela explícitamente así:
+
+```text
+ORTEGA1732
+obra histórica impresa en México
+        ↓ tradición/reimpresión
+ORTEGA1888-TEPIC
+reimpresión de Tepic, Imprenta de Antonio Lagaspi
+        ↓ ejemplar conservado
+John Carter Brown Library
+procedencia documentada: Nicolás León
+        ↓ digitalización institucional / acceso
+Internet Archive: vocabulariodelas00orte
+        ↓ descarga bloqueada por SHA-256
+OCR y texto extraíble
+        ↓
+Cora Histórico Digital
+candidatos → resolución machine-only → vistas interoperables
+```
+
+Esta distinción entre **obra (1732)**, **testimonio utilizado (1888)**, **ejemplar físico**, **objeto digital** y **derivados computacionales** es parte del contrato científico del repositorio. Véanse [`PROVENANCE.md`](PROVENANCE.md), [`DATASHEET.md`](DATASHEET.md) y [`data/source/source_manifest.json`](data/source/source_manifest.json).
+
+### Referencias históricas principales
+
+- Ortega, José de. *Vocabulario en lengua castellana y cora. Dispuesto por el P. Joseph de Ortega, de la Compañia de Jesus*. México: Herederos de la Viuda de Francisco Rodríguez Lupercio, 1732.
+- Ortega, José de. *Vocabulario de las lenguas castellana y cora, reimpresso en Tepic, por orden del Sr. Gral. D. Leopoldo Romano*. Tepic: Imprenta de Antonio Lagaspi, 1888.
+- Testimonio digital canónico: John Carter Brown Library / Internet Archive, `vocabulariodelas00orte`.
 
 ## Estado actual
 
 | Dimensión | Estado |
 |---|---:|
-| páginas físicas del PDF | **98** |
+| versión publicada | **0.1.0** |
+| páginas físicas procesadas del PDF | **98** |
 | líneas OCR preservadas | **5,388** |
 | candidatos del cuerpo alfabético | **2,140** |
 | `matched_headword` | **2,131** |
@@ -58,7 +94,7 @@ vistas derivadas validadas
         ├─ TEI Lex-0 0.9.5
         └─ CLDF Dictionary
         ↓
-release científica citable
+release científica citable v0.1.0
 ```
 
 Un caso incierto o rechazado sigue siendo evidencia trazable. La arquitectura prefiere conservar incertidumbre y artefactos fuente antes que fabricar completitud o borrar errores de segmentación.
@@ -95,7 +131,8 @@ make cldf-dictionary
 ## Datos principales
 
 - `data/source/ocr/`: OCR completo y extracción textual por página.
-- `data/source/source_manifest.json`: procedencia y hashes.
+- `data/source/source_manifest.json`: procedencia, particiones y hashes.
+- `data/source/source_lock.json`: bloqueo criptográfico de los objetos digitales de origen.
 - `data/lexicon/candidates.csv` / `.jsonl`: hipótesis de segmentación fuente.
 - `data/lexicon/machine_lexicon.csv` / `.jsonl`: capa machine-only derivada.
 - `data/appendices/machine_inventory.json`: navegación automática íntegra de los apéndices.
@@ -107,7 +144,7 @@ make cldf-dictionary
 - `data/interoperability/cldf/senses.csv`: 2,137 descripciones Cora/Náayeri no segmentadas.
 - `data/interoperability/cldf/languages.csv`: lenguas `spa` y `crn`.
 - `data/interoperability/cldf/residuals.csv`: 3 candidatos no promovidos, conservados como evidencia.
-- `data/interoperability/cldf/sources.bib`: referencia bibliográfica del testimonio.
+- `data/interoperability/cldf/sources.bib`: referencia bibliográfica del testimonio de 1888 usado por la proyección CLDF.
 - `reports/numerals_machine.json`: métricas y política de extracción numeral.
 - `reports/irregular_particles_machine.json`: cobertura y distribución de tipos del apéndice gramatical.
 - `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
@@ -121,10 +158,22 @@ make cldf-dictionary
 
 CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales. En CLDF, una fila de `SenseTable` por artículo es una representación documental del equivalente OCR completo, no una afirmación de que cada artículo posea lingüísticamente un único sentido.
 
-## Ruta científica
+## Release científica
 
-Las fases de ingestión reproducible, resolución computacional, estructuración de apéndices e interoperabilidad están cubiertas. La siguiente meta es la **release científica**: congelar el contrato `0.1.0`, ejecutar QA de release, producir manifiesto y checksums de artefactos, añadir citación estable y preparar una publicación archivada con DOI. Nuevos formatos o integraciones sólo se justificarán si añaden valor científico concreto sin elevar innecesariamente el costo marginal del proyecto.
+La versión pública actual es **[`v0.1.0`](https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0)**, publicada el **11 de septiembre de 2026**. La release fija un snapshot científico reproducible e incluye manifiesto de integridad y `SHA256SUMS`.
+
+El siguiente paso de preservación es el depósito en un archivador externo y el registro de un **DOI real** cuando sea emitido. El repositorio no anticipa ni inventa identificadores persistentes. La etiqueta `v0.1.0` permanece como snapshot científico; cualquier actualización posterior de metadatos en `main` no reescribe retroactivamente ese tag.
+
+Nuevos formatos, normalizaciones o integraciones sólo se justificarán si añaden valor científico concreto. La prioridad es explotar el activo ya estable mediante citación, reutilización docente e institucional, investigación, curación/consultoría y colaboraciones financiadas, evitando elevar innecesariamente el costo marginal del proyecto.
 
 ## Licencias y citación
 
-Código: MIT. Metadatos, anotaciones y derivados originales: CC BY 4.0 salvo indicación contraria. La obra histórica es de dominio público; CHD no reclama autoría sobre la digitalización institucional. Mientras el proyecto permanezca en `0.1.0-dev`, cite el testimonio y el commit utilizado; el DOI se añadirá cuando exista una release archivada.
+- Código: **MIT**.
+- Metadatos, anotaciones y derivados originales de CHD: **CC BY 4.0**, salvo indicación contraria.
+- La obra histórica se encuentra en dominio público; CHD no reclama autoría ni propiedad sobre la digitalización institucional de la John Carter Brown Library / Internet Archive.
+
+Para citar CHD antes de que exista DOI, use la versión y la URL de la release:
+
+> Sandoval Gutiérrez, Fernando. 2026. *Cora Histórico Digital*. Version 0.1.0. Dataset/corpus histórico-digital. GitHub. https://github.com/fersandovalgtz/cora-historico-digital/releases/tag/v0.1.0
+
+Cuando el uso dependa de las formas históricas, cite además el testimonio de Ortega de 1888 y, cuando corresponda al argumento histórico-bibliográfico, la edición original de 1732. `CITATION.cff` contiene los metadatos del proyecto; `PROVENANCE.md` documenta la historia bibliográfica y `data/interoperability/cldf/sources.bib` conserva la referencia del testimonio de 1888 empleado por la proyección CLDF.
