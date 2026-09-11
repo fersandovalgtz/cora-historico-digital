@@ -30,10 +30,18 @@ Las columnas CHD adicionales preservan candidato fuente, OCR, páginas, líneas,
 
 Criterio de salida cumplido: existen dos vistas interoperables independientes, regenerables y validadas —TEI Lex-0 y CLDF Dictionary— sin pérdida de IDs, fuente, autoridad ni incertidumbre.
 
-## Fase 5 — release científica — siguiente
-Congelar contratos, ejecutar QA de release, definir versión, producir manifiesto y checksums de artefactos, añadir citación estable, publicar una release archivada con DOI y preparar informe técnico-académico y sitio público de consulta. Una release puede contener `machine_uncertain` si queda declarado.
+## Fase 5 — release científica — activa
 
-El primer objetivo de esta fase es **congelar el contrato `0.1.0` y preparar una release reproducible**, no añadir nuevos formatos de interoperabilidad sin una justificación científica concreta.
+### 5A. Release candidate `0.1.0` — activa
+Congelar el inventario de artefactos científicos sin publicar todavía la versión. `scripts/build_release_manifest.py` genera un manifiesto determinista y `SHA256SUMS` para todos los archivos versionados bajo `data/`, `reports/` y `schemas/`, excluyendo `data/source/original/`. Un workflow específico verifica inventario y hashes; bootstrap los regenera sólo después de validar corpus, CLDF y TEI.
+
+Durante esta subfase `CITATION.cff` y `codemeta.json` permanecen en `0.1.0-dev`. No se crea tag, GitHub Release ni DOI todavía.
+
+### 5B. Publicación `0.1.0` — pendiente de decisión explícita
+Cuando el release candidate quede estable: actualizar coordinadamente versión y fecha en metadatos, ejecutar QA final, crear tag/release archivada y, si se decide usar un repositorio que emita DOI, incorporar únicamente el DOI real después de su asignación. La release puede contener `machine_uncertain` porque su condición queda declarada y preservada.
+
+### 5C. Difusión científica — posterior a la release
+Preparar informe técnico-académico, citación definitiva, registro en repositorios/índices pertinentes y sitio público de consulta. Priorizar canales que produzcan evidencia académica, colaboración o reutilización verificable.
 
 ## Regla de inversión
 El desarrollo adicional debe reutilizar la infraestructura histórico-digital existente y mantener bajo costo marginal. Integraciones o productos comerciales específicos sólo se priorizan ante una ruta verificable a evidencia académica, colaboración financiada, docencia reutilizable, consultoría, servicio gestionado u otra captura legítima de valor.
