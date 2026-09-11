@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from build_tei_lex0 import (
     LEX0_VERSION,
     OBJECT_LANGUAGE,
+    SOURCE_WITNESS_URL,
     TARGET_LANGUAGE,
     TEI_NS,
     XML_NS,
@@ -133,6 +134,13 @@ class TeiLex0ProjectionTests(unittest.TestCase):
             "Vocabulario de las lenguas castellana y cora",
             root.find(f".//{Q('sourceDesc')}//{Q('title')}").text,
         )
+        source_ref = root.find(
+            f".//{Q('biblStruct')}[@{XML_ID}='ORTEGA1888-TEPIC-IA']/{Q('ref')}"
+        )
+        self.assertIsNotNone(source_ref)
+        self.assertEqual(source_ref.attrib["target"], SOURCE_WITNESS_URL)
+        self.assertEqual(source_ref.text, "Internet Archive digital witness")
+        self.assertIsNone(root.find(f".//{Q('biblStruct')}/{Q('idno')}"))
         category_ids = {
             category.attrib[XML_ID]
             for category in root.findall(f".//{Q('taxonomy')}/{Q('category')}")
