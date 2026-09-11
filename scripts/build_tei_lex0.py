@@ -146,7 +146,7 @@ def add_header(root: ET.Element, accepted_count: int, residual_count: int) -> No
     text_element(imprint, "publisher", "Imprenta de Antonio Lagaspi")
     text_element(imprint, "date", "1888", when="1888")
     text_element(
-        monogr,
+        bibl_struct,
         "idno",
         "https://archive.org/details/vocabulariodelas00orte",
         type="URI",
