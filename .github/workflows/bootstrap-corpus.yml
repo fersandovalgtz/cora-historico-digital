@@ -54,17 +54,22 @@ jobs:
           echo '35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa  /tmp/lex-0-v0.9.5.rng' | sha256sum -c -
       - name: Validate TEI projection before commit
         run: jing /tmp/lex-0-v0.9.5.rng data/interoperability/ortega1888_tei_lex0.xml
-      - name: Remove downloaded source binaries before commit
+      - name: Remove downloaded source binaries before release manifest
         run: rm -rf data/source/original
+      - name: Build and verify release candidate integrity artifacts
+        run: |
+          python scripts/build_release_manifest.py
+          python scripts/build_release_manifest.py --verify
+          sha256sum -c release/SHA256SUMS
       - name: Commit reproducible derived data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data reports
+          git add data reports release/manifest.json release/SHA256SUMS
           if git diff --cached --quiet; then
             echo 'No generated changes.'
           else
-            git commit -m 'Build Ortega 1888 machine corpus and interoperable views'
+            git commit -m 'Build Ortega 1888 machine corpus and release integrity artifacts'
             git push
           fi
 
