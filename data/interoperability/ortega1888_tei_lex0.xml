@@ -35,8 +35,8 @@
                 <publisher>Imprenta de Antonio Lagaspi</publisher>
                 <date when="1888">1888</date>
               </imprint>
-              <idno type="URI">https://archive.org/details/vocabulariodelas00orte</idno>
             </monogr>
+            <ref type="source" target="https://archive.org/details/vocabulariodelas00orte">Internet Archive digital witness</ref>
           </biblStruct>
         </listBibl>
       </sourceDesc>
