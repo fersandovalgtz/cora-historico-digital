@@ -62,6 +62,11 @@ jobs:
           assert required_types.issubset({r['record_type'] for r in records})
           print(f"irregular/particle layer contains {len(records)} units across {report['record_type_counts']}")
           PY
+      - name: Verify committed irregular/particle derivatives are reproducible
+        run: |
+          cmp /tmp/irregular_particles_machine.jsonl data/appendices/irregular_particles_machine.jsonl
+          cmp /tmp/irregular_particles_machine.csv data/appendices/irregular_particles_machine.csv
+          cmp /tmp/irregular_particles_machine_report.json reports/irregular_particles_machine.json
       - name: Build machine-only lexicon
         run: python scripts/build_machine_corpus.py --jsonl /tmp/machine_lexicon.jsonl --csv /tmp/machine_lexicon.csv --report /tmp/machine_resolution.json
       - name: Verify machine corpus coverage
