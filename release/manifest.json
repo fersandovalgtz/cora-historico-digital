@@ -1,0 +1,695 @@
+{
+  "manifest_schema_version": 1,
+  "project": "Cora Histórico Digital",
+  "target_version": "0.1.0",
+  "release_status": "candidate",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "artifact_roots": [
+    "data",
+    "reports",
+    "schemas"
+  ],
+  "excluded_prefixes": [
+    "data/source/original"
+  ],
+  "artifact_count": 135,
+  "total_bytes": 6311676,
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "path": "data/README.md",
+      "bytes": 1885,
+      "sha256": "64b8e1a6b0b34876abb8f042bb2f30edadba336e6418269c8db43e318ac03ad3"
+    },
+    {
+      "path": "data/appendices/irregular_particles_machine.csv",
+      "bytes": 7132,
+      "sha256": "8183cc3c9b8c095e02517d864c01b66ccc0c878424b3458b59d2250737e5ec60"
+    },
+    {
+      "path": "data/appendices/irregular_particles_machine.jsonl",
+      "bytes": 12880,
+      "sha256": "07e1d4e13a52cb89b07a028654bb090b529e863eab1ae2d94ec878ed62cda291"
+    },
+    {
+      "path": "data/appendices/irregular_verbs_particles_ocr.txt",
+      "bytes": 1738,
+      "sha256": "430a055d428284ac1f36c067ec65db062809a456e5d090903ce8a58d59c66096"
+    },
+    {
+      "path": "data/appendices/machine_inventory.json",
+      "bytes": 29837,
+      "sha256": "7e6cc175909934625b05972ada245f8c90cd33b801d2a3ebd454d5779ce85b82"
+    },
+    {
+      "path": "data/appendices/numerals_machine.csv",
+      "bytes": 6034,
+      "sha256": "1a306ebd1fe3ec058bfd583ef6a6abcfd20522f413819f9410038ab5b3b5f57c"
+    },
+    {
+      "path": "data/appendices/numerals_machine.jsonl",
+      "bytes": 13187,
+      "sha256": "00dc62009e03937c8334636e920a0051ca4d73066f765dac79777b3c66a46757"
+    },
+    {
+      "path": "data/appendices/numerals_ocr.txt",
+      "bytes": 1700,
+      "sha256": "18b1705184c50b04dce0360d570e7d4d97bd845d23a3fdeba2a84ef9a419c9a5"
+    },
+    {
+      "path": "data/grammar/preliminary_ocr.txt",
+      "bytes": 22851,
+      "sha256": "d4f9a47b7a80364f4fa2031c1beb9a59fc2f512464cf04b88c61429da2705b66"
+    },
+    {
+      "path": "data/interoperability/cldf/Dictionary-metadata.json",
+      "bytes": 14599,
+      "sha256": "2504abc138edc62eb85e318691ac3eea49172d8d5776d215a8490cbdfc701f46"
+    },
+    {
+      "path": "data/interoperability/cldf/entries.csv",
+      "bytes": 527810,
+      "sha256": "b56612b4395a276522d7c5cfb2ca255b6c368457a0ef3e54bceeda4a57782467"
+    },
+    {
+      "path": "data/interoperability/cldf/languages.csv",
+      "bytes": 128,
+      "sha256": "0d546c00dbffc3749b053ccd85118908ab6bbd24dda61aa64ecf25bacbb9bc78"
+    },
+    {
+      "path": "data/interoperability/cldf/residuals.csv",
+      "bytes": 975,
+      "sha256": "1cf79d10ca8fd3ee92711fa0af6f06586ef53ddf7d467a7c95e646009d16a9f3"
+    },
+    {
+      "path": "data/interoperability/cldf/senses.csv",
+      "bytes": 218962,
+      "sha256": "5ff2d6dd3d798764ce43eaa26cd5baa6ebb211f7bea2c01377121bd9513585a9"
+    },
+    {
+      "path": "data/interoperability/cldf/sources.bib",
+      "bytes": 330,
+      "sha256": "27b4160f4e60a2109832669beea642e130289e2741257dbe2858073a9e989061"
+    },
+    {
+      "path": "data/interoperability/ortega1888_tei_lex0.xml",
+      "bytes": 1641615,
+      "sha256": "9c9b927dc51d91ee97e6d81fdeb583ccbf81d00b43b14bdf7ceacfe73ab8cffa"
+    },
+    {
+      "path": "data/lexicon/candidates.csv",
+      "bytes": 397626,
+      "sha256": "6839f61489eb0f5fd45a872e218eca99c19014835622bda72fbd627dd01d874d"
+    },
+    {
+      "path": "data/lexicon/candidates.jsonl",
+      "bytes": 1155589,
+      "sha256": "cad566d593cfbd8b8be0b42326e04fba983582a9afa04d3d8c26ff2bedaf5c28"
+    },
+    {
+      "path": "data/lexicon/machine_lexicon.csv",
+      "bytes": 526061,
+      "sha256": "a2b0bce5ba99f2c255594724ff94aa4121e70a0a68aefc6f3f30a6a1add20a46"
+    },
+    {
+      "path": "data/lexicon/machine_lexicon.jsonl",
+      "bytes": 1390994,
+      "sha256": "0bd99ba604f05aa6b12c70d9d9734b0adc63a409e83b1b80246ba3bc9f1205db"
+    },
+    {
+      "path": "data/source/README.md",
+      "bytes": 406,
+      "sha256": "b3fc74bd486df0e8e35b9a875c0b4d702e5f764a9a9fb4c752b63027fa14bae7"
+    },
+    {
+      "path": "data/source/ocr/lexicon_body_raw.txt",
+      "bytes": 85041,
+      "sha256": "481e4130f98776f83dd6300d981e63c24caf125d5d44e3cdf055ee4f2c46c73e"
+    },
+    {
+      "path": "data/source/ocr/ortega1888_full_ocr.txt",
+      "bytes": 111341,
+      "sha256": "f4cd676dadc57511dd63042060cf0cae5da51e062dbd14a68810bd0a2b533e16"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-001.txt",
+      "bytes": 22,
+      "sha256": "b524c2364ce6cf94fac82bc4734998ee9ad8151cbacd04879107f644bb9340b5"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-002.txt",
+      "bytes": 66,
+      "sha256": "83fdb47444922300d4a1f5060577bd1af383d190b2489655f7986578202a87b4"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-003.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-004.txt",
+      "bytes": 6,
+      "sha256": "5c6c319d6eeb8a321ceba1b4da8c83e9c564b2a730a150f9923408d850eaebdc"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-005.txt",
+      "bytes": 513,
+      "sha256": "27c24f5263b9b681c7377053ac50359ed4bdb56061e0f27f02e12585341f6b92"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-006.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-007.txt",
+      "bytes": 1264,
+      "sha256": "15a88eaf35974bb8f11744a11d0fa6d57751235cd9b075abe93bc7bd5f605372"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-008.txt",
+      "bytes": 1872,
+      "sha256": "ea6596f90b84c1094c1bbf724984a15877062718e41e5c98a5ed570efafd7711"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-009.txt",
+      "bytes": 1051,
+      "sha256": "8db11437e25fe0216526ca2913df2e5fe15f1665ef6f73c24ebd2fbde1a586c8"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-010.txt",
+      "bytes": 1400,
+      "sha256": "b872d5d8cae935fa738b14f442ead3de1b97410f3b3955aa0942dce176af3e31"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-011.txt",
+      "bytes": 1863,
+      "sha256": "850be7b87c745adf6f19cf9b6b9f5d8a02a76968dec2ebc67034bca6d6d9121a"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-012.txt",
+      "bytes": 1466,
+      "sha256": "cbabeb0097abf896fbc225013029e19d3113c79113107382bedb39e6be59608d"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-013.txt",
+      "bytes": 1436,
+      "sha256": "f3798c0a5d5ec04af7b564bb27b66ccfb7e419b0fc63b0daa43c982f33bd85e9"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-014.txt",
+      "bytes": 1440,
+      "sha256": "166a093a7e239813cb41f224bfdab3c323110f52a4af77b690a62cc468b5cb40"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-015.txt",
+      "bytes": 1282,
+      "sha256": "4f7b96f822206cb263e63c8c0f01daf2a3ea3451e11e051e21c105bb86db547c"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-016.txt",
+      "bytes": 1548,
+      "sha256": "4b2ed04d38255b4e7bfab6d8ddf8de15281e3c8f3d19d1705a2bc01a06d34d1e"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-017.txt",
+      "bytes": 1756,
+      "sha256": "9abe88747ee9e64a2a2c4562c79f05c99e041508da19dab44b9a31be9121ac71"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-018.txt",
+      "bytes": 1566,
+      "sha256": "844ef67db99f13b99a6d24995492acf4a5424ba0976bf79bc035286b95a36d4b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-019.txt",
+      "bytes": 1364,
+      "sha256": "44a92d6837224c50aed20b50be90d6bbb7a3a754a8d43c17feb3f6b1d3122f66"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-020.txt",
+      "bytes": 1161,
+      "sha256": "7f0b5cd47d0740b0c0800410181d1f9b4249231f6c49a8f79dca0321683cd18c"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-021.txt",
+      "bytes": 1140,
+      "sha256": "889da3bff26306199844d46990e2a04f2a529ac7955f24a80a503a45af2c0457"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-022.txt",
+      "bytes": 1189,
+      "sha256": "af40a9913e58aa1fcb5274c1e338cd39c0a271dee41e4bc7d0dc3841a4b7a825"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-023.txt",
+      "bytes": 1067,
+      "sha256": "a2186217df51c4e06b60313f9d1281f4e7d7da30cd0b791286de32a4e788257d"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-024.txt",
+      "bytes": 1168,
+      "sha256": "e87a66ebb357943edb5f8b58484fc2aa2770a535c06c4a970d8a89b6694bd738"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-025.txt",
+      "bytes": 1151,
+      "sha256": "a1c92ee473e91918c218e144e565f66abb5f7b2adc2fc8e4b5f6b312e05cdf7f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-026.txt",
+      "bytes": 986,
+      "sha256": "e4a28d0c7a8c9e12cce539b992496f308676fa3d34bcc510c3336ce306e9b0a8"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-027.txt",
+      "bytes": 919,
+      "sha256": "cebd1897a2c3ff065ca84e863e4a62d3ac23d970cf98ee2044a5625f5d001a76"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-028.txt",
+      "bytes": 1023,
+      "sha256": "9541b3a0d76b53a777a4555c0e30b195540f00473fb80cbbc9f5b90529cca715"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-029.txt",
+      "bytes": 1035,
+      "sha256": "d5a3d3d09999813b27d911e8e758834906db7a93ef8cf0359810dcd953f41eb4"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-030.txt",
+      "bytes": 1141,
+      "sha256": "653aad34335fc4cfee57508b2df16852880d61a60e3c1bae55d6fa30cda584bc"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-031.txt",
+      "bytes": 1118,
+      "sha256": "e614099174633ab4d2da132ead214cb605ee906bb600cd9a86fce440c195562c"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-032.txt",
+      "bytes": 1094,
+      "sha256": "4293ed35ecd7a375b9df383baa720f9b4f502beaa8731ec77119757ab4be87f1"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-033.txt",
+      "bytes": 1164,
+      "sha256": "f7bced5cb123dd590cd4f53f6007fb3182571a7f6635e5cbe3de68b5ceb66ae4"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-034.txt",
+      "bytes": 1064,
+      "sha256": "d14823f616f8d7cda2c90384881f61ab2a2b073a1175a033dffe3e90905b7f4f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-035.txt",
+      "bytes": 1077,
+      "sha256": "74c0aee5c6986d42a7637c02cb810d8ae418ee0ef6e267a9b18b391b34831b5f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-036.txt",
+      "bytes": 995,
+      "sha256": "8df15cf5312552ddfb6bef8103d3c5f69d2044db850156350c6b22d69104daeb"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-037.txt",
+      "bytes": 1040,
+      "sha256": "d30e1668f69d552ebf62efb4d2ac74adc8b9bf21baa5fc7aeae9354cdd1a805b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-038.txt",
+      "bytes": 965,
+      "sha256": "2b714e2d032c1ad4815b94fc1b460f294653c8d8810fee58c723b950082bf46c"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-039.txt",
+      "bytes": 903,
+      "sha256": "41af80bbd15107360c3e3ebff8235c735c82f7cb5c6535336bb0288620a0c55f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-040.txt",
+      "bytes": 991,
+      "sha256": "dab53380df193cb4cf0c6df62e276ff1882939d5ec826ae14c7dddd42296b794"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-041.txt",
+      "bytes": 879,
+      "sha256": "3e95bead87694356a8af578cd269fc8e1d6c9625d2d77ee2b92a1284975269ed"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-042.txt",
+      "bytes": 917,
+      "sha256": "c0af24a6f114ecd0e2873b33689d1d40495cc82faf42cae3c567ee3592454c2e"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-043.txt",
+      "bytes": 889,
+      "sha256": "063582a077c29aeab5afd8363c154352f11b6f3e7a3559c285f2f3397bc0a43b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-044.txt",
+      "bytes": 990,
+      "sha256": "2d6d1e628f4115b28c1987dc6279cc1e7c3321041215d70704c5eb611c3eeac1"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-045.txt",
+      "bytes": 877,
+      "sha256": "578094c1351f23724774e3d87c009b0101f99e361e65595ad3e8a5a7a6fbf2b4"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-046.txt",
+      "bytes": 862,
+      "sha256": "3c04a903aaa639f4ce3a24f4e89d1b81a4cba50898fed0780d56164032c63f3f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-047.txt",
+      "bytes": 833,
+      "sha256": "526a031b55c05299ef60b25e2bd73cf6ddf1ad11c415ea3fb3a34f38e12faeae"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-048.txt",
+      "bytes": 916,
+      "sha256": "aeee55b1f39d66f8abec99e8257b78b513f88aa414a1ca83a1ec6a1f7d32c6d6"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-049.txt",
+      "bytes": 863,
+      "sha256": "6c2840412afbef768ee5dd66e94b07edc645b28b0d79d02c60415ae8d1d41bc3"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-050.txt",
+      "bytes": 864,
+      "sha256": "1dad2c0ab8a9688dc12b782355e0463890de4220cf749733183bb5c987dad3a6"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-051.txt",
+      "bytes": 1134,
+      "sha256": "5a96a7c70399f915718ddaa3513c1812ceb27b8f5d04087f6a6c8a130b4825bb"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-052.txt",
+      "bytes": 974,
+      "sha256": "22e0f074c8d60cc5f1add20df996a4d8725eddbd692af5d576c7225bdb489f3e"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-053.txt",
+      "bytes": 942,
+      "sha256": "9d3e94819b722f1d433c65a59b69fd55a728be0a893a2bdf13cb046c4ebcc4c1"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-054.txt",
+      "bytes": 1054,
+      "sha256": "503b733f2eb8520d60a52a04089893e0b9399cb86722baf1661db3e79b9b47c6"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-055.txt",
+      "bytes": 988,
+      "sha256": "7b9af875aa87fd69f3da87577edd30c33f264d377c21d8a9104104adebfaff70"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-056.txt",
+      "bytes": 918,
+      "sha256": "ecf14ffa5a4ddba13304e57ab18cec60f6c6a21323f343bc7259ef685867f951"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-057.txt",
+      "bytes": 948,
+      "sha256": "f1baee8307bd62e8ad89d0ca550e10f82dac820924385ad615f96ee5b6bcb425"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-058.txt",
+      "bytes": 825,
+      "sha256": "bd9c5a2ffea5cbd9be481fa6ff832f8f8155d62ae4470737cc2eb28097e4bd77"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-059.txt",
+      "bytes": 938,
+      "sha256": "9113aa2c0bd11f11f72516af8ebcf0d59af384e3f19b8af42cac9c78ece32952"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-060.txt",
+      "bytes": 871,
+      "sha256": "b28ff7fc8f687d0c05506817fa6a1c633041739ba89d67703ec8079c20731887"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-061.txt",
+      "bytes": 884,
+      "sha256": "e1753469ab7d595f2f1c949ab8fd47e28e3bbbd209a3fb902374f0bb2feeb53b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-062.txt",
+      "bytes": 886,
+      "sha256": "bd2cd8314ae35e1e560866103596a50ccc44d1a16daa3f98ce3ee616e686ce82"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-063.txt",
+      "bytes": 913,
+      "sha256": "2a9717afa76ff4b5d8e584d867b0f33780440e00696f35c2332bc622223a336f"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-064.txt",
+      "bytes": 1090,
+      "sha256": "163b5ee2e21a8a90bd5428914053039e2cd71700da1b2f9d813904e8c62bd94c"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-065.txt",
+      "bytes": 981,
+      "sha256": "2a7a247e3e1aca0b51daa91222c11cbbc2d3ae140dd87c13701c53cc1990bdad"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-066.txt",
+      "bytes": 975,
+      "sha256": "f89e5126574e8e05b830e273b22f9bec2b3d0acc79eb078a1fd15ae67ad6ad97"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-067.txt",
+      "bytes": 1029,
+      "sha256": "94a46599c6beb88ba6ec211aa0a3e5a818eceb80b3b8b12f86ea3a66f46fe7b0"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-068.txt",
+      "bytes": 983,
+      "sha256": "a9e83529d44c0e07bfdde14fad57c615a61f2533d1838b1d16a74dafbe2131c6"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-069.txt",
+      "bytes": 1041,
+      "sha256": "c0a9d7df621859b33f756cf273ba2e4959c33d6ffe62946c15f72a4264644c1a"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-070.txt",
+      "bytes": 885,
+      "sha256": "c72c5bb876dd38d64e7388e449027ba6a6eff05860323df99ca8a25cfb27cf75"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-071.txt",
+      "bytes": 889,
+      "sha256": "0e12c4cb6ba7387d440603aff76d9c21a8b2961549ed0bf1509210d1790a2e5d"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-072.txt",
+      "bytes": 912,
+      "sha256": "23f45bab335f7a1417bfcbaaca8f8c1c859b08e44be700f4459d30a414b25606"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-073.txt",
+      "bytes": 788,
+      "sha256": "c7615aab35d9884e8a647699e180310583a47c972115cd11c1c5f2c1599c5bcc"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-074.txt",
+      "bytes": 978,
+      "sha256": "eeeafa8b1fb42c8d2b2ab7414a7ad3ca63bf761930f8156e494e48218f24edfd"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-075.txt",
+      "bytes": 1035,
+      "sha256": "713104d87b833414dc36efe43314062146996e7f64df48604111a74e1ecd9944"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-076.txt",
+      "bytes": 891,
+      "sha256": "e33f592df218ff489fa355c6003439c47ef99e953f5c9121df5b27e854c4bd36"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-077.txt",
+      "bytes": 1017,
+      "sha256": "c2c262915ae3941cefe6fb0ad9b929c3b85de5e8bf195823ae2fef31066412c4"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-078.txt",
+      "bytes": 910,
+      "sha256": "98ed9ceb13df19f3f783a72548cb036af3f5966ce1f977a8e02d7fcff549cf68"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-079.txt",
+      "bytes": 960,
+      "sha256": "499c3309529466f7118dd7fb07fcb082675f152fac6a4554bc53ba75bd71c9fc"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-080.txt",
+      "bytes": 849,
+      "sha256": "57060424b8c4ef6e1a5080d72aacd9319db7cfe709d416b171e83da50071f5f8"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-081.txt",
+      "bytes": 865,
+      "sha256": "42890d0c27be9316221a2b9767e06f1443fa702ce2e43677c7d11c208e99a757"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-082.txt",
+      "bytes": 1015,
+      "sha256": "2d899361f50a94a43457eb349fd57c27be680f54e0419f274ee4c57ce1c8aa98"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-083.txt",
+      "bytes": 912,
+      "sha256": "80a82359c468b70ef86b83ac029134f51b11ac1af2d34609f63d5ef2548b9277"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-084.txt",
+      "bytes": 878,
+      "sha256": "c487b9192e3237d795f51f58ca39cfc4371e17df760b03b282d55f3d5dff78c9"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-085.txt",
+      "bytes": 790,
+      "sha256": "fb7011011ced2fef77b0fab90b1e342ce99d713d2c64b7aa8c67970364d75a44"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-086.txt",
+      "bytes": 966,
+      "sha256": "cfb30a764c5fbd24f11ff6fdc59460b9bae3377ddc1eef95f2f6c7ba4853f969"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-087.txt",
+      "bytes": 801,
+      "sha256": "202a8a9b070563ba35cc58c398779f54e8fb901f99dc21372beaa1f8de438f8d"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-088.txt",
+      "bytes": 941,
+      "sha256": "585e325cd73fbcaccec74cfc472f55b2961d2abbeec72885b83f30f917fd4810"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-089.txt",
+      "bytes": 953,
+      "sha256": "d7b0e0e5e65ae09f11ba82bb31e00cff6b1bca875bee236a47494f55195f77df"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-090.txt",
+      "bytes": 853,
+      "sha256": "53a0bf4415eb49f15b02dd0a58b50c6e98b46be38225a99bd0864141ff4a53a8"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-091.txt",
+      "bytes": 892,
+      "sha256": "70ddf67b09445f9760a11cb2a28d96ae450aed05ba2d000c61f87e139f84fbd6"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-092.txt",
+      "bytes": 619,
+      "sha256": "201b57b088eb5ef04af7a1f1c4be52d5bd22853fffca1ff0963f7d4947dc3db8"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-093.txt",
+      "bytes": 1225,
+      "sha256": "a393ef76d134bfb00805bc8d51d7ac44e41d24ab4d24ddde2492ea9d7178b35b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-094.txt",
+      "bytes": 1474,
+      "sha256": "de4b4dd02761249a214600cf21b6ae7787a09c74b8dd4f2a7f9a5632779c8dfc"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-095.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-096.txt",
+      "bytes": 3,
+      "sha256": "e28d5f524242e862c5cf5827afa967fb7c8b84ce7985881ead862d96a784dd5b"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-097.txt",
+      "bytes": 2,
+      "sha256": "7fdca686b46a12886513de3f6166c815efcb501bbe0f6ecda4acd20c6d48fed7"
+    },
+    {
+      "path": "data/source/ocr/pdf_pages/page-098.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/source/source_lock.json",
+      "bytes": 433,
+      "sha256": "0f849f5e2df0d78558759e9468ec46334ddf3376e17f659b9338b6f15e692559"
+    },
+    {
+      "path": "data/source/source_manifest.json",
+      "bytes": 2362,
+      "sha256": "2fcdc3b491195f43bd5b4ef6d7da31f48fbf63208ba5fb56d9f21ba0d479be79"
+    },
+    {
+      "path": "reports/appendix_machine_inventory.json",
+      "bytes": 29837,
+      "sha256": "7e6cc175909934625b05972ada245f8c90cd33b801d2a3ebd454d5779ce85b82"
+    },
+    {
+      "path": "reports/cldf_dictionary.json",
+      "bytes": 1139,
+      "sha256": "1d92869c9dffc678372d251715b6fb7c73d4d8d78532cf07da592e2ca7c3bdbf"
+    },
+    {
+      "path": "reports/ingest_report.json",
+      "bytes": 2403,
+      "sha256": "dc84cecfbe87457ac43481c4e1596c1381e627ef8c3df2dc0eadf73ee023ec9d"
+    },
+    {
+      "path": "reports/irregular_particles_machine.json",
+      "bytes": 1068,
+      "sha256": "7ee9301f870751ac96a36c0ffce504790f913117e436292c5a4422bbec213b44"
+    },
+    {
+      "path": "reports/machine_resolution.json",
+      "bytes": 1148,
+      "sha256": "a15cd7508eee4097b398e188ef25001eb334c035388ed3bf8c85d5e85bed4581"
+    },
+    {
+      "path": "reports/numerals_machine.json",
+      "bytes": 1035,
+      "sha256": "77dd8406d94e36f0967f4411becc4ff3d16866e4e9eeddd91060b5db36ac66a6"
+    },
+    {
+      "path": "reports/source_coverage.json",
+      "bytes": 2537,
+      "sha256": "7f3a54e098ba0f80fc2166bf1970dd65f9dc34ac26481d02ea2ee15f0a41f0f8"
+    },
+    {
+      "path": "reports/tei_lex0.json",
+      "bytes": 1158,
+      "sha256": "8a63e9ca2e5f679f2904ce223db92625ef32bceddada58cc19248f7942ef64e9"
+    },
+    {
+      "path": "schemas/irregular-particle-machine-record.schema.json",
+      "bytes": 1940,
+      "sha256": "c551be85a85315c8d409d72ec4b5e961eafcf0a55c49ff36a760a493b7ad1220"
+    },
+    {
+      "path": "schemas/machine-lexicon-record.schema.json",
+      "bytes": 2145,
+      "sha256": "4694eb1a4782cdfae5e424c9f74d4c17c817efd9f17ec87358309be6a5235cbf"
+    },
+    {
+      "path": "schemas/numeral-machine-record.schema.json",
+      "bytes": 1424,
+      "sha256": "e126ed3586b11a121b1afd595e35a277d3fb56693cbc39c6deba1c6aa813b4d2"
+    },
+    {
+      "path": "schemas/vocabulary-candidate.schema.json",
+      "bytes": 1451,
+      "sha256": "d1048f6b2e6b77e3cd6ab53047814879b6e5db4809b98578b09635312b179ac7"
+    }
+  ]
+}
