@@ -156,6 +156,17 @@ jobs:
           assert report['human_verified'] is False
           print('TEI Lex-0 projection preserves all accepted entries and all residual machine candidates')
           PY
+      - name: Install Relax NG validator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils
+      - name: Fetch archived TEI Lex-0 0.9.5 Relax NG schema
+        run: |
+          curl -fsSL --retry 3 --retry-delay 2 https://lex-0.org/releases/v0.9.5/schema/lex-0.rng -o /tmp/lex-0-v0.9.5.rng
+          test -s /tmp/lex-0-v0.9.5.rng
+          echo "TEI Lex-0 0.9.5 RNG SHA-256: $(sha256sum /tmp/lex-0-v0.9.5.rng | cut -d' ' -f1)"
+      - name: Validate projection against official TEI Lex-0 0.9.5 schema
+        run: xmllint --noout --relaxng /tmp/lex-0-v0.9.5.rng /tmp/ortega1888_tei_lex0.xml
       - name: Upload machine QA artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -175,5 +186,6 @@ jobs:
             /tmp/machine_resolution.json
             /tmp/ortega1888_tei_lex0.xml
             /tmp/tei_lex0_report.json
+            /tmp/lex-0-v0.9.5.rng
           if-no-files-found: error
           retention-days: 30
