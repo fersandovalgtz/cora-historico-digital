@@ -1,6 +1,6 @@
 # Changelog
 
-## `0.1.0-dev` — 2026-09-11
+## `0.1.0` — 2026-09-11
 
 - incorpora una proyección regenerable de la capa alfabética a **TEI Lex-0 0.9.5**;
 - proyecta **2,137** registros `machine_accepted` como entradas TEI y conserva **3** candidatos residuales fuera del cuerpo lexicográfico;
@@ -14,11 +14,11 @@
 - mantiene los **3 registros residuales** en `residuals.csv`, tabla CSVW documental que no los promueve a entradas;
 - valida el dataset CLDF con `pycldf` y `cldf validate` dentro de QA y bootstrap;
 - cierra la **fase 4 de interoperabilidad** con dos vistas validadas;
-- abre la preparación del release candidate `0.1.0` sin publicar todavía la versión;
-- añade `scripts/build_release_manifest.py` para inventariar de forma determinista todos los artefactos versionados de `data/`, `reports/` y `schemas/`, excluyendo binarios externos de `data/source/original/`;
-- añade `release/manifest.json` y `release/SHA256SUMS` como derivados de integridad generados por bootstrap;
-- incorpora pruebas de determinismo, detección de deriva de inventario/bytes y un workflow `release-candidate` que valida el árbol completo;
-- mantiene `CITATION.cff` y CodeMeta en `0.1.0-dev` hasta una decisión explícita de publicación; no se inventa ni registra DOI antes de su emisión real.
+- consolida `scripts/build_release_manifest.py`, `release/manifest.json` y `release/SHA256SUMS` como controles reproducibles de integridad para los artefactos versionados;
+- incorpora pruebas de determinismo y detección de deriva de inventario/bytes, además del workflow `release-candidate`;
+- fija `CITATION.cff` y CodeMeta en la versión **0.1.0** tras la decisión explícita de publicación del 11 de septiembre de 2026;
+- incorpora un workflow de publicación de una sola vez que, después de un `qa` exitoso en `main`, crea la GitHub Release `v0.1.0` si todavía no existe y adjunta el manifiesto de integridad y `SHA256SUMS`;
+- no inventa ni anticipa DOI: el identificador persistente sólo se añadirá a los metadatos después de que un archivador externo lo emita realmente.
 
 ## `0.1.0-dev` — 2026-09-10
 

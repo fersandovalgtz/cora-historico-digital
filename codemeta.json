@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "name": "Cora Histórico Digital",
   "description": "Infraestructura reproducible para edición histórico-digital y procesamiento computacional de un vocabulario cora histórico.",
-  "version": "0.1.0-dev",
+  "version": "0.1.0",
   "dateCreated": "2026-09-09",
   "codeRepository": "https://github.com/fersandovalgtz/cora-historico-digital",
   "license": "https://spdx.org/licenses/MIT.html",
