@@ -28,7 +28,7 @@ ORT1888-irr-016,16,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles
 me  oyó,  le  dice  el  que  me  ha  oydo:  Miguel  nuca.  Ahe  es 
 partícula  con  que  saluda  el  que  entra  en  la  casa,  y  el  due- 
 ño responde.   Ahui.  pícate.","[""mentions_particle""]",machine_structured_appendix_unit,machine_derived,False
-ORT1888-irr-017,17,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles_ocr.txt,ORT1888-irrunit-017,46,46,expression_example,Cancan — No  es  así?  '-  '  - ,"[""contains_equivalence_separator_like_mark"", ""contains_question_mark""]",machine_structured_appendix_unit,machine_derived,False
+ORT1888-irr-017,17,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles_ocr.txt,ORT1888-irrunit-017,46,46,expression_example,Cancan — No  es  así?  '-  '  -,"[""contains_equivalence_separator_like_mark"", ""contains_question_mark""]",machine_structured_appendix_unit,machine_derived,False
 ORT1888-irr-018,18,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles_ocr.txt,ORT1888-irrunit-018,48,48,expression_example,Neriu?— De  verdad?,"[""contains_equivalence_separator_like_mark"", ""contains_question_mark""]",machine_structured_appendix_unit,machine_derived,False
 ORT1888-irr-019,19,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles_ocr.txt,ORT1888-irrunit-019,50,50,ocr_noise,:•■  .pin/'  . -...  :::.-v  -.«-yt'l,"[""machine_noise_like""]",machine_structured_appendix_unit,machine_derived,False
 ORT1888-irr-020,20,ORTEGA1888-TEPIC-IA,data/appendices/irregular_verbs_particles_ocr.txt,ORT1888-irrunit-020,53,53,ocr_noise,m,"[""machine_noise_like""]",machine_structured_appendix_unit,machine_derived,False
