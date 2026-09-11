@@ -40,6 +40,10 @@ jobs:
         run: python scripts/build_machine_corpus.py
       - name: Build TEI Lex-0 projection
         run: python scripts/build_tei_lex0.py
+      - name: Build CLDF Dictionary projection
+        run: python scripts/build_cldf_dictionary.py
+      - name: Validate CLDF Dictionary before commit
+        run: cldf validate data/interoperability/cldf/Dictionary-metadata.json
       - name: Install Relax NG validator
         run: |
           sudo apt-get update
