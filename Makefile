@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: ingest validate source-coverage appendix-machine-inventory numeral-machine-lexicon irregular-particles-machine machine-corpus tei-lex0 stats
+.PHONY: ingest validate source-coverage appendix-machine-inventory numeral-machine-lexicon irregular-particles-machine machine-corpus tei-lex0 cldf-dictionary stats
 
 ingest:
 	$(PYTHON) scripts/ingest_ortega1888.py
@@ -26,5 +26,8 @@ machine-corpus:
 tei-lex0:
 	$(PYTHON) scripts/build_tei_lex0.py
 
+cldf-dictionary:
+	$(PYTHON) scripts/build_cldf_dictionary.py
+
 stats:
-	$(PYTHON) -c "import json; print(json.dumps({'lexicon': json.load(open('reports/machine_resolution.json')), 'numerals': json.load(open('reports/numerals_machine.json')), 'irregular_particles': json.load(open('reports/irregular_particles_machine.json')), 'tei_lex0': json.load(open('reports/tei_lex0.json'))}, ensure_ascii=False, indent=2))"
+	$(PYTHON) -c "import json; print(json.dumps({'lexicon': json.load(open('reports/machine_resolution.json')), 'numerals': json.load(open('reports/numerals_machine.json')), 'irregular_particles': json.load(open('reports/irregular_particles_machine.json')), 'tei_lex0': json.load(open('reports/tei_lex0.json')), 'cldf_dictionary': json.load(open('reports/cldf_dictionary.json'))}, ensure_ascii=False, indent=2))"
