@@ -13,7 +13,12 @@
 - conserva candidato fuente, páginas, líneas OCR, texto bruto, alineación, confianza, racional, autoridad y `human_verified=false` mediante extensiones CHD;
 - mantiene los **3 registros residuales** en `residuals.csv`, tabla CSVW documental que no los promueve a entradas;
 - valida el dataset CLDF con `pycldf` y `cldf validate` dentro de QA y bootstrap;
-- cierra la **fase 4 de interoperabilidad** con dos vistas validadas y deja la preparación de la release científica como siguiente fase.
+- cierra la **fase 4 de interoperabilidad** con dos vistas validadas;
+- abre la preparación del release candidate `0.1.0` sin publicar todavía la versión;
+- añade `scripts/build_release_manifest.py` para inventariar de forma determinista todos los artefactos versionados de `data/`, `reports/` y `schemas/`, excluyendo binarios externos de `data/source/original/`;
+- añade `release/manifest.json` y `release/SHA256SUMS` como derivados de integridad generados por bootstrap;
+- incorpora pruebas de determinismo, detección de deriva de inventario/bytes y un workflow `release-candidate` que valida el árbol completo;
+- mantiene `CITATION.cff` y CodeMeta en `0.1.0-dev` hasta una decisión explícita de publicación; no se inventa ni registra DOI antes de su emisión real.
 
 ## `0.1.0-dev` — 2026-09-10
 
