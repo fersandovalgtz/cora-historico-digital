@@ -23,11 +23,15 @@ La implementación inicial trabaja con el *Vocabulario de las lenguas castellana
 | candidatos `machine_uncertain` | **1** |
 | pares explícitos del apéndice numeral | **27** |
 | unidades estructuradas de verbos/partículas | **22** |
+| entradas TEI Lex-0 validadas | **2,137 + 3 residuales** |
+| filas CLDF Dictionary | **2,137 entradas + 2,137 sentidos + 3 residuales** |
 | revisión humana dentro del repo | **no existe** |
 
 Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto.
 
-El apéndice numeral cuenta además con **27 pares explícitos** estructurados: 22 de cuenta general, 3 de frecuencia y 2 de conteo animado. El apéndice de verbos irregulares/partículas se representa ahora mediante **22 unidades documentales machine-only** ligadas uno-a-uno a su inventario de navegación: 4 ejemplos imperativos, 5 ejemplos de expresión, 3 descripciones de partículas, 3 bloques de prosa explicativa, 2 grupos de formas, 1 descripción de verbo irregular y 4 unidades de ruido OCR. Esta tipificación describe señales documentales; no normaliza formas ni pretende análisis gramatical moderno.
+El apéndice numeral cuenta además con **27 pares explícitos** estructurados: 22 de cuenta general, 3 de frecuencia y 2 de conteo animado. El apéndice de verbos irregulares/partículas se representa mediante **22 unidades documentales machine-only** ligadas uno-a-uno a su inventario de navegación: 4 ejemplos imperativos, 5 ejemplos de expresión, 3 descripciones de partículas, 3 bloques de prosa explicativa, 2 grupos de formas, 1 descripción de verbo irregular y 4 unidades de ruido OCR. Esta tipificación describe señales documentales; no normaliza formas ni pretende análisis gramatical moderno.
+
+La capa alfabética dispone de dos vistas interoperables regenerables y validadas. **TEI Lex-0 0.9.5** conserva 2,137 entradas y los 3 residuales como evidencia no promovida; el XML pasa el Relax NG oficial fijado por checksum. **CLDF Dictionary** conserva las mismas 2,137 entradas como `EntryTable` y una fila `SenseTable` por artículo con el `cora_ocr` íntegro, mientras los 3 residuales permanecen en una tabla CSVW documental separada. Ambas vistas preservan la autoridad machine-only y no sustituyen los objetos internos.
 
 ## Arquitectura de evidencia
 
@@ -50,7 +54,11 @@ OCR bruto preservado
                     ├─ explanatory_prose
                     └─ ocr_noise
         ↓
-derivados interoperables y releases citables
+vistas derivadas validadas
+        ├─ TEI Lex-0 0.9.5
+        └─ CLDF Dictionary
+        ↓
+release científica citable
 ```
 
 Un caso incierto o rechazado sigue siendo evidencia trazable. La arquitectura prefiere conservar incertidumbre y artefactos fuente antes que fabricar completitud o borrar errores de segmentación.
@@ -65,7 +73,7 @@ El estructurador de verbos irregulares/partículas opera a escala de párrafo OC
 
 ## Reproducibilidad
 
-Los binarios fuente no se versionan. El pipeline descarga PDF y DjVu TXT desde Internet Archive, verifica SHA-256 contra `data/source/source_lock.json`, reconstruye derivados y falla ante deriva de la fuente.
+Los binarios fuente no se versionan. El pipeline descarga PDF y DjVu TXT desde Internet Archive, verifica SHA-256 contra `data/source/source_lock.json`, reconstruye derivados y falla ante deriva de la fuente. TEI Lex-0 se valida contra el Relax NG oficial 0.9.5, también fijado por SHA-256, y CLDF se valida con `pycldf` / `cldf validate` antes de que bootstrap pueda versionar derivados.
 
 ```bash
 python -m venv .venv
@@ -78,9 +86,11 @@ make appendix-machine-inventory
 make numeral-machine-lexicon
 make irregular-particles-machine
 make machine-corpus
+make tei-lex0
+make cldf-dictionary
 ```
 
-`qa` ejecuta pruebas, cobertura documental e invariantes de todas las capas máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; no genera facsímiles, formularios ni colas para revisión humana.
+`qa` ejecuta pruebas, cobertura documental, invariantes de todas las capas máquina y validación de ambas vistas interoperables. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; no genera facsímiles, formularios ni colas para revisión humana.
 
 ## Datos principales
 
@@ -91,20 +101,29 @@ make machine-corpus
 - `data/appendices/machine_inventory.json`: navegación automática íntegra de los apéndices.
 - `data/appendices/numerals_machine.csv` / `.jsonl`: 27 pares explícitos del apéndice numeral.
 - `data/appendices/irregular_particles_machine.csv` / `.jsonl`: 22 unidades estructuradas del apéndice de verbos/partículas.
+- `data/interoperability/ortega1888_tei_lex0.xml`: proyección TEI Lex-0 0.9.5 validada.
+- `data/interoperability/cldf/Dictionary-metadata.json`: metadata de la proyección CLDF Dictionary.
+- `data/interoperability/cldf/entries.csv`: 2,137 entradas aceptadas.
+- `data/interoperability/cldf/senses.csv`: 2,137 descripciones Cora/Náayeri no segmentadas.
+- `data/interoperability/cldf/languages.csv`: lenguas `spa` y `crn`.
+- `data/interoperability/cldf/residuals.csv`: 3 candidatos no promovidos, conservados como evidencia.
+- `data/interoperability/cldf/sources.bib`: referencia bibliográfica del testimonio.
 - `reports/numerals_machine.json`: métricas y política de extracción numeral.
 - `reports/irregular_particles_machine.json`: cobertura y distribución de tipos del apéndice gramatical.
 - `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
 - `reports/source_coverage.json`: auditoría de conservación completa del testimonio.
+- `reports/tei_lex0.json`: contrato y métricas de la proyección TEI.
+- `reports/cldf_dictionary.json`: contrato, métricas y validación de la proyección CLDF.
 
 ## Autoridad y límites
 
 `machine_accepted`, `machine_uncertain`, `machine_rejected` y los tipos documentales de apéndice son estados computacionales. `human_verified=false` funciona sólo como declaración epistemológica; no es una cola de trabajo ni una condición futura del pipeline.
 
-CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales.
+CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales. En CLDF, una fila de `SenseTable` por artículo es una representación documental del equivalente OCR completo, no una afirmación de que cada artículo posea lingüísticamente un único sentido.
 
 ## Ruta científica
 
-La estructuración machine-only de los dos apéndices está cubierta con modelos específicos y trazables. La siguiente meta es **interoperabilidad**: generar una proyección TEI Lex-0 y evaluar CLDF como vistas derivadas sin sustituir los objetos históricos internos. Después corresponde congelar contratos y preparar una release científica citable y archivada.
+Las fases de ingestión reproducible, resolución computacional, estructuración de apéndices e interoperabilidad están cubiertas. La siguiente meta es la **release científica**: congelar el contrato `0.1.0`, ejecutar QA de release, producir manifiesto y checksums de artefactos, añadir citación estable y preparar una publicación archivada con DOI. Nuevos formatos o integraciones sólo se justificarán si añaden valor científico concreto sin elevar innecesariamente el costo marginal del proyecto.
 
 ## Licencias y citación
 
