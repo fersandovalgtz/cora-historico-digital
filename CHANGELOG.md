@@ -1,5 +1,15 @@
 # Changelog
 
+## `0.1.0-dev` — 2026-09-11
+
+- incorpora una proyección regenerable de la capa alfabética a **TEI Lex-0 0.9.5**;
+- proyecta **2,137** registros `machine_accepted` como entradas y conserva **3** candidatos residuales fuera del cuerpo lexicográfico;
+- preserva de forma literal IDs, `headword_es_ocr`, `cora_ocr`, procedencia y autoridad machine-only;
+- valida la proyección completa con **Jing** contra el Relax NG oficial archivado de TEI Lex-0 0.9.5;
+- fija el schema externo por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa` para detectar deriva remota;
+- obliga a QA y bootstrap a fallar si cambia el schema oficial fijado o si el XML generado deja de validar antes de cualquier commit automático;
+- cierra la subfase 4A y activa la evaluación/implementación de **CLDF Dictionary** mediante `EntryTable` y `SenseTable`, evitando forzar el corpus histórico al módulo `Wordlist`.
+
 ## `0.1.0-dev` — 2026-09-10
 
 - adopta formalmente una arquitectura **machine-only**: el repositorio no contiene ni espera revisión humana;
