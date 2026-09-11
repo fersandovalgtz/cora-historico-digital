@@ -1,5 +1,13 @@
 # Changelog
 
+## Zenodo preservation and DOI — 2026-09-11
+
+- archiva manualmente `Cora Histórico Digital` versión `0.1.0` en Zenodo como dataset después de comprobar que la integración GitHub–Zenodo no retroimportó la release ya existente;
+- registra DOI de versión **10.5281/zenodo.22712736** para el snapshot `0.1.0`;
+- registra DOI conceptual **10.5281/zenodo.22712735** para la familia de versiones;
+- actualiza `CITATION.cff`, CodeMeta y README con identificadores realmente emitidos;
+- mantiene intactos la etiqueta GitHub `v0.1.0`, el commit científico de release `29cef2756d784ad6b4c7bd2385f02c35290ee33d`, los artefactos y checksums congelados.
+
 ## Post-release metadata hygiene — 2026-09-11
 
 - actualiza la documentación pública para reflejar que `v0.1.0` ya fue publicada y elimina referencias obsoletas a `0.1.0-dev` como estado vigente del proyecto;
