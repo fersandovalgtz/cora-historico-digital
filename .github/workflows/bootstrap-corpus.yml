@@ -40,6 +40,16 @@ jobs:
         run: python scripts/build_machine_corpus.py
       - name: Build TEI Lex-0 projection
         run: python scripts/build_tei_lex0.py
+      - name: Install Relax NG validator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jing
+      - name: Fetch and verify archived TEI Lex-0 0.9.5 Relax NG schema
+        run: |
+          curl -fsSL --retry 3 --retry-delay 2 https://lex-0.org/releases/v0.9.5/schema/lex-0.rng -o /tmp/lex-0-v0.9.5.rng
+          echo '35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa  /tmp/lex-0-v0.9.5.rng' | sha256sum -c -
+      - name: Validate TEI projection before commit
+        run: jing /tmp/lex-0-v0.9.5.rng data/interoperability/ortega1888_tei_lex0.xml
       - name: Remove downloaded source binaries before commit
         run: rm -rf data/source/original
       - name: Commit reproducible derived data
