@@ -3,12 +3,17 @@
 ## `0.1.0-dev` — 2026-09-11
 
 - incorpora una proyección regenerable de la capa alfabética a **TEI Lex-0 0.9.5**;
-- proyecta **2,137** registros `machine_accepted` como entradas y conserva **3** candidatos residuales fuera del cuerpo lexicográfico;
+- proyecta **2,137** registros `machine_accepted` como entradas TEI y conserva **3** candidatos residuales fuera del cuerpo lexicográfico;
 - preserva de forma literal IDs, `headword_es_ocr`, `cora_ocr`, procedencia y autoridad machine-only;
-- valida la proyección completa con **Jing** contra el Relax NG oficial archivado de TEI Lex-0 0.9.5;
-- fija el schema externo por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa` para detectar deriva remota;
+- valida la proyección TEI completa con **Jing** contra el Relax NG oficial archivado de TEI Lex-0 0.9.5;
+- fija el schema TEI externo por SHA-256 `35e73fef48526634714bdf3d16b924f958fca078a903d0bdc2dd4d7d116d1aaa` para detectar deriva remota;
 - obliga a QA y bootstrap a fallar si cambia el schema oficial fijado o si el XML generado deja de validar antes de cualquier commit automático;
-- cierra la subfase 4A y activa la evaluación/implementación de **CLDF Dictionary** mediante `EntryTable` y `SenseTable`, evitando forzar el corpus histórico al módulo `Wordlist`.
+- incorpora una segunda proyección regenerable mediante **CLDF Dictionary**;
+- genera **2,137 filas `EntryTable`** y **2,137 filas `SenseTable`** uno-a-uno, manteniendo el lema OCR castellano como `spa` y el `cora_ocr` íntegro como descripción `crn`, sin segmentar sentidos ni equivalentes;
+- conserva candidato fuente, páginas, líneas OCR, texto bruto, alineación, confianza, racional, autoridad y `human_verified=false` mediante extensiones CHD;
+- mantiene los **3 registros residuales** en `residuals.csv`, tabla CSVW documental que no los promueve a entradas;
+- valida el dataset CLDF con `pycldf` y `cldf validate` dentro de QA y bootstrap;
+- cierra la **fase 4 de interoperabilidad** con dos vistas validadas y deja la preparación de la release científica como siguiente fase.
 
 ## `0.1.0-dev` — 2026-09-10
 
