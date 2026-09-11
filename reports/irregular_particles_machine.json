@@ -1,0 +1,22 @@
+{
+  "artifact_type": "irregular_particles_machine_structure_report",
+  "source_witness_id": "ORTEGA1888-TEPIC-IA",
+  "source_path": "data/appendices/irregular_verbs_particles_ocr.txt",
+  "authority_status": "machine_derived",
+  "human_verified": false,
+  "source_line_total": 59,
+  "source_nonempty_paragraph_total": 22,
+  "record_total": 22,
+  "record_type_counts": {
+    "explanatory_prose": 3,
+    "expression_example": 5,
+    "form_cluster": 2,
+    "imperative_example": 4,
+    "irregular_verb_description": 1,
+    "ocr_noise": 4,
+    "particle_description": 3
+  },
+  "coverage_policy": "Every non-empty OCR paragraph is represented exactly once, including units classified as OCR noise.",
+  "classification_policy": "Record types are documentary machine classifications driven by explicit surface cues. They are not normalized grammatical analyses, modern Náayeri descriptions, or human philological judgments.",
+  "id_policy": "ORT1888-irr-### follows source paragraph order and links one-to-one to the existing appendix navigation unit ORT1888-irrunit-###."
+}

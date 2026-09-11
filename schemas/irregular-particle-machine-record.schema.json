@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fersandovalgtz/cora-historico-digital/schemas/irregular-particle-machine-record.schema.json",
+  "title": "CHD Ortega 1888 Irregular Verb / Particle Machine Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "irregular_id",
+    "order",
+    "source_witness_id",
+    "source_path",
+    "source_unit_id",
+    "source_appendix_start_line",
+    "source_appendix_end_line",
+    "record_type",
+    "raw_text_ocr",
+    "machine_observations",
+    "record_status",
+    "authority_status",
+    "human_verified"
+  ],
+  "properties": {
+    "irregular_id": {
+      "type": "string",
+      "pattern": "^ORT1888-irr-[0-9]{3}$"
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_witness_id": {
+      "const": "ORTEGA1888-TEPIC-IA"
+    },
+    "source_path": {
+      "const": "data/appendices/irregular_verbs_particles_ocr.txt"
+    },
+    "source_unit_id": {
+      "type": "string",
+      "pattern": "^ORT1888-irrunit-[0-9]{3}$"
+    },
+    "source_appendix_start_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_appendix_end_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "record_type": {
+      "enum": [
+        "imperative_example",
+        "expression_example",
+        "particle_description",
+        "irregular_verb_description",
+        "form_cluster",
+        "explanatory_prose",
+        "ocr_noise"
+      ]
+    },
+    "raw_text_ocr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "machine_observations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "record_status": {
+      "const": "machine_structured_appendix_unit"
+    },
+    "authority_status": {
+      "const": "machine_derived"
+    },
+    "human_verified": {
+      "const": false
+    }
+  }
+}

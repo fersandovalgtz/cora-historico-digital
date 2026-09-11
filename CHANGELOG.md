@@ -11,9 +11,14 @@
 - clasifica `ORT1888-cand-000342` y `ORT1888-cand-001106` como `machine_rejected` y conserva `ORT1888-cand-001457` como `machine_uncertain`;
 - deja la capa alfabética en **2,137 artículos `machine_accepted` / 2 artefactos `machine_rejected` / 1 candidato `machine_uncertain`**;
 - transforma los apéndices de numerales y verbos/partículas en inventarios machine-only separados;
+- estructura el apéndice numeral en **27 pares explícitos** `ORT1888-num-###`, sin normalizar ni completar formas;
+- estructura el apéndice de verbos irregulares/partículas en **22 unidades documentales** `ORT1888-irr-###`, enlazadas uno-a-uno con `ORT1888-irrunit-###`;
+- distingue de forma reproducible ejemplos imperativos, expresiones, descripciones de partículas, descripción verbal, grupos de formas, prosa explicativa y ruido OCR;
+- añade schema, pruebas, QA y regeneración bootstrap para las capas específicas de apéndices;
 - elimina interfaces, facsímiles, colas, schemas, workflows y pruebas cuya única finalidad era revisión humana;
 - elimina `pymupdf` y simplifica QA/bootstrap para reducir dependencias y costo de ejecución;
-- mantiene el checksum lock, auditoría completa del testimonio, trazabilidad y pruebas reproducibles como controles principales de calidad.
+- mantiene el checksum lock, auditoría completa del testimonio, trazabilidad y pruebas reproducibles como controles principales de calidad;
+- cierra la fase 3 de estructuración de apéndices y deja **interoperabilidad (TEI Lex-0 / evaluación CLDF)** como siguiente fase científica.
 
 ## `0.1.0-dev` — 2026-09-09
 

@@ -41,6 +41,50 @@ jobs:
           assert all(r['record_status'] == 'machine_extracted_explicit_pair' for r in records)
           print(f"numeral layer contains {len(records)} explicit pairs across {report['series_counts']}")
           PY
+      - name: Build irregular verbs and particles machine structure
+        run: python scripts/build_irregular_particles_machine.py --jsonl /tmp/irregular_particles_machine.jsonl --csv /tmp/irregular_particles_machine.csv --report /tmp/irregular_particles_machine_report.json
+      - name: Verify irregular/particle machine invariants
+        run: |
+          python - <<'PY'
+          import json
+          with open('/tmp/irregular_particles_machine.jsonl', encoding='utf-8') as handle:
+              records = [json.loads(line) for line in handle if line.strip()]
+          with open('/tmp/irregular_particles_machine_report.json', encoding='utf-8') as handle:
+              report = json.load(handle)
+          assert len(records) == report['record_total'] == report['source_nonempty_paragraph_total'] > 0
+          assert [r['order'] for r in records] == list(range(1, len(records) + 1))
+          assert [r['source_unit_id'] for r in records] == [f"ORT1888-irrunit-{i:03d}" for i in range(1, len(records) + 1)]
+          assert len({r['irregular_id'] for r in records}) == len(records)
+          assert all(r['human_verified'] is False for r in records)
+          assert all(r['authority_status'] == 'machine_derived' for r in records)
+          assert all(r['record_status'] == 'machine_structured_appendix_unit' for r in records)
+          required_types = {'imperative_example', 'expression_example', 'particle_description', 'explanatory_prose', 'ocr_noise'}
+          assert required_types.issubset({r['record_type'] for r in records})
+          print(f"irregular/particle layer contains {len(records)} units across {report['record_type_counts']}")
+          PY
+      - name: Verify committed irregular/particle derivatives are reproducible
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+
+          def load_jsonl(path):
+              with open(path, encoding='utf-8') as handle:
+                  return [json.loads(line) for line in handle if line.strip()]
+
+          def load_csv(path):
+              with open(path, encoding='utf-8', newline='') as handle:
+                  return list(csv.DictReader(handle))
+
+          assert load_jsonl('/tmp/irregular_particles_machine.jsonl') == load_jsonl('data/appendices/irregular_particles_machine.jsonl')
+          assert load_csv('/tmp/irregular_particles_machine.csv') == load_csv('data/appendices/irregular_particles_machine.csv')
+          with open('/tmp/irregular_particles_machine_report.json', encoding='utf-8') as handle:
+              generated_report = json.load(handle)
+          with open('reports/irregular_particles_machine.json', encoding='utf-8') as handle:
+              committed_report = json.load(handle)
+          assert generated_report == committed_report
+          print('committed irregular/particle derivatives are semantically reproducible')
+          PY
       - name: Build machine-only lexicon
         run: python scripts/build_machine_corpus.py --jsonl /tmp/machine_lexicon.jsonl --csv /tmp/machine_lexicon.csv --report /tmp/machine_resolution.json
       - name: Verify machine corpus coverage
@@ -67,6 +111,9 @@ jobs:
             /tmp/numerals_machine.jsonl
             /tmp/numerals_machine.csv
             /tmp/numerals_machine_report.json
+            /tmp/irregular_particles_machine.jsonl
+            /tmp/irregular_particles_machine.csv
+            /tmp/irregular_particles_machine_report.json
             /tmp/machine_lexicon.jsonl
             /tmp/machine_lexicon.csv
             /tmp/machine_resolution.json
