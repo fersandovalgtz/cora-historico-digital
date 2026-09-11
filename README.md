@@ -22,9 +22,12 @@ La implementación inicial trabaja con el *Vocabulario de las lenguas castellana
 | artefactos `machine_rejected` | **2** |
 | candidatos `machine_uncertain` | **1** |
 | pares explícitos del apéndice numeral | **27** |
+| unidades estructuradas de verbos/partículas | **22** |
 | revisión humana dentro del repo | **no existe** |
 
-Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto. El apéndice numeral cuenta además con **27 pares explícitos** estructurados: 22 de cuenta general, 3 de frecuencia y 2 de conteo animado. El apéndice de verbos/partículas permanece preservado como OCR e inventario machine-only a la espera de su modelo estructural propio.
+Los 2,140 candidatos representan exclusivamente el cuerpo alfabético. La resolución machine-only conserva todos como evidencia fuente: 2,137 se promueven a artículos, dos se identifican como artefactos de segmentación de cabecera/pre-folio y uno permanece incierto.
+
+El apéndice numeral cuenta además con **27 pares explícitos** estructurados: 22 de cuenta general, 3 de frecuencia y 2 de conteo animado. El apéndice de verbos irregulares/partículas se representa ahora mediante **22 unidades documentales machine-only** ligadas uno-a-uno a su inventario de navegación: 4 ejemplos imperativos, 5 ejemplos de expresión, 3 descripciones de partículas, 3 bloques de prosa explicativa, 2 grupos de formas, 1 descripción de verbo irregular y 4 unidades de ruido OCR. Esta tipificación describe señales documentales; no normaliza formas ni pretende análisis gramatical moderno.
 
 ## Arquitectura de evidencia
 
@@ -38,7 +41,14 @@ OCR bruto preservado
         │                       └─ machine_rejected
         └─ apéndices
              ├─ numerales → ORT1888-num-###
-             └─ verbos/partículas → inventario OCR machine-only
+             └─ verbos/partículas → ORT1888-irr-###
+                    ├─ imperative_example
+                    ├─ expression_example
+                    ├─ particle_description
+                    ├─ irregular_verb_description
+                    ├─ form_cluster
+                    ├─ explanatory_prose
+                    └─ ocr_noise
         ↓
 derivados interoperables y releases citables
 ```
@@ -47,9 +57,11 @@ Un caso incierto o rechazado sigue siendo evidencia trazable. La arquitectura pr
 
 ## Reglas de resolución máquina
 
-Los estados no dependen de juicio humano ni de listas de excepciones por ID. Las coincidencias directas y los anclajes conservadores de misma página producen `machine_accepted`. Una regla estructural adicional detecta ruido OCR situado antes del folio de la página siguiente sólo cuando el candidato es `hyphen_variant`, de baja confianza, queda entre dos anclas directas de páginas consecutivas y su propio span contiene como segmento aislado el número impreso siguiente. Esa regla identifica dos falsos candidatos sin alterar el OCR fuente.
+Los estados del cuerpo alfabético no dependen de juicio humano ni de listas de excepciones por ID. Las coincidencias directas y los anclajes conservadores de misma página producen `machine_accepted`. Una regla estructural adicional detecta ruido OCR situado antes del folio de la página siguiente sólo cuando el candidato es `hyphen_variant`, de baja confianza, queda entre dos anclas directas de páginas consecutivas y su propio span contiene como segmento aislado el número impreso siguiente. Esa regla identifica dos falsos candidatos sin alterar el OCR fuente.
 
 El extractor numeral trabaja únicamente sobre líneas con pares explícitos separados por marcas documentales reconocibles. No asigna valores numéricos normalizados ni corrige grafías OCR; `general_count`, `frequency_count` y `animate_count` reflejan transiciones expresamente anunciadas por la fuente.
+
+El estructurador de verbos irregulares/partículas opera a escala de párrafo OCR. Usa señales superficiales reproducibles —marcadores imperativos, separadores, menciones de `partícula`, marcos narrativos y rasgos de ruido— para tipificar cada unidad. Conserva el texto OCR íntegro, su span de líneas y su enlace `ORT1888-irrunit-###`; no extrae una gramática corregida ni convierte estas categorías documentales en autoridad lingüística.
 
 ## Reproducibilidad
 
@@ -64,10 +76,11 @@ make validate
 make source-coverage
 make appendix-machine-inventory
 make numeral-machine-lexicon
+make irregular-particles-machine
 make machine-corpus
 ```
 
-`qa` ejecuta pruebas, cobertura documental e invariantes de las capas máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; no genera facsímiles, formularios ni colas para revisión humana.
+`qa` ejecuta pruebas, cobertura documental e invariantes de todas las capas máquina. `bootstrap-corpus` reconstruye y versiona únicamente derivados reproducibles; no genera facsímiles, formularios ni colas para revisión humana.
 
 ## Datos principales
 
@@ -77,19 +90,21 @@ make machine-corpus
 - `data/lexicon/machine_lexicon.csv` / `.jsonl`: capa machine-only derivada.
 - `data/appendices/machine_inventory.json`: navegación automática íntegra de los apéndices.
 - `data/appendices/numerals_machine.csv` / `.jsonl`: 27 pares explícitos del apéndice numeral.
+- `data/appendices/irregular_particles_machine.csv` / `.jsonl`: 22 unidades estructuradas del apéndice de verbos/partículas.
 - `reports/numerals_machine.json`: métricas y política de extracción numeral.
+- `reports/irregular_particles_machine.json`: cobertura y distribución de tipos del apéndice gramatical.
 - `reports/machine_resolution.json`: conteos, incertidumbre, rechazos y política de IDs.
 - `reports/source_coverage.json`: auditoría de conservación completa del testimonio.
 
 ## Autoridad y límites
 
-`machine_accepted`, `machine_uncertain` y `machine_rejected` son estados computacionales. `human_verified=false` funciona sólo como declaración epistemológica; no es una cola de trabajo ni una condición futura del pipeline.
+`machine_accepted`, `machine_uncertain`, `machine_rejected` y los tipos documentales de apéndice son estados computacionales. `human_verified=false` funciona sólo como declaración epistemológica; no es una cola de trabajo ni una condición futura del pipeline.
 
 CHD no es un diccionario normativo del náayeri contemporáneo, no asigna automáticamente identidad dialectal moderna y no convierte categorías coloniales de la fuente en taxonomías actuales.
 
 ## Ruta científica
 
-La subfase numeral está estructurada. La siguiente meta es modelar automáticamente el apéndice de verbos irregulares/partículas, mantener caracterizado el único candidato alfabético `machine_uncertain` y preparar una release citable. TEI Lex-0, CLDF u otras proyecciones podrán generarse como vistas derivadas sin sustituir el objeto histórico.
+La estructuración machine-only de los dos apéndices está cubierta con modelos específicos y trazables. La siguiente meta es **interoperabilidad**: generar una proyección TEI Lex-0 y evaluar CLDF como vistas derivadas sin sustituir los objetos históricos internos. Después corresponde congelar contratos y preparar una release científica citable y archivada.
 
 ## Licencias y citación
 
